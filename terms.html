@@ -1,53 +1,44 @@
 <p>
-  This section defines the terms used in this specification and throughout
-  <a>decentralized identifier</a> infrastructure. A link to these terms is
-  included whenever they appear in this specification.
+  이 섹션에는 이 명세와 <a>탈중앙 식별자</a> 인프라 전반에 걸쳐 사용되는 용어를 정의한다.
+  이 명세에 용어가 나타날 때마다 용어에 대한 링크가 포함되어 있다.
 </p>
 
 <dl class="termlist">
 
-  <dt><dfn data-lt="amplification">amplification attack</dfn></dt>
+  <dt><dfn data-lt="amplification">증폭 공격(amplification attack)</dfn></dt>
   <dd>
+    공격자가 대상 시스템의 CPU, 스토리지, 네트워크 또는 기타 리소스를 소진시키려고 공격하는 유형이다.
+    입력 자체보다 처리 비용이 기하급수적으로 더 많이 소요될 수 있는 손상 효과를 초래합니다.
     A class of attack where the attacker attempts to exhaust a target system's
     CPU, storage, network, or other resources by providing small, valid inputs into
     the system that result in damaging effects that can be exponentially more costly
     to process than the inputs themselves.
   </dd>
 
-  <dt><dfn data-lt="authenticated">authenticate</dfn></dt>
+  <dt><dfn data-lt="authenticated">인증(authenticated)</dfn></dt>
   <dd>
-    Authentication is a process by which an entity can prove it has a specific
-    attribute or controls a specific secret using one or more <a>verification
-      methods</a>. With <a>DIDs</a>, a common example would be proving control of the
-    cryptographic private key associated with a public key published in a <a>DID
-      document</a>.
+    인증은 엔터티가 하나 이상의 <a>검증 방법</a>을 사용하여 특정 속성을 증명하거나 특정 비밀을 제어할 수 있는 방법이다.
+    <a>DID</a>의 일반적인 예는 <a>DID 문서</a>에 게시된 공개 키와 관련된 암호화 개인 키의 제어를 증명하는 것이다.
   </dd>
 
-  <dt><dfn class="lint-ignore">binding</dfn></dt>
+  <dt><dfn class="lint-ignore">바인딩(binding)</dfn></dt>
   <dd>
-    A concrete mechanism used by a caller to invoke a <a>DID resolver</a> or a
-    <a>DID URL dereferencer</a>. This could be a local command line tool, a software
-    library, or a network call such as an HTTPS request.
+    <a>DID 변환기</a> 또는 <a>DID URL 역참조자</a>를 호출하기 위해 호출자가 사용하는 구체적인 메커니즘입니다. 이는 로컬 명령줄 도구, 소프트웨어 라이브러리 또는 HTTPS 요청과 같은
+    네트워크 호출일 수 있습니다.
   </dd>
 
-  <dt><dfn data-lt="cryptosuite">cryptographic suite</dfn></dt>
+  <dt><dfn data-lt="cryptosuite">암호화 요소 모음(cryptographic suite)</dfn></dt>
   <dd>
-    A specification defining the usage of specific cryptographic primitives in
-    order to achieve a particular security goal. These documents are often used
-    to specify <a>verification methods</a>, digital signature types,
-    their identifiers, and other related properties.
+    특정 보안 목표를 달성하기 위해 특정 암호화 기본 요소의 사용을 정의하는 사양입니다. 이러한 문서는 <a>검증 방법</a>, 디지털 서명 유형, 식별자 및 기타 관련 속성을 지정하는 데 사용되는 경우가
+    많습니다.
   </dd>
 
-  <dt><dfn data-lt="decentralized identifiers|DID|DIDs|탈중앙 식별자">decentralized identifier</dfn> (DID)</dt>
+  <dt><dfn data-lt="decentralized identifiers|DID|DIDs|탈중앙 식별자">탈중앙 식별자(decentralized identifier)</dfn> (DID)</dt>
 
   <dd>
-    A globally unique persistent identifier that does not require a centralized
-    registration authority and is often generated and/or registered
-    cryptographically. The generic format of a DID is defined in <a href="#did-syntax"></a>. A specific <a>DID
-      scheme</a> is defined in a <a>DID
-      method</a> specification. Many—but not all—DID methods make use of
-    <a>distributed ledger technology</a> (DLT) or some other form of decentralized
-    network.
+    중앙 집중식 등록 기관이 필요하지 않으며 종종 암호화 방식으로 생성 및/또는 등록되는 전역적으로 고유한 영구 식별자입니다.
+    DID의 일반 형식은 <a href="#did-syntax"></a>에 정의되어 있습니다.
+    특정 <a>DID 체계</a>는 <a>DID 메소드</a> 사양에 정의되어 있습니다. 전부는 아니지만 많은 DID 방법은 <a>분산 원장</a>(DLT) 또는 다른 형태의 분산 네트워크를 사용합니다.
   </dd>
 
   <dt><dfn>decentralized identity management</dfn></dt>
@@ -114,7 +105,7 @@
     (<code>#</code>). DID fragment syntax is identical to URI fragment syntax.
   </dd>
 
-  <dt><dfn data-lt="DID methods">DID method</dfn></dt>
+  <dt><dfn data-lt="DID methods|DID 메소드">DID 메소드(DID method)</dfn></dt>
 
   <dd>
     A definition of how a specific <a>DID method scheme</a> is implemented. A DID method is
@@ -151,7 +142,7 @@
     defined in <a href="#did-resolution"></a>.
   </dd>
 
-  <dt><dfn data-lt="DID resolvers">DID resolver</dfn></dt>
+  <dt><dfn data-lt="DID resolvers|DID 변환기">DID 변환기(DID resolver)</dfn></dt>
 
   <dd>
     A <a>DID resolver</a> is a software and/or hardware component that performs the
@@ -159,7 +150,7 @@
     conforming <a>DID document</a> as output.
   </dd>
 
-  <dt><dfn data-lt="DID schemes|DID method scheme">DID scheme</dfn></dt>
+  <dt><dfn data-lt="DID schemes|DID method scheme|DID 체계">DID 체계(DID scheme)</dfn></dt>
 
   <dd>
     The formal syntax of a <a>decentralized identifier</a>. The generic DID scheme
@@ -203,14 +194,14 @@
     <a href="#did-url-dereferencing"></a>.
   </dd>
 
-  <dt><dfn data-lt="DID URL dereferencers">DID URL dereferencer</dfn></dt>
+  <dt><dfn data-lt="DID URL dereferencers|DID URL 역참조자">DID URL 역참조자(DID URL dereferencer)</dfn></dt>
 
   <dd>
     A software and/or hardware system that performs the <a>DID URL dereferencing</a>
     function for a given <a>DID URL</a> or <a>DID document</a>.
   </dd>
 
-  <dt><dfn data-lt="distributed ledger technology|DLT">distributed ledger</dfn> (DLT)</dt>
+  <dt><dfn data-lt="distributed ledger technology|DLT|분산 원장">분산 원장(distributed ledger)</dfn> (DLT)</dt>
 
   <dd>
     A non-centralized system for recording events. These systems establish

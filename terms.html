@@ -15,7 +15,9 @@
     the inputs themselves.
   </dd>
 
-  <dt><dfn data-lt="authenticate|authenticated">인증(authenticated)</dfn></dt>
+  <dt>
+    <dfn data-lt="authenticate|authenticated|인증">인증(authenticated)</dfn>
+  </dt>
   <dd>
     인증은 엔터티가 하나 이상의 <a>검증 방법</a>을 사용하여 특정 속성을
     증명하거나 특정 비밀을 제어할 수 있는 방법이다. <a>DID</a>의 일반적인 예는
@@ -59,112 +61,101 @@
   <dt><dfn>decentralized identity management</dfn></dt>
 
   <dd>
-    <a href="https://en.wikipedia.org/wiki/Identity_management"
-      >Identity management</a
-    >
-    that is based on the use of <a>decentralized identifiers</a>. Decentralized
-    identity management extends authority for identifier generation,
-    registration, and assignment beyond traditional roots of trust such as
-    <a href="https://en.wikipedia.org/wiki/X.500">X.500 directory services</a>,
-    the
+    <a href="https://en.wikipedia.org/wiki/Identity_management">신원 관리</a>는
+    <a>탈중앙 식별자</a>의 사용을 기반으로 합니다. 탈중앙 식별자 신원 관리는
+    식별자 생성, 등록 및 할당에 대한 권한을
+    <a href="https://en.wikipedia.org/wiki/X.500">X.500 디렉토리 서비스</a>,
     <a href="https://en.wikipedia.org/wiki/Domain_Name_System"
-      >Domain Name System</a
-    >, and most national ID systems.
+      >도메인 이름 시스템</a
+    >, 대부분의 국가 ID 시스템과 같은 전통적인 신뢰점을 넘어서 확장합니다.
   </dd>
 
   <dt>
-    <dfn class="lint-ignore">decentralized public key infrastructure</dfn>
+    <dfn class="lint-ignore">탈중앙 공개 키 인프라</dfn>
     (DPKI)
   </dt>
 
   <dd>
     <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure"
-      >Public key infrastructure</a
-    >
-    that does not rely on traditional
-    <a href="https://en.wikipedia.org/wiki/Certificate_authority"
-      >certificate authorities</a
-    >
-    because it uses <a>decentralized identifiers</a> and <a>DID documents</a> to
-    discover and verify <a>public key descriptions</a>.
+      >공개 키 인프라</a
+    >는 전통적인
+    <a href="https://en.wikipedia.org/wiki/Certificate_authority">인증 기관</a
+    >에 의존하지 않으며, <a>탈중앙 식별자</a>와 <a>DID 문서</a>를 사용하여
+    <a>공개 키 설명</a>을 발견하고 검증합니다.
   </dd>
 
   <dt>
     <dfn data-lt="did controllers|did controller(s)|DID 컨트롤러"
-      >DID controller</dfn
+      >DID 컨트롤러</dfn
     >
   </dt>
 
   <dd>
-    An entity that has the capability to make changes to a <a>DID document</a>.
-    A <a>DID</a> might have more than one DID controller. The DID controller(s)
-    can be denoted by the optional `controller` property at the top level of the
-    <a>DID document</a>. Note that a DID controller might be the
-    <a>DID subject</a>.
+    <a>DID 문서</a>에 변경을 가할 수 있는 엔티티입니다. <a>DID</a>는 여러 DID
+    컨트롤러를 가질 수 있습니다. DID 컨트롤러는 <a>DID 문서</a>의 최상위에
+    선택적 `controller` 속성을 통해 명시될 수 있습니다. DID 컨트롤러는
+    <a>DID 주체</a>일 수도 있습니다.
   </dd>
 
-  <dt><dfn>DID delegate</dfn></dt>
+  <dt><dfn>DID 대리인</dfn></dt>
 
   <dd>
-    An entity to whom a <a>DID controller</a> has granted permission to use a
-    <a>verification method</a> associated with a <a>DID</a> via a
-    <a>DID document</a>. For example, a parent who controls a child's
-    <a>DID document</a>
-    might permit the child to use their personal device in order to
-    <a>authenticate</a>. In this case, the child is the <a>DID delegate</a>. The
-    child's personal device would contain the private cryptographic material
-    enabling the child to <a>authenticate</a> using the <a>DID</a>. However, the
-    child might not be permitted to add other personal devices without the
-    parent's permission.
+    <a>DID 컨트롤러</a>가 <a>DID</a>에 관련된 <a>검증 방법</a>을 사용할 수 있는
+    권한을 부여한 엔티티입니다. 예를 들어, 자녀의 <a>DID 문서</a>를 관리하는
+    부모는 자녀가 개인적인 장치를 사용하여 <a>인증</a>할 수 있도록 허용할 수
+    있습니다. 이 경우, 자녀는 <a>DID 대리인</a>입니다. 자녀의 개인 장치에는
+    자녀가 <a>DID</a>를 사용하여 <a>인증</a>할 수 있도록 하는 개인 암호화 자료가
+    포함될 것입니다. 그러나 부모의 허락 없이 다른 개인 장치를 추가할 수는 없을
+    것입니다.
   </dd>
 
-  <dt><dfn data-lt="DID documents|DID 문서">DID document</dfn></dt>
+  <dt><dfn data-lt="DID document|DID documents|DID 문서">DID 문서</dfn></dt>
 
   <dd>
-    A set of data describing the <a>DID subject</a>, including mechanisms, such
-    as cryptographic public keys, that the <a>DID subject</a> or a
-    <a>DID delegate</a> can use to <a>authenticate</a> itself and prove its
-    association with the <a>DID</a>. A DID document might have one or more
-    different <a>representations</a> as defined in
-    <a href="#representations"></a> or in the W3C DID Specification Registries
-    [[DID-SPEC-REGISTRIES]].
+    <a>DID 주체</a>를 설명하는 데이터 세트로, <a>DID 주체</a> 또는
+    <a>DID 대리인</a>이 자신을 인증하고 <a>DID</a>와의 연관성을 증명할 수 있는
+    메커니즘, 예를 들어 암호화된 공개 키와 같은 것들을 포함합니다. DID 문서는
+    <a href="#representations"></a> 또는 W3C DID 사양 레지스트리
+    [[DID-SPEC-REGISTRIES]]에 정의된 대로 하나 이상의 다른 <a>표현</a>을 가질 수
+    있습니다.
   </dd>
 
-  <dt><dfn data-lt="DID fragments">DID fragment</dfn></dt>
-
+  <dt><dfn data-lt="DID fragments">DID 프레그먼트</dfn></dt>
   <dd>
-    The portion of a <a>DID URL</a> that follows the first hash sign character
-    (<code>#</code>). DID fragment syntax is identical to URI fragment syntax.
+    <a>DID URL</a>에서 첫 번째 해시 기호(<code>#</code>) 뒤에 오는 부분입니다.
+    DID 프레그먼트 구문은 URI 프레그먼트 구문과 동일합니다.
   </dd>
 
-  <dt><dfn data-lt="DID methods|DID 메소드">DID 메소드(DID method)</dfn></dt>
-
+  <dt><dfn data-lt="DID methods|DID 메소드">DID 메소드</dfn></dt>
   <dd>
-    A definition of how a specific <a>DID method scheme</a> is implemented. A
-    DID method is defined by a DID method specification, which specifies the
-    precise operations by which <a>DIDs</a> and <a>DID documents</a> are
-    created, resolved, updated, and deactivated. See <a href="#methods"></a>.
+    특정 <a>DID 체계</a>가 구현되는 방법에 대한 정의입니다. DID 메소드는 DID
+    메소드 규격에 의해 정의되며, <a>DID</a>와 <a>DID 문서</a>가 생성, 해석,
+    갱신, 그리고 비활성화되는 정확한 작업들을 명시합니다.
+    <a href="#methods"></a> 참조.
   </dd>
 
-  <dt><dfn data-lt="DID paths">DID path</dfn></dt>
-
+  <dt><dfn data-lt="DID paths">DID 경로</dfn></dt>
   <dd>
-    The portion of a <a>DID URL</a> that begins with and includes the first
-    forward slash (<code>/</code>) character and ends with either a question
-    mark (<code>?</code>) character, a fragment hash sign (<code>#</code>)
-    character, or the end of the <a>DID URL</a>. DID path syntax is identical to
-    URI path syntax. See <a href="#path"></a>.
+    <a>DID URL</a>에서 첫 번째 슬래시(<code>/</code>) 기호로 시작하고
+    물음표(<code>?</code>) 기호, 프래그먼트 해시 기호(<code>#</code>) 또는
+    <a>DID URL</a>의 끝으로 끝나는 부분입니다. DID 경로 구문은 URI 경로 구문과
+    동일합니다. <a href="#path"></a> 참조.
   </dd>
 
-  <dt><dfn data-lt="DID queries">DID query</dfn></dt>
-
+  <dt><dfn data-lt="DID queries">DID 쿼리</dfn></dt>
   <dd>
-    The portion of a <a>DID URL</a> that follows and includes the first question
-    mark character (<code>?</code>). DID query syntax is identical to URI query
-    syntax. See <a href="#query"></a>.
+    <a>DID URL</a>에서 첫 번째 물음표 기호(<code>?</code>)를 포함하여 그 뒤를
+    따르는 부분입니다. DID 쿼리 구문은 URI 쿼리 구문과 동일합니다.
+    <a href="#query"></a> 참조.
   </dd>
 
-  <dt><dfn>DID resolution</dfn></dt>
+  <dt><dfn data-lt="DID resolution">DID 해석</dfn></dt>
+  <dd>
+    <a>DID</a>와 해석 옵션들의 집합을 입력으로 받아, 규범을 준수하는
+    <a>표현</a>으로 <a>DID 문서</a>와 추가 메타데이터를 반환하는 과정입니다. 이
+    과정은 해당 <a>DID 메소드</a>의 "읽기" 작업에 의존합니다. 이 과정의 입력과
+    출력은 <a href="#did-resolution"></a>에서 정의됩니다.
+  </dd>
 
   <dd>
     The process that takes as its input a <a>DID</a> and a set of resolution
@@ -207,7 +198,7 @@
     organization, physical thing, digital thing, logical thing, etc.
   </dd>
 
-  <dt><dfn data-lt="DID URLs">DID URL</dfn></dt>
+  <dt><dfn data-lt="DID URLs|DID URL">DID URL</dfn></dt>
 
   <dd>
     A <a>DID</a> plus any additional syntactic component that conforms to the
@@ -277,7 +268,11 @@
     might serve as a <a>DID subject</a> identified by a <a>DID</a>.
   </dd>
 
-  <dt><dfn data-lt="representations">representation</dfn></dt>
+  <dt>
+    <dfn data-lt="representations|representation|표현"
+      >표현(representation)</dfn
+    >
+  </dt>
 
   <dd>
     As defined for HTTP by [[RFC7231]]: "information that is intended to reflect

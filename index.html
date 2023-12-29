@@ -833,34 +833,33 @@ pct-encoded        = "%" HEXDIG HEXDIG
       </section>
 
       <section class="normative">
-        <h3>DID URL Syntax</h3>
+        <h3>DID URL 구문</h3>
 
         <p>
-          A <a>DID URL</a> is a network location identifier for a specific
-          <a>resource</a>. It can be used to retrieve things like
-          representations of <a>DID subjects</a>, <a>verification methods</a>,
-          <a>services</a>, specific parts of a <a>DID document</a>, or other
-          resources.
+          <a>DID URL</a>은 특정 <a>리소스에</a> 대한 네트워크 위치 식별자입니다.
+          이는 <a>DID 주체</a>, <a>확인 방법</a>, <a>서비스</a>,
+          <a>DID 문서</a>의 특정 부분 또는 기타 리소스와 같은 항목을 검색하는 데
+          사용될 수 있습니다.
         </p>
 
         <p>
-          The following is the ABNF definition using the syntax in [[!RFC5234]].
-          It builds on the <code>did</code> scheme defined in
-          <a href="#did-syntax"></a>. The
+          다음은 [[!RFC5234]]의 문법을 사용하는 ABNF 정의입니다. 이것은
+          <a href="#did-syntax"></a>에 정의된 <code>did</code> 체계에 기반을
+          두고 있습니다.
           <a data-cite="!rfc3986#section-3.3"><code>path-abempty</code></a
           >, <a data-cite="!rfc3986#section-3.4"><code>query</code></a
-          >, and
-          <a data-cite="!rfc3986#section-3.5"><code>fragment</code></a>
-          components are defined in [[!RFC3986]]. All <a>DID URLs</a> MUST
-          conform to the DID URL Syntax ABNF Rules. <a>DID methods</a> can
-          further restrict these rules, as described in
-          <a href="#method-syntax"></a>.
+          >, 그리고
+          <a data-cite="!rfc3986#section-3.5"><code>fragment</code></a> 구성
+          요소들은 [[!RFC3986]]에 정의되어 있습니다. 모든 <a>DID URL</a>은 DID
+          URL 문법 ABNF 규칙을 준수해야 합니다. <a>DID 메소드</a>는
+          <a href="#method-syntax"></a>에 설명된 대로 이 규칙들을 추가로 제한할
+          수 있습니다.
         </p>
 
         <table class="simple">
           <thead>
             <tr>
-              <th>The DID URL Syntax ABNF Rules</th>
+              <th>DID URL 구문 ABNF 규칙</th>
             </tr>
           </thead>
           <tbody>
@@ -876,23 +875,22 @@ did-url = did path-abempty [ "?" query ] [ "#" fragment ]
         </table>
 
         <p class="note" title="Semicolon character is reserved for future use">
-          Although the semicolon (<code>;</code>) character can be used
-          according to the rules of the <a>DID URL</a> syntax, future versions
-          of this specification may use it as a sub-delimiter for parameters as
-          described in [[?MATRIX-URIS]]. To avoid future conflicts, developers
-          ought to refrain from using it.
+          세미콜론(<code>;</code>) 문자는 <a>DID URL</a> 문법의 규칙에 따라
+          사용될 수 있지만, 이 규격의 미래 버전에서는 [[?MATRIX-URIS]]에 설명된
+          대로 매개변수의 하위 구분자로 사용될 수 있습니다. 미래의 충돌을 피하기
+          위해 개발자들은 이를 사용하지 않는 것이 좋습니다.
         </p>
 
         <section class="notoc">
           <h2>Path</h2>
 
           <p>
-            A <a>DID path</a> is identical to a generic <a>URI</a> path and
-            conforms to the <code>path-abempty</code> ABNF rule in
-            <a data-cite="RFC3986#section-3.3">RFC&nbsp;3986, section 3.3</a>.
-            As with <a>URIs</a>, path semantics can be specified by
-            <a>DID Methods</a>, which in turn might enable
-            <a>DID controllers</a> to further specialize those semantics.
+            <a>DID 경로</a>는 일반 <a>URI</a> 경로와 동일하며
+            <a data-cite="RFC3986#section-3.3">RFC&nbsp;3986, 섹션 3.3</a>의
+            <code>path-abempty</code> ABNF 규칙을 준수합니다. <a>URI</a>와
+            마찬가지로, 경로 의미론은 <a>DID 메소드</a>에 의해 지정될 수 있으며,
+            이는 다시 <a>DID 컨트롤러</a>가 해당 의미론을 더욱 특화할 수 있게 할
+            수 있습니다.
           </p>
 
           <pre class="example nohighlight">
@@ -905,11 +903,10 @@ did:example:123456/path
           <h2>Query</h2>
 
           <p>
-            A <a>DID query</a> is identical to a generic <a>URI</a> query and
-            conforms to the <code>query</code> ABNF rule in
-            <a data-cite="RFC3986#section-3.4">RFC&nbsp;3986, section 3.4</a>.
-            This syntax feature is elaborated upon in
-            <a href="#did-parameters"></a>.
+            <a>DID 쿼리</a>는 일반 <a>URI</a> 쿼리와 동일하며
+            <a data-cite="RFC3986#section-3.4">RFC&nbsp;3986, 섹션 3.4</a>의
+            <code>query</code> ABNF 규칙을 준수합니다. 이 문법 기능은
+            <a href="#did-parameters"></a>에서 자세히 설명되어 있습니다.
           </p>
 
           <pre class="example nohighlight">
@@ -922,16 +919,16 @@ did:example:123456?versionId=1
           <h2>Fragment</h2>
 
           <p>
-            <a>DID fragment</a> syntax and semantics are identical to a generic
-            <a>URI</a> fragment and conforms to the <code>fragment</code> ABNF
-            rule in
-            <a data-cite="RFC3986#section-3.5">RFC&nbsp;3986, section 3.5</a>.
+            <a>DID 프레그먼트</a>의 문법과 의미론은 일반 <a>URI</a> 프레그먼트와
+            동일하며
+            <a data-cite="RFC3986#section-3.5">RFC&nbsp;3986, 섹션 3.5</a>의
+            <code>fragment</code> ABNF 규칙을 준수합니다.
           </p>
 
           <p>
-            A <a>DID fragment</a> is used as a method-independent reference into
-            a <a>DID document</a> or external <a>resource</a>. Some examples of
-            DID fragment identifiers are shown below.
+            <a>DID 프레그먼트</a>는 <a>DID 문서</a>나 외부 <a>리소스</a>로의
+            방법에 독립적인 참조로 사용됩니다. 아래에는 DID 프레그먼트 식별자의
+            몇 가지 예시가 나와 있습니다.
           </p>
 
           <pre
@@ -958,23 +955,19 @@ did:example:123?service=agent&amp;relativeRef=/credentials#degree
         </pre
           >
 
-          <p class="note" title="Fragment semantics across representations">
-            In order to maximize interoperability, implementers are urged to
-            ensure that
-            <a>DID fragments</a> are interpreted in the same way across
-            <a>representations</a> (see <a href="#representations"></a>). For
-            example, while JSON Pointer [[?RFC6901]] can be used in a
-            <a>DID fragment</a>, it will not be interpreted in the same way
-            across non-JSON <a>representations</a>.
+          <p class="note" title="표현별 프레그먼트 의미론">
+            상호 운용성을 극대화하기 위해, 구현자들은 <a>DID 프레그먼트</a>가
+            <a>표현</a>간에 동일하게 해석되도록 보장하는 데 주의를 기울여야
+            합니다(참조 <a href="#representations"></a>). 예를 들어, JSON
+            Pointer [[?RFC6901]]가 <a>DID 프레그먼트</a>에서 사용될 수 있지만,
+            비-JSON <a>표현</a>에서는 동일한 방식으로 해석되지 않을 것입니다.
           </p>
-
           <p>
-            Additional semantics for fragment identifiers, which are compatible
-            with and layered upon the semantics in this section, are described
-            for JSON-LD representations in
-            <a href="#application-did-ld-json"></a>. For information about how
-            to dereference a <a>DID fragment</a>, see
-            <a href="#did-url-dereferencing"></a>.
+            이 섹션의 의미론과 호환되며 그 위에 덧붙여진 프레그먼트 식별자에
+            대한 추가적인 의미론은 <a href="#application-did-ld-json"></a>에서
+            JSON-LD 표현에 대해 설명되어 있습니다. <a>DID 프레그먼트</a>를
+            어떻게 역참조하는지에 대한 정보는
+            <a href="#did-url-dereferencing"></a>에서 확인할 수 있습니다.
           </p>
         </section>
 
@@ -982,11 +975,11 @@ did:example:123?service=agent&amp;relativeRef=/credentials#degree
           <h2>DID Parameters</h2>
 
           <p>
-            The <a>DID URL</a> syntax supports a simple format for parameters
-            based on the <code>query</code> component described in
-            <a href="#query"></a>. Adding a DID parameter to a
-            <a>DID URL</a> means that the parameter becomes part of the
-            identifier for a <a>resource</a>.
+            <a>DID URL</a> 문법은 <a href="#query"></a>에서 설명된
+            <code>query</code> 구성 요소를 기반으로 한 매개변수에 대한 간단한
+            형식을 지원합니다. <a>DID URL</a>에 DID 매개변수를 추가하는 것은 그
+            매개변수가 <a>리소스</a>에 대한 식별자의 일부가 된다는 것을
+            의미합니다.
           </p>
 
           <pre
@@ -1006,21 +999,19 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
           >
 
           <p>
-            Some DID parameters are completely independent of of any specific
-            <a>DID method</a> and function the same way for all <a>DIDs</a>.
-            Other DID parameters are not supported by all <a>DID methods</a>.
-            Where optional parameters are supported, they are expected to
-            operate uniformly across the <a>DID methods</a> that do support
-            them. The following table provides common DID parameters that
-            function the same way across all <a>DID methods</a>. Support for all
-            <a href="#did-parameters">DID Parameters</a> is OPTIONAL.
+            일부 DID 매개변수는 특정 <a>DID 메소드</a>와 완전히 독립적이며, 모든
+            <a>DID</a>에 대해 동일하게 작동합니다. 다른 DID 매개변수는 모든
+            <a>DID 메소드</a>에서 지원되지 않습니다. 선택적 매개변수가 지원되는
+            경우, 지원하는 <a>DID 메소드</a> 전반에 걸쳐 균일하게 작동할 것으로
+            예상됩니다. 다음 표는 모든 <a>DID 메소드</a>에서 동일하게 작동하는
+            일반적인 DID 매개변수를 제공합니다. 모든
+            <a href="#did-parameters">DID 매개변수</a>에 대한 지원은
+            선택적입니다.
           </p>
-
           <p class="note">
-            It is generally expected that DID URL dereferencer implementations
-            will reference [[?DID-RESOLUTION]] for additional implementation
-            details. The scope of this specification only defines the contract
-            of the most common query parameters.
+            일반적으로 DID URL 역참조 구현체는 추가 구현 세부사항에 대해
+            [[?DID-RESOLUTION]]을 참조할 것으로 예상됩니다. 이 사양의 범위는
+            가장 일반적인 쿼리 매개변수의 계약만을 정의합니다.
           </p>
           <table class="simple">
             <thead>
@@ -1036,9 +1027,9 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
                   <code><a>service</a></code>
                 </td>
                 <td>
-                  Identifies a service from the <a>DID document</a> by service
-                  ID. If present, the associated value MUST be an
-                  <a data-lt="ascii string">ASCII string</a>.
+                  서비스 ID를 통해 <a>DID 문서</a>에서 서비스를 식별합니다.
+                  존재하는 경우, 관련 값은 반드시
+                  <a data-lt="ascii string">ASCII 문자열</a>이어야 합니다.
                 </td>
               </tr>
               <tr>
@@ -1046,16 +1037,13 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
                   <code>relativeRef</code>
                 </td>
                 <td>
-                  A relative <a>URI</a> reference according to
-                  <a data-cite="RFC3986#section-4.2">RFC3986 Section 4.2</a>
-                  that identifies a
-                  <a>resource</a> at a <a>service endpoint</a>, which is
-                  selected from a <a>DID document</a> by using the
-                  <code>service</code> parameter. If present, the associated
-                  value MUST be an
-                  <a data-lt="ascii string">ASCII string</a> and MUST use
-                  percent-encoding for certain characters as specified in
-                  <a data-cite="RFC3986#section-2.1">RFC3986 Section 2.1</a>.
+                  <a data-cite="RFC3986#section-4.2">RFC3986 섹션 4.2</a>에 따른
+                  상대적인 <a>URI</a> 참조로, <code>service</code> 매개변수를
+                  사용하여 <a>DID 문서</a>에서 선택된 <a>서비스 엔드포인트</a>에
+                  위치한 <a>리소스</a>를 식별합니다. 존재하는 경우, 관련 값은
+                  반드시 <a data-lt="ascii string">ASCII 문자열</a>이어야 하며
+                  <a data-cite="RFC3986#section-2.1">RFC3986 섹션 2.1</a>에
+                  명시된 대로 특정 문자에 대해 퍼센트 인코딩을 사용해야 합니다.
                 </td>
               </tr>
               <tr>
@@ -1063,10 +1051,10 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
                   <code>versionId</code>
                 </td>
                 <td>
-                  Identifies a specific version of a <a>DID document</a> to be
-                  resolved (the version ID could be sequential, or a
-                  <a>UUID</a>, or method-specific). If present, the associated
-                  value MUST be an <a data-lt="ascii string">ASCII string</a>.
+                  해석될 <a>DID 문서</a>의 특정 버전을 식별합니다(버전 ID는
+                  순차적이거나, <a>UUID</a>이거나, 메소드별 특성을 가질 수
+                  있습니다). 존재하는 경우, 관련 값은 반드시
+                  <a data-lt="ascii string">ASCII 문자열</a>이어야 합니다.
                 </td>
               </tr>
               <tr>
@@ -1074,19 +1062,17 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
                   <code>versionTime</code>
                 </td>
                 <td>
-                  Identifies a certain version timestamp of a
-                  <a>DID document</a> to be resolved. That is, the
-                  <a>DID document</a> that was valid for a <a>DID</a> at a
-                  certain time. If present, the associated value MUST be an
-                  <a data-lt="ascii string">ASCII string</a> which is a valid
-                  XML datetime value, as defined in section 3.3.7 of
+                  해석될 <a>DID 문서</a>의 특정 버전 타임스탬프를 식별합니다.
+                  즉, 특정 시간에 <a>DID</a>에 유효했던 <a>DID 문서</a>입니다.
+                  존재하는 경우, 관련 값은
                   <a href="https://www.w3.org/TR/xmlschema11-2/"
-                    >W3C XML Schema Definition Language (XSD) 1.1 Part 2:
-                    Datatypes</a
+                    >W3C XML 스키마 정의 언어 (XSD) 1.1 파트 2: 데이터 타입</a
                   >
-                  [[XMLSCHEMA11-2]]. This datetime value MUST be normalized to
-                  UTC 00:00:00 and without sub-second decimal precision. For
-                  example: <code>2020-12-20T19:17:47Z</code>.
+                  [[XMLSCHEMA11-2]]의 섹션 3.3.7에 정의된 유효한 XML 날짜/시간
+                  값인 ASCII 문자열이어야 합니다. 이 날짜/시간 값은 UTC
+                  00:00:00으로 정규화되어야 하며, 초 단위의 소수점 이하 정밀도는
+                  포함하지 않아야 합니다. 예를 들어:
+                  <code>2020-12-20T19:17:47Z</code>.
                 </td>
               </tr>
               <tr>
@@ -1094,47 +1080,42 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
                   <code>hl</code>
                 </td>
                 <td>
-                  A resource hash of the <a>DID document</a> to add integrity
-                  protection, as specified in [[?HASHLINK]]. This parameter is
-                  non-normative. If present, the associated value MUST be an
-                  <a data-lt="ascii string">ASCII string</a>.
+                  [[?HASHLINK]]에 명시된 대로 무결성 보호를 추가하기 위한
+                  <a>DID 문서</a>의 리소스 해시입니다. 이 매개변수는 규범적이지
+                  않습니다. 존재하는 경우, 관련 값은 반드시
+                  <a data-lt="ascii string">ASCII 문자열</a>이어야 합니다.
                 </td>
               </tr>
             </tbody>
           </table>
 
           <p>
-            Implementers as well as <a>DID method</a> specification authors
-            might use additional DID parameters that are not listed here. For
-            maximum interoperability, it is RECOMMENDED that DID parameters use
-            the DID Specification Registries mechanism [[?DID-SPEC-REGISTRIES]],
-            to avoid collision with other uses of the same DID parameter with
-            different semantics.
+            구현자들과 <a>DID 메소드</a> 사양 저자들은 여기에 나열되지 않은
+            추가적인 DID 매개변수를 사용할 수 있습니다. 최대한의 상호 운용성을
+            위해, DID 매개변수가 다른 의미를 가진 동일한 DID 매개변수와의 충돌을
+            피하기 위해 DID 사양 레지스트리 메커니즘 [[?DID-SPEC-REGISTRIES]]을
+            사용하는 것이 권장됩니다.
           </p>
-
           <p>
-            DID parameters might be used if there is a clear use case where the
-            parameter needs to be part of a <a>URL</a> that references a
-            <a>resource</a> with more precision than using the <a>DID</a> alone.
-            It is expected that DID parameters are <em>not</em> used if the same
-            functionality can be expressed by passing input metadata to a
-            <a>DID resolver</a>. Additional considerations for processing these
-            parameters are discussed in [[?DID-RESOLUTION]].
+            DID 매개변수는 <a>URL</a>이 <a>DID</a>만을 사용하는 것보다 더
+            정밀하게 <a>리소스</a>를 참조할 필요가 있는 명확한 사용 사례가 있을
+            때 사용될 수 있습니다. DID 매개변수는 동일한 기능이
+            <a>DID 리졸버</a>에 입력 메타데이터를 전달함으로써 표현될 수 있을 때
+            사용되지 <em>않을</em> 것으로 예상됩니다. 이러한 매개변수를 처리하는
+            추가적인 고려사항은 [[?DID-RESOLUTION]]에서 논의됩니다.
           </p>
 
-          <p class="note" title="DID parameters and DID resolution">
-            The <a>DID resolution</a> and the
-            <a>DID URL dereferencing</a> functions can be influenced by passing
-            input metadata to a <a>DID resolver</a> that are not part of the
-            <a>DID URL</a> (see <a href="#did-resolution-options"></a>). This is
-            comparable to HTTP, where certain parameters could either be
-            included in an HTTP URL, or alternatively passed as HTTP headers
-            during the dereferencing process. The important distinction is that
-            DID parameters that are part of the <a>DID URL</a> should be used to
-            specify <em>what <a>resource</a> is being identified</em>, whereas
-            input metadata that is not part of the <a>DID URL</a> should be use
-            to control
-            <em>how that <a>resource</a> is resolved or dereferenced</em>.
+          <p class="note" title="DID 매개변수와 DID 해석">
+            <a>DID 해석</a> 및 <a>DID URL 역참조</a> 기능은 <a>DID URL</a>의
+            일부가 아닌 입력 메타데이터를 <a>DID 리졸버</a>에 전달함으로써
+            영향을 받을 수 있습니다(참조
+            <a href="#did-resolution-options"></a>). 이는 HTTP와 비슷한데, 특정
+            매개변수가 HTTP URL에 포함되거나, 또는 역참조 과정 중에 HTTP 헤더로
+            전달될 수 있습니다. 중요한 구별점은 <a>DID URL</a>의 일부인 DID
+            매개변수는 <em>어떤 <a>리소스</a>가 식별되는지</em>를 명시하는 데
+            사용되어야 하며, <a>DID URL</a>의 일부가 아닌 입력 메타데이터는
+            <em>그 <a>리소스</a>가 어떻게 해석되거나 역참조되는지</em>를
+            제어하는 데 사용되어야 합니다.
           </p>
         </section>
 
@@ -1142,39 +1123,33 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
           <h2>Relative DID URLs</h2>
 
           <p>
-            A relative <a>DID URL</a> is any URL value in a
-            <a>DID document</a> that does not start with
-            <code>did:&lt;method-name>:&lt;method-specific-id></code>. More
-            specifically, it is any URL value that does not start with the ABNF
-            defined in <a href="#did-syntax"></a>. The URL is expected to
-            reference a <a>resource</a> in the same <a>DID document</a>.
-            Relative <a>DID URLs</a> MAY contain relative path components, query
-            parameters, and fragment identifiers.
+            상대적인 <a>DID URL</a>은 <a>DID 문서</a> 내에서
+            <code>did:&lt;method-name>:&lt;method-specific-id></code>로 시작하지
+            않는 모든 URL 값을 의미합니다. 보다 구체적으로,
+            <a href="#did-syntax"></a>에서 정의된 ABNF로 시작하지 않는 모든 URL
+            값을 말합니다. 이 URL은 동일한 <a>DID 문서</a> 내의 <a>리소스</a>를
+            참조할 것으로 예상됩니다. 상대적인 <a>DID URL</a>은 상대 경로 구성
+            요소, 쿼리 매개변수 및 프래그먼트 식별자를 포함할 수 있습니다.
           </p>
-
           <p>
-            When resolving a relative <a>DID URL</a> reference, the algorithm
-            specified in
-            <a data-cite="RFC3986#section-5"
-              >RFC3986 Section 5: Reference Resolution</a
-            >
-            MUST be used. The <strong>base URI</strong> value is the
-            <a>DID</a> that is associated with the <a>DID subject</a>, see
-            <a href="#did-subject"></a>. The <strong>scheme</strong> is
-            <code>did</code>. The <strong>authority</strong> is a combination of
-            <code>&lt;method-name>:&lt;method-specific-id></code>, and the
-            <strong>path</strong>, <strong>query</strong>, and
-            <strong>fragment</strong> values are those defined in
-            <a href="#path"></a>, <a href="#query"></a>, and
-            <a href="#fragment"></a>, respectively.
+            상대적인 <a>DID URL</a> 참조를 해결할 때,
+            <a data-cite="RFC3986#section-5">RFC3986 섹션 5: 참조 해결</a>에
+            명시된 알고리즘을 사용해야 합니다. <strong>기본 URI</strong> 값은
+            <a>DID 주체</a>와 연관된 <a>DID</a>이며, 참조
+            <a href="#did-subject"></a>. <strong>스키마</strong>는
+            <code>did</code>이고, <strong>권한</strong>은
+            <code>&lt;method-name>:&lt;method-specific-id></code>의 조합이며,
+            <strong>경로</strong>, <strong>쿼리</strong> 및
+            <strong>프래그먼트</strong> 값은 각각 <a href="#path"></a>,
+            <a href="#query"></a> 및 <a href="#fragment"></a>에서 정의된
+            것입니다.
           </p>
-
           <p>
-            Relative <a>DID URLs</a> are often used to reference
-            <a>verification methods</a> and <a>services</a> in a
-            <a>DID Document</a> without having to use absolute URLs.
-            <a>DID methods</a> where storage size is a consideration might use
-            relative URLs to reduce the storage size of <a>DID documents</a>.
+            상대적인 <a>DID URL</a>은 절대 URL을 사용하지 않고
+            <a>DID 문서</a>에서 <a>검증 방법</a> 및 <a>서비스</a>를 참조하는 데
+            종종 사용됩니다. 저장 공간 크기가 고려 사항인 <a>DID 메소드</a>는
+            <a>DID 문서</a>의 저장 크기를 줄이기 위해 상대 URL을 사용할 수
+            있습니다.
           </p>
 
           <pre

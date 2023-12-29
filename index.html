@@ -350,18 +350,17 @@
       </ul>
 
       <p>
-        In addition to this specification, readers might find the Use Cases and
-        Requirements for Decentralized Identifiers [[DID-USE-CASES]] document
-        useful.
+        이 사양 외에도, 독자들은 분산 식별자에 대한 사용 사례 및 요구 사항
+        [[DID-USE-CASES]] 문서를 유용하게 찾을 수 있을 것입니다.
       </p>
 
       <section class="informative">
         <h2>A Simple Example</h2>
 
         <p>
-          A <a>DID</a> is a simple text string consisting of three parts: 1) the
-          <code>did</code> URI scheme identifier, 2) the identifier for the
-          <a>DID method</a>, and 3) the DID method-specific identifier.
+          <a>DID</a>는 세 부분으로 구성된 간단한 텍스트 문자열입니다: 1)
+          <code>did</code> URI 체계 식별자, 2) <a>DID 메소드</a>에 대한 식별자,
+          그리고 3) DID 메소드별 특정 식별자.
         </p>
 
         <figure id="parts-of-a-did">
@@ -385,10 +384,9 @@ reads 'DID Method Specific String' below the bracket.
         </figure>
 
         <p>
-          The example <a>DID</a> above resolves to a <a>DID document</a>. A
-          <a>DID document</a> contains information associated with the
-          <a>DID</a>, such as ways to cryptographically <a>authenticate</a> a
-          <a>DID controller</a>.
+          위의 예시 <a>DID</a>는 <a>DID 문서</a>로 해석됩니다. <a>DID 문서</a>는
+          <a>DID</a>와 관련된 정보를 포함하며, 예를 들어 <a>DID 컨트롤러</a>를
+          암호학적으로 <a>인증</a>하는 방법과 같은 내용이 포함됩니다.
         </p>
 
         <pre class="example nohighlight" title="A simple DID document">
@@ -413,10 +411,9 @@ reads 'DID Method Specific String' below the bracket.
         <h2>Design Goals</h2>
 
         <p>
-          <a>Decentralized Identifiers</a> are a component of larger systems,
-          such as the Verifiable Credentials ecosystem [[VC-DATA-MODEL]], which
-          influenced the design goals for this specification. The design goals
-          for Decentralized Identifiers are summarized here.
+          <a>분산 식별자</a>는 검증 가능한 크리덴셜 생태계 [[VC-DATA-MODEL]]와
+          같은 더 큰 시스템의 구성 요소로, 이 사양의 설계 목표에 영향을
+          미쳤습니다. 분산 식별자에 대한 설계 목표는 여기에 요약되어 있습니다.
         </p>
 
         <table class="simple">
@@ -429,88 +426,76 @@ reads 'DID Method Specific String' below the bracket.
 
           <tbody>
             <tr>
-              <td>Decentralization</td>
+              <td>분산화</td>
               <td>
-                Eliminate the requirement for centralized authorities or single
-                point failure in identifier management, including the
-                registration of globally unique identifiers, public verification
-                keys, <a>services</a>, and other information.
+                식별자 관리에서 중앙 집중식 권한 또는 단일 실패 지점의 요구
+                사항을 제거하며, 이는 전 세계적으로 고유한 식별자, 공개 검증 키,
+                <a>서비스</a>, 그리고 기타 정보의 등록을 포함합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Control</td>
+              <td>제어</td>
               <td>
-                Give entities, both human and non-human, the power to directly
-                control their digital identifiers without the need to rely on
-                external authorities.
+                외부 권한에 의존할 필요 없이 인간 및 비인간 개체에게 그들의
+                디지털 식별자를 직접 제어할 수 있는 권한을 부여합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Privacy</td>
+              <td>프라이버시</td>
               <td>
-                Enable entities to control the privacy of their information,
-                including minimal, selective, and progressive disclosure of
-                attributes or other data.
+                개체가 정보의 프라이버시를 제어할 수 있도록 하며, 이는 최소한,
+                선택적 및 단계적인 속성 또는 기타 데이터의 공개를 포함합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Security</td>
+              <td>보안</td>
               <td>
-                Enable sufficient security for requesting parties to depend on
-                <a>DID documents</a> for their required level of assurance.
+                요청하는 당사자가 필요한 수준의 보증에 대해 <a>DID 문서</a>에
+                의존할 수 있을 만큼 충분한 보안을 제공합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Proof-based</td>
+              <td>증명 기반</td>
               <td>
-                Enable <a>DID controllers</a> to provide cryptographic proof
-                when interacting with other entities.
+                <a>DID 컨트롤러</a>가 다른 개체와 상호 작용할 때 암호학적 증명을
+                제공할 수 있도록 합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Discoverability</td>
+              <td>발견 가능성</td>
               <td>
-                Make it possible for entities to discover <a>DIDs</a> for other
-                entities, to learn more about or interact with those entities.
+                개체가 다른 개체의 <a>DID</a>를 발견하여 그 개체에 대해 더 많이
+                알아보거나 상호 작용할 수 있도록 합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Interoperability</td>
+              <td>상호 운용성</td>
               <td>
-                Use interoperable standards so <a>DID</a> infrastructure can
-                make use of existing tools and software libraries designed for
-                interoperability.
+                상호 운용 가능한 표준을 사용하여 <a>DID</a> 인프라가 상호
+                운용성을 위해 설계된 기존 도구 및 소프트웨어 라이브러리를 활용할
+                수 있도록 합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Portability</td>
+              <td>휴대성</td>
               <td>
-                Be system- and network-independent and enable entities to use
-                their digital identifiers with any system that supports
-                <a>DIDs</a> and <a>DID methods</a>.
+                시스템 및 네트워크에 독립적이며 <a>DID</a> 및
+                <a>DID 메소드</a>를 지원하는 모든 시스템에서 디지털 식별자를
+                사용할 수 있도록 합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Simplicity</td>
+              <td>단순성</td>
               <td>
-                Favor a reduced set of simple features to make the technology
-                easier to understand, implement, and deploy.
+                기술을 더 쉽게 이해하고 구현하며 배포할 수 있도록 간단한 기능
+                세트를 선호합니다.
               </td>
             </tr>
-
             <tr>
-              <td>Extensibility</td>
+              <td>확장성</td>
               <td>
-                Where possible, enable extensibility provided it does not
-                greatly hinder interoperability, portability, or simplicity.
+                가능한 경우, 상호 운용성, 휴대성 또는 단순성을 크게 방해하지
+                않는 한 확장성을 제공합니다.
               </td>
             </tr>
           </tbody>
@@ -521,8 +506,8 @@ reads 'DID Method Specific String' below the bracket.
         <h2>Architecture Overview</h2>
 
         <p>
-          This section provides a basic overview of the major components of
-          Decentralized Identifier architecture.
+          이 섹션은 분산 식별자 구조의 주요 구성 요소에 대한 기본 개요를
+          제공합니다.
         </p>
 
         <figure id="brief-architecture-overview">
@@ -549,217 +534,189 @@ fragments or external resources.
 
         <div class="longdesc" id="brief-architecture-overview-longdesc">
           <p>
-            Six internally-labeled shapes appear in the diagram, with labeled
-            arrows between them, as follows. In the center of the diagram is a
-            rectangle labeled DID URL, containing small typewritten text
-            "did:example:123/path/to/rsrc". At the center top of the diagram is
-            a rectangle labeled, "DID", containing small typewritten text
-            "did:example:123". At the top left of the diagram is an oval,
-            labeled "DID Subject". At the bottom center of the diagram is a
-            rectangle labeled, "DID document". At the bottom left is an oval,
-            labeled, "DID Controller". On the center right of the diagram is a
-            two-dimensional rendering of a cylinder, labeled, "Verifiable Data
-            Registry".
+            다이어그램에는 내부적으로 레이블이 붙은 여섯 개의 도형이 있으며,
+            이들 사이에는 레이블이 붙은 화살표가 다음과 같이 표시되어 있습니다.
+            다이어그램의 중앙에는 "DID URL"이라고 레이블이 붙은 사각형이 있으며,
+            그 안에는 "did:example:123/path/to/rsrc"라고 작은 타자기 글씨가 적혀
+            있습니다. 다이어그램의 상단 중앙에는 "did:example:123"이라고 작은
+            타자기 글씨가 적힌 "DID"라고 레이블이 붙은 사각형이 있습니다.
+            다이어그램의 왼쪽 상단에는 "DID 주체"라고 레이블이 붙은 타원형이
+            있습니다. 다이어그램의 하단 중앙에는 "DID 문서"라고 레이블이 붙은
+            사각형이 있습니다. 왼쪽 하단에는 "DID 컨트롤러"라고 레이블이 붙은
+            타원형이 있습니다. 다이어그램의 오른쪽 중앙에는 "검증 가능한 데이터
+            레지스트리"라고 레이블이 붙은 원통형의 입체적인 렌더링이 있습니다.
           </p>
           <p>
-            From the top of the "DID URL" rectangle, an arrow, labeled
-            "contains", extends upwards, pointing to the "DID" rectangle. From
-            the bottom of the "DID URL" rectangle, an arrow, labeled "refers,
-            and
-            <strong><em>dereferences</em></strong
-            >, to", extends downward, pointing to the "DID document" rectangle.
-            An arrow from the "DID" rectangle, labeled "<strong
-              ><em>resolves</em></strong
-            >
-            to", points down to the "DID document" rectangle. An arrow from the
-            "DID" rectangle, labeled "refers to", points left to the "DID
-            subject" oval. An arrow from the "DID controller" oval, labeled
-            "controls", points right to the "DID document" rectangle. An arrow
-            from the "DID" rectangle, labeled "recorded on", points downards to
-            the right, to the "Verifiable Data Registry" cylinder. An arrow from
-            the "DID document" rectangle, labeled "recorded on", points upwards
-            to the right to the "Verifiable Data Registry" cylinder.
+            "DID URL" 사각형의 상단에서 "포함함"이라고 레이블이 붙은 화살표가
+            위로 향하며 "DID" 사각형을 가리킵니다. "DID URL" 사각형의 하단에서
+            "참조하며, <strong><em>역참조함</em></strong
+            >"이라고 레이블이 붙은 화살표가 아래로 향하며 "DID 문서" 사각형을
+            가리킵니다. "DID" 사각형에서 "<strong><em>해석됨</em></strong
+            >으로" 레이블이 붙은 화살표가 아래로 향해 "DID 문서" 사각형을
+            가리킵니다. "DID" 사각형에서 "참조함으로" 레이블이 붙은 화살표가
+            왼쪽으로 향해 "DID 주체" 타원을 가리킵니다. "DID 컨트롤러" 타원에서
+            "제어함"이라고 레이블이 붙은 화살표가 오른쪽으로 향해 "DID 문서"
+            사각형을 가리킵니다. "DID" 사각형에서 "기록됨으로" 레이블이 붙은
+            화살표가 오른쪽 아래로 향해 "검증 가능한 데이터 레지스트리" 원통을
+            가리킵니다. "DID 문서" 사각형에서 "기록됨으로" 레이블이 붙은
+            화살표가 오른쪽 위로 향해 "검증 가능한 데이터 레지스트리" 원통을
+            가리킵니다.
           </p>
         </div>
 
         <dl>
-          <dt>DIDs and DID URLs</dt>
+          <dt>DIDs 및 DID URL</dt>
           <dd>
-            A Decentralized Identifier, or <a>DID</a>, is a <a>URI</a> composed
-            of three parts: the scheme <code>did:</code>, a method identifier,
-            and a unique, method-specific identifier specified by the
-            <a>DID method</a>. <a>DIDs</a> are resolvable to
-            <a>DID documents</a>. A <a>DID URL</a> extends the syntax of a basic
-            <a>DID</a> to incorporate other standard <a>URI</a> components such
-            as path, query, and fragment in order to locate a particular
-            <a>resource</a>&mdash;for example, a cryptographic public key inside
-            a <a>DID document</a>, or a <a>resource</a> external to the
-            <a>DID document</a>. These concepts are elaborated upon in
-            <a href="#did-syntax"></a> and <a href="#did-url-syntax"></a>.
+            탈중앙화 식별자 또는 <a>DID</a>는 세 부분으로 구성된
+            <a>URI</a>입니다: 체계 <code>did:</code>, 메소드 식별자, 그리고
+            <a>DID 메소드</a>에 의해 지정된 독특한 메소드별 식별자.
+            <a>DIDs</a>는 <a>DID 문서</a>로 해석됩니다. <a>DID URL</a>은 기본
+            <a>DID</a>의 구문을 확장하여 경로, 쿼리, 프래그먼트와 같은 다른 표준
+            <a>URI</a> 구성 요소를 포함하여 특정 <a>리소스</a>를 찾습니다—예를
+            들어, <a>DID 문서</a> 내의 암호화된 공개 키 또는
+            <a>DID 문서</a> 외부의 <a>리소스</a>. 이 개념들은
+            <a href="#did-syntax"></a> 및 <a href="#did-url-syntax"></a>에서
+            자세히 설명됩니다.
+          </dd>
+          <dt>DID 주체</dt>
+          <dd>
+            <a>DID</a>의 주체는 정의에 따라 <a>DID</a>에 의해 식별되는
+            개체입니다. <a>DID 주체</a>는 또한 <a>DID 컨트롤러</a>일 수
+            있습니다. 무엇이든 <a>DID</a>의 주체가 될 수 있습니다: 개인, 그룹,
+            조직, 사물 또는 개념. 이는 <a href="#did-subject"></a>에서 더 자세히
+            정의됩니다.
+          </dd>
+          <dt>DID 컨트롤러</dt>
+          <dd>
+            <a>DID</a>의 <a>컨트롤러</a>는 <a>DID 메소드</a>에 의해 정의된
+            기능으로 <a>DID 문서</a>에 변경을 가할 수 있는 개체(사람, 조직 또는
+            자율 소프트웨어)입니다. 이 기능은 일반적으로 컨트롤러를 대신하여
+            작동하는 소프트웨어에 의해 사용되는 암호화 키 세트의 제어를 통해
+            주장되지만, 다른 메커니즘을 통해서도 주장될 수 있습니다. 주의할 점은
+            <a>DID</a>에 여러 컨트롤러가 있을 수 있으며, <a>DID 주체</a>가
+            <a>DID 컨트롤러</a>일 수도 있습니다. 이 개념은
+            <a href="#did-controller"></a>에서 문서화되어 있습니다.
+          </dd>
+          <dt>검증 가능한 데이터 레지스트리</dt>
+          <dd>
+            <a>DIDs</a>가 <a>DID 문서</a>로 해석되기 위해 일반적으로 어떤 종류의
+            기반 시스템 또는 네트워크에 기록됩니다. 특정 기술에 관계없이
+            <a>DIDs</a>를 기록하고 <a>DID 문서</a>를 생성하는 데 필요한 데이터를
+            반환하는 모든 시스템은 <a>검증 가능한 데이터 레지스트리</a>라고
+            합니다. 예시로는 <a>분산 원장</a>, 분산 파일 시스템, 모든 종류의
+            데이터베이스, P2P 네트워크 및 기타 형태의 신뢰할 수 있는 데이터
+            저장소가 있습니다. 이 개념은 <a href="#methods"></a>에서 더 자세히
+            다루어집니다.
           </dd>
 
-          <dt>DID subjects</dt>
+          <dt>DID 문서</dt>
           <dd>
-            The subject of a <a>DID</a> is, by definition, the entity identified
-            by the <a>DID</a>. The <a>DID subject</a> might also be the
-            <a>DID controller</a>. Anything can be the subject of a <a>DID</a>:
-            person, group, organization, thing, or concept. This is further
-            defined in <a href="#did-subject"></a>.
+            <a>DID 문서</a>는 <a>DID</a>와 관련된 정보를 포함합니다. 일반적으로
+            암호화된 공개 키와 같은 <a>검증 방법</a>과 <a>DID 주체</a>와의
+            상호작용과 관련된 <a>서비스</a>를 표현합니다. <a>DID 문서</a>에서
+            지원되는 일반적인 속성들은 <a href="#core-properties"></a>에
+            명시되어 있습니다. <a>DID 문서</a>는 바이트 스트림으로 직렬화될 수
+            있습니다(참조 <a href="#representations"></a>). <a>DID 문서</a>에
+            존재하는 속성은 <a href="#methods"></a>에 개요된 해당 작업에 따라
+            업데이트될 수 있습니다.
           </dd>
-
-          <dt>DID controllers</dt>
+          <dt>DID 메소드</dt>
           <dd>
-            The <a>controller</a> of a <a>DID</a> is the entity (person,
-            organization, or autonomous software) that has the
-            capability&mdash;as defined by a <a>DID method</a>&mdash;to make
-            changes to a <a>DID document</a>. This capability is typically
-            asserted by the control of a set of cryptographic keys used by
-            software acting on behalf of the controller, though it might also be
-            asserted via other mechanisms. Note that a <a>DID</a> might have
-            more than one controller, and the <a>DID subject</a> can be the
-            <a>DID controller</a>, or one of them. This concept is documented in
-            <a href="#did-controller"></a>.
+            <a>DID 메소드</a>는 특정 유형의 <a>DID</a> 및 그와 관련된
+            <a>DID 문서</a>가 생성되고, 해석되고, 업데이트되며, 비활성화되는
+            메커니즘입니다. <a>DID 메소드</a>는 <a href="#methods"></a>에 정의된
+            별도의 DID 메소드 사양을 사용하여 정의됩니다.
           </dd>
-
-          <dt>Verifiable data registries</dt>
+          <dt>DID 리졸버 및 DID 해석</dt>
           <dd>
-            In order to be resolvable to <a>DID documents</a>, <a>DIDs</a> are
-            typically recorded on an underlying system or network of some kind.
-            Regardless of the specific technology used, any such system that
-            supports recording <a>DIDs</a> and returning data necessary to
-            produce <a>DID documents</a> is called a
-            <a>verifiable data registry</a>. Examples include
-            <a>distributed ledgers</a>, decentralized file systems, databases of
-            any kind, peer-to-peer networks, and other forms of trusted data
-            storage. This concept is further elaborated upon in
-            <a href="#methods"></a>.
+            <a>DID 리졸버</a>는 <a>DID</a>를 입력으로 받아 규범을 준수하는
+            <a>DID 문서</a>를 출력으로 생성하는 시스템 구성요소입니다. 이 과정을
+            <a>DID 해석</a>이라고 합니다. 특정 유형의 <a>DID</a>를 해석하는
+            단계는 관련 <a>DID 메소드</a> 사양에 의해 정의됩니다.
+            <a>DID 해석</a> 과정은 <a href="#resolution"></a>에서 자세히
+            설명됩니다.
           </dd>
-
-          <dt>DID documents</dt>
+          <dt>DID URL 역참조자 및 DID URL 역참조</dt>
           <dd>
-            <a>DID documents</a> contain information associated with a
-            <a>DID</a>. They typically express <a>verification methods</a>, such
-            as cryptographic public keys, and <a>services</a> relevant to
-            interactions with the <a>DID subject</a>. The generic properties
-            supported in a <a>DID document</a> are specified in
-            <a href="#core-properties"></a>. A <a>DID document</a> can be
-            serialized to a byte stream (see <a href="#representations"></a>).
-            The properties present in a <a>DID document</a> can be updated
-            according to the applicable operations outlined in
-            <a href="#methods"></a>.
-          </dd>
-
-          <dt>DID methods</dt>
-          <dd>
-            <a>DID methods</a> are the mechanism by which a particular type of
-            <a>DID</a> and its associated <a>DID document</a> are created,
-            resolved, updated, and deactivated. <a>DID methods</a> are defined
-            using separate DID method specifications as defined in
-            <a href="#methods"></a>.
-          </dd>
-
-          <dt>DID resolvers and DID resolution</dt>
-          <dd>
-            A <a>DID resolver</a> is a system component that takes a
-            <a>DID</a> as input and produces a conforming <a>DID document</a> as
-            output. This process is called <a>DID resolution</a>. The steps for
-            resolving a specific type of <a>DID</a> are defined by the relevant
-            <a>DID method</a> specification. The process of
-            <a>DID resolution</a> is elaborated upon in
-            <a href="#resolution"></a>.
-          </dd>
-          <dt>DID URL dereferencers and DID URL dereferencing</dt>
-          <dd>
-            A <a>DID URL dereferencer</a> is a system component that takes a
-            <a>DID URL</a> as input and produces a <a>resource</a> as output.
-            This process is called <a>DID URL dereferencing</a>. The process of
-            <a>DID URL dereferencing</a> is elaborated upon in
-            <a href="#did-url-dereferencing"></a>.
+            <a>DID URL 역참조자</a>는 <a>DID URL</a>을 입력으로 받아
+            <a>리소스</a>를 출력으로 생성하는 시스템 구성요소입니다. 이 과정을
+            <a>DID URL 역참조</a>라고 합니다. <a>DID URL 역참조</a> 과정은
+            <a href="#did-url-dereferencing"></a>에서 자세히 설명됩니다.
           </dd>
         </dl>
       </section>
 
       <section id="conformance">
         <p>
-          This document contains examples that contain JSON and JSON-LD content.
-          Some of these examples contain characters that are invalid, such as
-          inline comments (<code>//</code>) and the use of ellipsis
-          (<code>...</code>) to denote information that adds little value to the
-          example. Implementers are cautioned to remove this content if they
-          desire to use the information as valid JSON or JSON-LD.
+          이 문서에는 JSON 및 JSON-LD 콘텐츠가 포함된 예시가 있습니다. 이러한
+          예시 중 일부에는 잘못된 문자가 포함되어 있으며, 이에는 인라인
+          주석(<code>//</code>)과 예시에 큰 가치를 더하지 않는 정보를 나타내기
+          위한 줄임표(<code>...</code>)가 포함됩니다. 구현자들은 유효한 JSON
+          또는 JSON-LD로 정보를 사용하고자 할 경우 이 콘텐츠를 제거해야 한다는
+          점에 유의해야 합니다.
+        </p>
+        <p>
+          일부 예시에는 이 사양에 정의되지 않은 용어들이 포함되어 있으며, 이들은
+          속성 이름과 값 모두에 해당합니다. 이러한 용어들은 주석(<code
+            >// external (property name|value)</code
+          >)으로 표시됩니다. <a>DID 문서</a>에서 사용될 때 이러한 용어들은 DID
+          사양 레지스트리 [[?DID-SPEC-REGISTRIES]]에 공식 정의 및 JSON-LD
+          컨텍스트와 함께 등록되어 있을 것으로 예상됩니다.
         </p>
 
         <p>
-          Some examples contain terms, both property names and values, that are
-          not defined in this specification. These are indicated with a comment
-          (<code>// external (property name|value)</code>). Such terms, when
-          used in a <a>DID document</a>, are expected to be registered in the
-          DID Specification Registries [[?DID-SPEC-REGISTRIES]] with links to
-          both a formal definition and a JSON-LD context.
+          <a>DID</a> 및 <a>DID 문서</a>에 대한 구현의 상호 운용성은 이 사양에
+          부합하는 <a>DID</a> 및 <a>DID 문서</a>를 생성하고 구문 분석하는 구현의
+          능력을 평가함으로써 테스트됩니다. <a>DID</a> 및 <a>DID 문서</a>의
+          생산자와 소비자에 대한 상호 운용성은 <a>DID</a>와 <a>DID 문서</a>가
+          규범에 부합하도록 보장함으로써 제공됩니다. <a>DID 메소드</a> 사양에
+          대한 상호 운용성은 각 <a>DID 메소드</a> 사양의 세부 사항에 의해
+          제공됩니다. 웹 브라우저가 모든 알려진 <a>URI</a> 체계를 구현할 필요가
+          없는 것과 마찬가지로, <a>DID</a>와 작동하는 규범에 부합하는
+          소프트웨어가 모든 알려진 <a>DID 메소드</a>를 구현할 필요는 없습니다.
+          그러나 특정 <a>DID 메소드</a>의 모든 구현은 해당 메소드에 대해 상호
+          운용 가능할 것으로 예상됩니다.
+        </p>
+        <p>
+          <dfn>규범에 부합하는 DID</dfn>는 <a href="#identifier"></a>에서 명시된
+          규칙의 구체적인 표현으로, 해당 섹션의 관련 규범적 진술에 부합하는
+          것입니다.
         </p>
 
         <p>
-          Interoperability of implementations for <a>DIDs</a> and
-          <a>DID documents</a> is tested by evaluating an implementation's
-          ability to create and parse <a>DIDs</a> and <a>DID documents</a> that
-          conform to this specification. Interoperability for producers and
-          consumers of <a>DIDs</a> and <a>DID documents</a> is provided by
-          ensuring the <a>DIDs</a> and <a>DID documents</a> conform.
-          Interoperability for <a>DID method</a> specifications is provided by
-          the details in each <a>DID method</a> specification. It is understood
-          that, in the same way that a web browser is not required to implement
-          all known <a>URI</a> schemes, conformant software that works with
-          <a>DIDs</a> is not required to implement all known <a>DID methods</a>.
-          However, all implementations of a given <a>DID method</a>
-          are expected to be interoperable for that method.
+          <dfn>규범에 부합하는 DID 문서</dfn>는 이 사양에서 설명된 데이터 모델의
+          구체적인 표현으로, <a href="#data-model"></a> 및
+          <a href="#core-properties"></a>의 관련 규범적 진술에 부합하는
+          것입니다. 규범에 부합하는 문서의 직렬화 형식은
+          <a href="#representations"></a>에 설명된 대로 결정적이고, 양방향이며,
+          손실이 없습니다.
+        </p>
+        <p>
+          <dfn>규범에 부합하는 생산자</dfn>는 <a>규범에 부합하는 DID</a> 또는
+          <a>규범에 부합하는 DID 문서</a>를 생성하고
+          <a href="#representations"></a>의 관련 규범적 진술에 부합하는
+          소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
+        </p>
+        <p>
+          <dfn>규범에 부합하는 소비자</dfn>는 <a>규범에 부합하는 DID</a> 또는
+          <a>규범에 부합하는 DID 문서</a>를 소비하고
+          <a href="#representations"></a>의 관련 규범적 진술에 부합하는
+          소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
+        </p>
+        <p>
+          <dfn class="lint-ignore">규범에 부합하는 DID 리졸버</dfn>는
+          <a href="#did-resolution"></a>의 관련 규범적 진술에 부합하는
+          소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
         </p>
 
         <p>
-          A <dfn>conforming DID</dfn> is any concrete expression of the rules
-          specified in <a href="#identifier"></a> which complies with relevant
-          normative statements in that section.
+          <dfn class="lint-ignore">규범에 부합하는 DID URL 역참조자</dfn>는
+          <a href="#did-url-dereferencing"></a>의 관련 규범적 진술에 부합하는
+          소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
         </p>
-
         <p>
-          A <dfn>conforming DID document</dfn> is any concrete expression of the
-          data model described in this specification which complies with the
-          relevant normative statements in <a href="#data-model"></a> and
-          <a href="#core-properties"></a>. A serialization format for the
-          conforming document is deterministic, bi-directional, and lossless, as
-          described in <a href="#representations"></a>.
-        </p>
-
-        <p>
-          A <dfn>conforming producer</dfn> is any algorithm realized as software
-          and/or hardware that generates <a>conforming DIDs</a> or
-          <a>conforming DID Documents</a> and complies with the relevant
-          normative statements in <a href="#representations"></a>.
-        </p>
-
-        <p>
-          A <dfn>conforming consumer</dfn> is any algorithm realized as software
-          and/or hardware that consumes <a>conforming DIDs</a> or
-          <a>conforming DID documents</a> and complies with the relevant
-          normative statements in <a href="#representations"></a>.
-        </p>
-
-        <p>
-          A <dfn class="lint-ignore">conforming DID resolver</dfn> is any
-          algorithm realized as software and/or hardware that complies with the
-          relevant normative statements in <a href="#did-resolution"></a>.
-        </p>
-
-        <p>
-          A <dfn class="lint-ignore">conforming DID URL dereferencer</dfn> is
-          any algorithm realized as software and/or hardware that complies with
-          the relevant normative statements in
-          <a href="#did-url-dereferencing"></a>.
-        </p>
-
-        <p>
-          A <dfn class="lint-ignore">conforming DID method</dfn> is any
-          specification that complies with the relevant normative statements in
-          <a href="#methods"></a>.
+          <dfn class="lint-ignore">규범에 부합하는 DID 메소드</dfn>는
+          <a href="#methods"></a>의 관련 규범적 진술에 부합하는 모든 사양입니다.
         </p>
       </section>
     </section>

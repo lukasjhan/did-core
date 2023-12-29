@@ -765,49 +765,48 @@ fragments or external resources.
     </section>
 
     <section class="informative">
-      <h2>Terminology</h2>
+      <h2>용어</h2>
 
       <div data-include="terms.html"></div>
 
       <p>
-        In addition to the terminology above, this specification also uses
-        terminology from the [[INFRA]] specification to formally define the
-        <a href="#data-model">data model</a>. When [[INFRA]] terminology is
-        used, such as <a data-cite="INFRA#strings">string</a>,
-        <a data-cite="INFRA#ordered-set">set</a>, and
-        <a data-cite="INFRA#maps">map</a>, it is linked directly to that
-        specification.
+        이 규격은 위의 용어뿐만 아니라, <a href="#data-model">데이터 모델</a>을
+        공식적으로 정의하기 위해 [[INFRA]] 규격의 용어를 사용합니다. [[INFRA]]
+        용어가 사용될 때, 예를 들어
+        <a data-cite="INFRA#strings">문자열(string)</a>,
+        <a data-cite="INFRA#ordered-set">집합(set)</a>,
+        <a data-cite="INFRA#maps">맵(map)</a>과 같은 경우, 그것은 해당 규격에
+        직접 연결됩니다.
       </p>
     </section>
 
     <section>
-      <h2>Identifier</h2>
+      <h2>식별자</h2>
       <p>
-        This section describes the formal syntax for <a>DIDs</a> and
-        <a>DID URLs</a>. The term "generic" is used to differentiate the syntax
-        defined here from syntax defined by <em>specific</em>
-        <a>DID methods</a> in their respective specifications. The creation
-        processes, and their timing, for <a>DIDs</a> and <a>DID URLs</a> are
-        described in <a href="#method-operations"></a> and
-        <a href="#creation-of-a-did"></a>.
+        이 섹션에서는 <a>DID</a> 및 <a>DID URL</a>의 공식 구문을 설명합니다.
+        "일반"이라는 용어는 여기에 정의된 구문을 해당 사양의 <em>특정</em>
+        <a>DID 메서드</a>에 의해 정의된 구문과 구별하는 데 사용됩니다.
+        <a>DID</a> 및 <a>DID URL</a>의 생성 프로세스와 타이밍은
+        <a href="#method-operations"></a> 및 <a href="#creation-of-a-did"></a>에
+        설명되어 있습니다.
       </p>
 
       <section class="normative">
-        <h3>DID Syntax</h3>
+        <h3>DID 구문</h3>
 
         <p>
-          The generic <a>DID scheme</a> is a <a>URI</a> scheme conformant with
-          [[!RFC3986]]. The ABNF definition can be found below, which uses the
-          syntax in [[!RFC5234]] and the corresponding definitions for
-          <code>ALPHA</code> and <code>DIGIT</code>. All other rule names not
-          defined in the ABNF below are defined in [[RFC3986]]. All
-          <a>DIDs</a> MUST conform to the DID Syntax ABNF Rules.
+          일반 <a>DID 체계</a>는 [RFC3986]을 준수하는 <a>URI</a> 체계입니다.
+          ABNF 정의는 [RFC5234]의 구문과 <code>ALPHA</code> 및
+          <code>DIGIT</code>에 대한 해당 정의를 사용하는 아래에서 찾을 수
+          있습니다. 아래 ABNF에 정의되지 않은 다른 모든 규칙 이름은 [RFC3986]에
+          정의되어 있습니다. 모든 <a>DID</a>는 DID 구문 ABNF 규칙을 준수해야
+          합니다.
         </p>
 
         <table class="simple">
           <thead>
             <tr>
-              <th>The DID Syntax ABNF Rules</th>
+              <th>DID 구문 ABNF 규칙</th>
             </tr>
           </thead>
           <tbody>
@@ -828,8 +827,7 @@ pct-encoded        = "%" HEXDIG HEXDIG
         </table>
 
         <p>
-          For requirements on <a>DID methods</a> relating to the
-          <a>DID</a> syntax, see Section <a href="#method-syntax"></a>.
+          DID 구문과 관련된 <a>DID 메서드</a> 요구 사항은 섹션 <a href="#method-syntax"></a>을 참조하세요.
         </p>
       </section>
 

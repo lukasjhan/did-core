@@ -684,23 +684,23 @@ fragments or external resources.
         </p>
 
         <p>
-          <dfn id="conforming-DID-Document">규범에 부합하는 DID 문서</dfn>는 이
-          사양에서 설명된 데이터 모델의 구체적인 표현으로,
-          <a href="#data-model"></a> 및 <a href="#core-properties"></a>의 관련
-          규범적 진술에 부합하는 것입니다. 규범에 부합하는 문서의 직렬화 형식은
+          <dfn>규범에 부합하는 DID 문서</dfn>는 이 사양에서 설명된 데이터 모델의
+          구체적인 표현으로, <a href="#data-model"></a> 및
+          <a href="#core-properties"></a>의 관련 규범적 진술에 부합하는
+          것입니다. 규범에 부합하는 문서의 직렬화 형식은
           <a href="#representations"></a>에 설명된 대로 결정적이고, 양방향이며,
           손실이 없습니다.
         </p>
         <p>
-          <dfn id="conforming-producers">규범에 부합하는 생산자</dfn>는
-          <a>규범에 부합하는 DID</a> 또는 <a>규범에 부합하는 DID 문서</a>를
-          생성하고 <a href="#representations"></a>의 관련 규범적 진술에 부합하는
+          <dfn>규범에 부합하는 생산자</dfn>는 <a>규범에 부합하는 DID</a> 또는
+          <a>규범에 부합하는 DID 문서</a>를 생성하고
+          <a href="#representations"></a>의 관련 규범적 진술에 부합하는
           소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
         </p>
         <p>
-          <dfn id="conforming-consumer">규범에 부합하는 소비자</dfn>는
-          <a>규범에 부합하는 DID</a> 또는 <a>규범에 부합하는 DID 문서</a>를
-          소비하고 <a href="#representations"></a>의 관련 규범적 진술에 부합하는
+          <dfn>규범에 부합하는 소비자</dfn>는 <a>규범에 부합하는 DID</a> 또는
+          <a>규범에 부합하는 DID 문서</a>를 소비하고
+          <a href="#representations"></a>의 관련 규범적 진술에 부합하는
           소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
         </p>
         <p>
@@ -2493,10 +2493,10 @@ specification; others are defined by registered or unregistered extensions."
               <dd>
                 The value of the <code>id</code> property MUST be a
                 <a>URI</a> conforming to [[RFC3986]]. A
-                <a>conforming producer</a> MUST NOT produce multiple
+                <a>규범에 부합하는 생산자</a> MUST NOT produce multiple
                 <code>service</code> entries with the same <code>id</code>. A
-                <a>conforming consumer</a> MUST produce an error if it detects
-                multiple <code>service</code> entries with the same
+                <a>규범에 부합하는 소비자</a> MUST produce an error if it
+                detects multiple <code>service</code> entries with the same
                 <code>id</code>.
               </dd>
               <dt>type</dt>
@@ -2630,20 +2630,21 @@ specification; others are defined by registered or unregistered extensions."
         </ol>
 
         <p>
-          The requirements for all <a>conforming producers</a> are as follows:
+          The requirements for all <a>규범에 부합하는 생산자</a> are as follows:
         </p>
 
         <ol>
           <li>
-            A <a>conforming producer</a> MUST take a <a>DID document</a>
+            A <a>규범에 부합하는 생산자</a> MUST take a <a>DID document</a>
             <a href="#data-model">data model</a> and a
             <a>representation-specific entries</a>
             <a data-cite="INFRA#maps">map</a> as input into the
-            <a>production</a> process. The <a>conforming producer</a> MAY accept
-            additional options as input into the <a>production</a> process.
+            <a>production</a> process. The <a>규범에 부합하는 생산자</a> MAY
+            accept additional options as input into the
+            <a>production</a> process.
           </li>
           <li>
-            A <a>conforming producer</a> MUST serialize all entries in the
+            A <a>규범에 부합하는 생산자</a> MUST serialize all entries in the
             <a>DID document</a> <a href="#data-model">data model</a>, and the
             <a>representation-specific entries</a>
             <a data-cite="INFRA#maps">map</a>, that do not have explicit
@@ -2653,34 +2654,37 @@ specification; others are defined by registered or unregistered extensions."
             completes.
           </li>
           <li>
-            A <a>conforming producer</a> MUST return the Media Type
+            A <a>규범에 부합하는 생산자</a> MUST return the Media Type
             <a data-cite="INFRA#string">string</a> associated with the
             <a>representation</a> after the <a>production</a> process completes.
           </li>
           <li>
-            A conforming producer MUST NOT produce non-conforming <a>DIDs</a> or
-            <a>DID documents</a>.
+            A 규범에 부합하는 생산자 MUST NOT produce non-conforming
+            <a>DIDs</a> or <a>DID documents</a>.
           </li>
         </ol>
 
         <p>
-          The requirements for all <a>conforming consumers</a> are as follows:
+          The requirements for all <a>규범에 부합하는 소비자s</a> are as
+          follows:
         </p>
 
         <ol>
           <li>
-            A <a>conforming consumer</a> MUST take a <a>representation</a> and
-            Media Type <a data-cite="INFRA#string">string</a> as input into the
-            <a>consumption</a> process. A <a>conforming consumer</a> MAY accept
-            additional options as input into the <a>consumption</a> process.
+            A <a>규범에 부합하는 소비자</a> MUST take a
+            <a>representation</a> and Media Type
+            <a data-cite="INFRA#string">string</a> as input into the
+            <a>consumption</a> process. A <a>규범에 부합하는 소비자</a> MAY
+            accept additional options as input into the
+            <a>consumption</a> process.
           </li>
           <li>
-            A <a>conforming consumer</a> MUST determine the
+            A <a>규범에 부합하는 소비자</a> MUST determine the
             <a>representation</a> of a <a>DID document</a> using the Media Type
             input <a data-cite="INFRA#string">string</a>.
           </li>
           <li>
-            A <a>conforming consumer</a> MUST detect any
+            A <a>규범에 부합하는 소비자</a> MUST detect any
             <a>representation-specific entry</a> across all known
             <a>representations</a> and place the entry into a
             <a>representation-specific entries</a>
@@ -2690,7 +2694,7 @@ specification; others are defined by registered or unregistered extensions."
             Specification Registries [[?DID-SPEC-REGISTRIES]].
           </li>
           <li>
-            A <a>conforming consumer</a> MUST add all
+            A <a>규범에 부합하는 소비자</a> MUST add all
             <a>non-representation-specific entries</a> that do not have explicit
             processing rules for the <a>representation</a> being consumed to the
             <a>DID document</a> <a href="#data-model">data model</a> using only
@@ -2699,7 +2703,7 @@ specification; others are defined by registered or unregistered extensions."
             <a>consumption</a> process completes.
           </li>
           <li>
-            A conforming consumer MUST produce errors when consuming
+            A 규범에 부합하는 소비자 MUST produce errors when consuming
             non-conforming
             <a>DIDs</a> or <a>DID documents</a>.
           </li>
@@ -2926,7 +2930,7 @@ and consumed, including in JSON and JSON-LD."
           </table>
 
           <p class="advisement" title="INFRA JSON serialization rules">
-            All implementers creating <a>conforming producers</a> that produce
+            All implementers creating <a>규범에 부합하는 생산자</a> that produce
             JSON <a>representations</a> are advised to ensure that their
             algorithms are aligned with the
             <a data-cite="INFRA#serialize-an-infra-value-to-json-bytes"
@@ -2944,7 +2948,7 @@ and consumed, including in JSON and JSON-LD."
             <a data-cite="RFC8259#section-4">JSON Object</a>. Entries MAY
             contain additional data substructures subject to the value
             representation rules in the list above. When serializing a
-            <a>DID document</a>, a <a>conforming producer</a> MUST specify a
+            <a>DID document</a>, a <a>규범에 부합하는 생산자</a> MUST specify a
             media type of <code>application/did+json</code> to downstream
             applications such as described in
             <a href="#did-resolution-metadata"></a>.
@@ -3076,8 +3080,8 @@ and consumed, including in JSON and JSON-LD."
           </table>
 
           <p class="advisement">
-            All implementers creating <a>conforming consumers</a> that produce
-            JSON <a>representations</a> are advised to ensure that their
+            All implementers creating <a>규범에 부합하는 소비자s</a> that
+            produce JSON <a>representations</a> are advised to ensure that their
             algorithms are aligned with the
             <a data-cite="INFRA#parse-json-bytes-to-an-infra-value"
               >JSON conversion rules</a
@@ -3091,13 +3095,13 @@ and consumed, including in JSON and JSON-LD."
 
           <p>
             If media type information is available to a
-            <a>conforming consumer</a> and the media type value is
+            <a>규범에 부합하는 소비자</a> and the media type value is
             <code>application/did+json</code>, then the data structure being
             consumed is a <a>DID document</a>, and the root element MUST be a
             <a data-cite="RFC8259#section-4">JSON Object</a> where all members
             of the object are entries of the <a>DID document</a>. A
-            <a>conforming consumer</a> for a JSON <a>representation</a> that is
-            consuming a <a>DID document</a> with a root element that is not a
+            <a>규범에 부합하는 소비자</a> for a JSON <a>representation</a> that
+            is consuming a <a>DID document</a> with a root element that is not a
             <a data-cite="RFC8259#section-4">JSON Object</a> MUST report an
             error.
           </p>
@@ -3187,7 +3191,7 @@ and consumed, including in JSON and JSON-LD."
           >
 
           <p class="advisement" title="JSON-LD serialization rules">
-            All implementers creating <a>conforming producers</a> that produce
+            All implementers creating <a>규범에 부합하는 생산자</a> that produce
             JSON-LD <a>representations</a> are advised to ensure that their
             algorithms produce valid JSON-LD [[JSON-LD11]] documents. Invalid
             JSON-LD documents will cause JSON-LD processors to halt and report
@@ -3202,12 +3206,12 @@ and consumed, including in JSON and JSON-LD."
           </p>
 
           <p>
-            A <a>conforming producer</a> that generates a JSON-LD
+            A <a>규범에 부합하는 생산자</a> that generates a JSON-LD
             <a>representation</a> SHOULD NOT produce a <a>DID document</a> that
             contains terms not defined via the <code>@context</code> as
-            <a>conforming consumers</a> are expected to remove unknown terms.
+            <a>규범에 부합하는 소비자s</a> are expected to remove unknown terms.
             When serializing a JSON-LD <a>representation</a> of a
-            <a>DID document</a>, a <a>conforming producer</a> MUST specify a
+            <a>DID document</a>, a <a>규범에 부합하는 생산자</a> MUST specify a
             media type of <code>application/did+ld+json</code> to downstream
             applications such as described in
             <a href="#did-resolution-metadata"></a>.
@@ -3226,15 +3230,15 @@ and consumed, including in JSON and JSON-LD."
           </p>
 
           <p class="advisement" title="JSON-LD serialization rules">
-            All implementers creating <a>conforming consumers</a> that consume
-            JSON-LD <a>representations</a> are advised to ensure that their
-            algorithms only accept valid JSON-LD [[JSON-LD11]] documents.
+            All implementers creating <a>규범에 부합하는 소비자s</a> that
+            consume JSON-LD <a>representations</a> are advised to ensure that
+            their algorithms only accept valid JSON-LD [[JSON-LD11]] documents.
             Invalid JSON-LD documents will cause JSON-LD processors to halt and
             report errors.
           </p>
 
           <p>
-            <a>Conforming consumers</a> that process a JSON-LD
+            <a>규범에 부합하는 소비자s</a> that process a JSON-LD
             <a>representation</a> SHOULD drop all terms from a
             <a>DID document</a> that are not defined via the
             <code>@context</code>.
@@ -3463,7 +3467,7 @@ consumption rules."
             <a>DID document</a> abstract data model (a
             <a data-cite="INFRA#maps">map</a>) as described in
             <a href="#data-model"></a> that is capable of being transformed into
-            a <a>conforming DID Document</a> (representation), using the
+            a <a>규범에 부합하는 DID 문서</a> (representation), using the
             production rules specified by the representation. The value of
             <code><a>id</a></code> in the resolved <a>DID document</a> MUST
             match the <a>DID</a> that was resolved. If the resolution is
@@ -5214,7 +5218,7 @@ dereference(didUrl, dereferenceOptions) →
           <code><a>canonicalId</a></code> properties express equivalence
           assertions to variants of a single <a>DID</a> produced by the same
           <a>DID method</a> and can be trusted to the extent the requesting
-          party trusts the <a>DID method</a> and a conforming producer and
+          party trusts the <a>DID method</a> and a 규범에 부합하는 생산자 and
           resolver.
         </p>
         <p>

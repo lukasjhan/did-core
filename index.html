@@ -350,7 +350,7 @@
       </ul>
 
       <p>
-        이 사양 외에도, 독자들은 분산 식별자에 대한 사용 사례 및 요구 사항
+        이 사양 외에도, 독자들은 탈중앙 식별자에 대한 사용 사례 및 요구 사항
         [[DID-USE-CASES]] 문서를 유용하게 찾을 수 있을 것입니다.
       </p>
 
@@ -411,9 +411,9 @@ reads 'DID Method Specific String' below the bracket.
         <h2>Design Goals</h2>
 
         <p>
-          <a>분산 식별자</a>는 검증 가능한 크리덴셜 생태계 [[VC-DATA-MODEL]]와
+          <a>탈중앙 식별자</a>는 검증 가능한 크리덴셜 생태계 [[VC-DATA-MODEL]]와
           같은 더 큰 시스템의 구성 요소로, 이 사양의 설계 목표에 영향을
-          미쳤습니다. 분산 식별자에 대한 설계 목표는 여기에 요약되어 있습니다.
+          미쳤습니다. 탈중앙 식별자에 대한 설계 목표는 여기에 요약되어 있습니다.
         </p>
 
         <table class="simple">
@@ -506,7 +506,7 @@ reads 'DID Method Specific String' below the bracket.
         <h2>Architecture Overview</h2>
 
         <p>
-          이 섹션은 분산 식별자 구조의 주요 구성 요소에 대한 기본 개요를
+          이 섹션은 탈중앙 식별자 구조의 주요 구성 요소에 대한 기본 개요를
           제공합니다.
         </p>
 
@@ -588,7 +588,7 @@ fragments or external resources.
           </dd>
           <dt>DID 컨트롤러</dt>
           <dd>
-            <a>DID</a>의 <a>컨트롤러</a>는 <a>DID 메소드</a>에 의해 정의된
+            <a>DID 컨트롤러</a>는 <a>DID 메소드</a>에 의해 정의된
             기능으로 <a>DID 문서</a>에 변경을 가할 수 있는 개체(사람, 조직 또는
             자율 소프트웨어)입니다. 이 기능은 일반적으로 컨트롤러를 대신하여
             작동하는 소프트웨어에 의해 사용되는 암호화 키 세트의 제어를 통해
@@ -627,9 +627,9 @@ fragments or external resources.
             메커니즘입니다. <a>DID 메소드</a>는 <a href="#methods"></a>에 정의된
             별도의 DID 메소드 사양을 사용하여 정의됩니다.
           </dd>
-          <dt>DID 리졸버 및 DID 해석</dt>
+          <dt>DID 변환기 및 DID 해석</dt>
           <dd>
-            <a>DID 리졸버</a>는 <a>DID</a>를 입력으로 받아 규범을 준수하는
+            <a>DID 변환기</a>는 <a>DID</a>를 입력으로 받아 규범을 준수하는
             <a>DID 문서</a>를 출력으로 생성하는 시스템 구성요소입니다. 이 과정을
             <a>DID 해석</a>이라고 합니다. 특정 유형의 <a>DID</a>를 해석하는
             단계는 관련 <a>DID 메소드</a> 사양에 의해 정의됩니다.
@@ -704,7 +704,7 @@ fragments or external resources.
           소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
         </p>
         <p>
-          <dfn class="lint-ignore">규범에 부합하는 DID 리졸버</dfn>는
+          <dfn class="lint-ignore">규범에 부합하는 DID 변환기</dfn>는
           <a href="#did-resolution"></a>의 관련 규범적 진술에 부합하는
           소프트웨어 및/또는 하드웨어로 구현된 알고리즘입니다.
         </p>

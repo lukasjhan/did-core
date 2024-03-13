@@ -1804,21 +1804,15 @@ specification; others are defined by registered or unregistered extensions."
       </pre>
 
         <p class="note" title="검증 방법 컨트롤러 및 DID 컨트롤러">
-          The semantics of the <code>controller</code> property are the same
-          when the subject of the relationship is the <a>DID document</a> as
-          when the subject of the relationship is a <a>verification method</a>,
-          such as a cryptographic public key. Since a key can't control itself,
-          and the key controller cannot be inferred from the
-          <a>DID document</a>, it is necessary to explicitly express the
-          identity of the controller of the key. The difference is that the
-          value of <code>controller</code> for a <a>verification method</a> is
-          <em>not</em> necessarily a <a>DID controller</a>.
-          <a>DID controllers</a> are expressed using the
-          <code><a>controller</a></code> property at the highest level of the
-          <a>DID document</a> (the topmost
-          <a data-cite="INFRA#ordered-map">map</a> in the
-          <a href="#data-model">data model</a>); see
-          <a href="#did-controller"></a>.
+          <code>컨트롤러</code> 속성의 의미는 관계의 주체가 <a>DID 문서</a>일
+          때와 암호화 공개 키와 같은 검증 방법일 때 동일합니다. 키가 자기 자신을
+          제어할 수 없고 키의 컨트롤러가 <a>DID 문서</a>에서 유추될 수 없기
+          때문에, 키 컨트롤러의 정체성을 명시적으로 표현할 필요가 있습니다.
+          차이점은 검증 방법에 대한 컨트롤러의 값이 반드시 <a>DID 컨트롤러</a>일
+          필요는 없다는 것입니다. <a>DID 컨트롤러</a>는 <a>DID 문서</a>의 최상위
+          수준(<a href="#data-model">데이터 모델</a>의 최상위
+          <a data-cite="INFRA#ordered-map">map</a>)에서 컨트롤러 속성을 사용하여
+          표현됩니다; <a href="#did-controller"></a>를 참조.
         </p>
 
         <section>

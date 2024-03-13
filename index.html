@@ -1639,27 +1639,24 @@ specification; others are defined by registered or unregistered extensions."
           </p>
 
           <dl>
-            <dt><dfn>controller</dfn></dt>
+            <dt><dfn>컨트롤러</dfn></dt>
             <dd>
-              The <code>controller</code> property is OPTIONAL. If present, the
-              value MUST be a <a data-cite="INFRA#string">string</a> or a
-              <a data-cite="INFRA#ordered-set">set</a> of
-              <a data-cite="INFRA#string">strings</a> that conform to the rules
-              in <a href="#did-syntax"></a>. The corresponding
-              <a>DID document</a>(s) SHOULD contain
-              <a>verification relationships</a> that explicitly permit the use
-              of certain <a>verification methods</a> for specific purposes.
+              <code>컨트롤러</code>의 속성은 선택 사항입니다. 존재하는 경우,
+              값은 <a href="#did-syntax"></a>의 규칙을 준수하는
+              <a data-cite="INFRA#string">문자열</a> 또는
+              <a data-cite="INFRA#string">문자열</a>의
+              <a data-cite="INFRA#ordered-set">set</a>여야 합니다. 해당하는 DID
+              문서(들)은 특정 <a>검증 방법</a>을 특정 목적으로 사용할 수 있도록
+              명시적으로 허용하는 <a>검증 관계</a>를 포함해야 합니다.
             </dd>
           </dl>
 
           <p>
-            When a <code><a>controller</a></code> property is present in a
-            <a>DID document</a>, its value expresses one or more <a>DIDs</a>.
-            Any <a>verification methods</a> contained in the
-            <a>DID documents</a> for those <a>DIDs</a> SHOULD be accepted as
-            authoritative, such that proofs that satisfy those
-            <a>verification methods</a> are to be considered equivalent to
-            proofs provided by the <a>DID subject</a>.
+            <a>DID 문서</a>에 <code><a>컨트롤러</a></code> 속성이 존재하는 경우,
+            그 값은 하나 이상의 DID를 표현합니다. 그 <a>DID</a>들의
+            <a>DID 문서</a>에 포함된 모든 검증 방법은 권위 있는 것으로
+            받아들여져야 하며, 그 <a>검증 방법</a>을 만족하는 증명은
+            <a>DID 주체</a>가 제공한 증명과 동등하게 간주되어야 합니다.
           </p>
 
           <pre

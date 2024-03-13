@@ -1416,7 +1416,7 @@ specification; others are defined by registered or unregistered extensions."
                 <a href="#verification-method-properties"></a>을 준수하는
                 <a>Verification Method</a>
                 <a data-cite="INFRA#ordered-map">maps</a>의
-                <a data-cite="INFRA#ordered-set">set</a>이다.
+                <a data-cite="INFRA#ordered-set">set</a>입니다.
               </td>
             </tr>
             <tr>
@@ -1431,7 +1431,7 @@ specification; others are defined by registered or unregistered extensions."
                 <a data-cite="INFRA#ordered-set">set</a>) 또는
                 <a href="#did-url-syntax"></a>의 규칙을 준수하는
                 <a data-cite="INFRA#string">문자열</a>의
-                <a data-cite="INFRA#ordered-set">set</a>이다.
+                <a data-cite="INFRA#ordered-set">set</a>입니다.
               </td>
             </tr>
             <tr>
@@ -1467,7 +1467,7 @@ specification; others are defined by registered or unregistered extensions."
                 <a href="#service-properties"></a>의 규칙을 준수하는
                 <a>Service Endpoint</a>
                 <a data-cite="INFRA#ordered-map">maps</a>의
-                <a data-cite="INFRA#ordered-set">set</a>이다.
+                <a data-cite="INFRA#ordered-set">set</a>입니다.
               </td>
             </tr>
           </tbody>
@@ -1475,7 +1475,7 @@ specification; others are defined by registered or unregistered extensions."
       </section>
 
       <section class="notoc">
-        <h2>Verification Method 속성</h2>
+        <h2>Verification Method properties</h2>
 
         <table class="simple">
           <thead>
@@ -1490,8 +1490,8 @@ specification; others are defined by registered or unregistered extensions."
               <td><code>id</code></td>
               <td>yes</td>
               <td>
-                <a href="#did-url-syntax"></a>의 규칙을 준수하는
-                <a data-cite="INFRA#string">문자열</a>이다.
+                A <a data-cite="INFRA#string">string</a> that conforms to the
+                rules in <a href="#did-url-syntax"></a>.
               </td>
             </tr>
             <tr>
@@ -1500,14 +1500,14 @@ specification; others are defined by registered or unregistered extensions."
               </td>
               <td>yes</td>
               <td>
-                <a href="#did-syntax"></a>의 규칙을 준수하는
-                <a data-cite="INFRA#string">문자열</a>이다.
+                A <a data-cite="INFRA#string">string</a> that conforms to the
+                rules in <a href="#did-syntax"></a>.
               </td>
             </tr>
             <tr>
               <td><code>type</code></td>
               <td>yes</td>
-              <td><a data-cite="INFRA#string">문자열</a>이다.</td>
+              <td>A <a data-cite="INFRA#string">string</a>.</td>
             </tr>
             <tr>
               <td>
@@ -1515,9 +1515,10 @@ specification; others are defined by registered or unregistered extensions."
               </td>
               <td>no</td>
               <td>
-                [[RFC7517]]을 준수하는 JSON Web Key를 나타내는
-                <a data-cite="INFRA#maps">map</a>이다. 추가 제약사항은
-                <a href="#dfn-publickeyjwk">publicKeyJwk의 정의</a>를 참조.
+                A <a data-cite="INFRA#maps">map</a> representing a JSON Web Key
+                that conforms to [[RFC7517]]. See
+                <a href="#dfn-publickeyjwk">definition of publicKeyJwk</a>
+                for additional constraints.
               </td>
             </tr>
             <tr>
@@ -1526,8 +1527,8 @@ specification; others are defined by registered or unregistered extensions."
               </td>
               <td>no</td>
               <td>
-                [[?MULTIBASE]]로 인코딩된 공개키를 준수하는
-                <a data-cite="INFRA#string">문자열</a>이다.
+                A <a data-cite="INFRA#string">string</a> that conforms to a
+                [[?MULTIBASE]] encoded public key.
               </td>
             </tr>
           </tbody>
@@ -1535,7 +1536,7 @@ specification; others are defined by registered or unregistered extensions."
       </section>
 
       <section class="notoc">
-        <h3>Service 속성</h3>
+        <h3>Service properties</h3>
 
         <table class="simple">
           <thead>
@@ -1550,17 +1551,17 @@ specification; others are defined by registered or unregistered extensions."
               <td><code>id</code></td>
               <td>yes</td>
               <td>
-                [[RFC3986]]에 대한 <a>URIs</a>의 규칙을 준수하는
-                <a data-cite="INFRA#string">문자열</a>이다.
+                A <a data-cite="INFRA#string">string</a> that conforms to the
+                rules of [[RFC3986]] for <a>URIs</a>.
               </td>
             </tr>
             <tr>
               <td><code>type</code></td>
               <td>yes</td>
               <td>
-                <a data-cite="INFRA#string">문자열</a> 또는
-                <a data-cite="INFRA#string">문자열</a>의
-                <a data-cite="INFRA#ordered-set">set</a>입니다.
+                A <a data-cite="INFRA#string">string</a> or a
+                <a data-cite="INFRA#ordered-set">set</a> of
+                <a data-cite="INFRA#string">strings</a>.
               </td>
             </tr>
             <tr>
@@ -1569,13 +1570,13 @@ specification; others are defined by registered or unregistered extensions."
               </td>
               <td>yes</td>
               <td>
-                [[RFC3986]]에 대한 <a>URIs</a>의 규칙을 준수하는
-                <a data-cite="INFRA#string">문자열</a>,
-                <a data-cite="INFRA#string">map</a>, 또는 [[RFC3986]]에 대한
-                <a>URIs</a>의 규칙을 준수하는 하나 이상의
-                <a data-cite="INFRA#string">문자열</a>과 또는
-                <a data-cite="INFRA#string">map</a>으로 구성된
-                <a data-cite="INFRA#ordered-set">set</a>이다.
+                A <a data-cite="INFRA#string">string</a> that conforms to the
+                rules of [[RFC3986]] for <a>URIs</a>, a
+                <a data-cite="INFRA#string">map</a>, or a
+                <a data-cite="INFRA#ordered-set">set</a> composed of a one or
+                more <a data-cite="INFRA#string">strings</a> that conform to the
+                rules of [[RFC3986]] for <a>URIs</a> and/or
+                <a data-cite="INFRA#string">maps</a>.
               </td>
             </tr>
           </tbody>

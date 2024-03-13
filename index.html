@@ -1687,84 +1687,73 @@ specification; others are defined by registered or unregistered extensions."
           <h3>Also Known As</h3>
 
           <p>
-            A <a>DID subject</a> can have multiple identifiers for different
-            purposes, or at different times. The assertion that two or more
-            <a>DIDs</a> (or other types of <a>URI</a>) refer to the same
-            <a>DID subject</a> can be made using the
-            <code><a>alsoKnownAs</a></code> property.
+            <a>DID 주체</a>는 다양한 목적을 위해서나 서로 다른 시간에 대해 여러
+            식별자를 가질 수 있습니다. 두 개 이상의 <a>DID</a>(또는 다른 유형의
+            <a>URI</a>)가 동일한 <a>DID 주체</a>를 참조한다는 주장은
+            <code><a>alsoKnownAs</a></code> 속성을 사용하여 제기될 수 있습니다.
           </p>
 
           <dl>
             <dt><dfn>alsoKnownAs</dfn></dt>
             <dd>
-              The <code>alsoKnownAs</code> property is OPTIONAL. If present, the
-              value MUST be a <a data-cite="INFRA#ordered-set">set</a> where
-              each item in the set is a <a>URI</a> conforming to [[RFC3986]].
+              <code>alsoKnownAs</code> 속성은 선택 사항입니다. 속성이 존재하는
+              경우, 값은 [[RFC3986]]에 따른 <a>URI</a>를 준수하는
+              <a data-cite="INFRA#ordered-set">set</a>의 각 항목이어야 합니다.
             </dd>
             <dd>
-              This relationship is a statement that the subject of this
-              identifier is also identified by one or more other identifiers.
+              이 관계는 이 식별자의 주체가 하나 이상의 다른 식별자에 의해 또한
+              식별된다는 선언입니다.
             </dd>
           </dl>
 
           <div class="note" title="Equivalence and alsoKnownAs">
             <p>
-              Applications might choose to consider two identifiers related by
-              <code><a>alsoKnownAs</a></code> to be equivalent <em>if</em> the
-              <code><a>alsoKnownAs</a></code> relationship is reciprocated in
-              the reverse direction. It is best practice <em>not</em> to
-              consider them equivalent in the absence of this inverse
-              relationship. In other words, the presence of an
-              <code><a>alsoKnownAs</a></code> assertion does not prove that this
-              assertion is true. Therefore, it is strongly advised that a
-              requesting party obtain independent verification of an
-              <code>alsoKnownAs</code> assertion.
+              응용 프로그램은 <code><a>alsoKnownAs</a></code> 관계가 역방향으로
+              상호 작용할 경우 두 식별자를 등가로 간주할 수 있습니다. 이 역
+              관계가 없는 경우에는 등가로 간주하지 <em>않는</em> 것이
+              최선입니다. 즉, <code><a>alsoKnownAs</a></code> 주장의 존재가 이
+              주장이 참임을 증명하지는 않습니다. 따라서 요청하는 당사자가
+              <code>alsoKnownAs</code> 주장의 독립적인 검증을 받는 것이 강력히
+              권장됩니다.
             </p>
             <p>
-              Given that the <a>DID subject</a> might use different identifiers
-              for different purposes, an expectation of strong equivalence
-              between the two identifiers, or merging the information of the two
-              corresponding <a>DID documents</a>, is not necessarily
-              appropriate, <em>even with</em> a reciprocal relationship.
+              <a>DID 주체</a>가 다양한 목적을 위해 다른 식별자를 사용할 수 있기
+              때문에, 두 식별자 간의 강력한 등가성 기대나 해당하는 두
+              <a>DID 문서</a>의 정보를 병합하는 것은 상호 관계가
+              <em>있더라도</em> 반드시 적절하지는 않습니다.
             </p>
           </div>
         </section>
       </section>
 
       <section>
-        <h2 id="verification-methods">확인 방법</h2>
+        <h2 id="verification-methods">검증 방법(Verification Method)</h2>
         <p>
-          A <a>DID document</a> can express <a>verification methods</a>, such as
-          cryptographic public keys, which can be used to <a>authenticate</a> or
-          authorize interactions with the <a>DID subject</a> or associated
-          parties. For example, a cryptographic public key can be used as a
-          <a>verification method</a> with respect to a digital signature; in
-          such usage, it verifies that the signer could use the associated
-          cryptographic private key. <a>Verification methods</a>
-          might take many parameters. An example of this is a set of five
-          cryptographic keys from which any three are required to contribute to
-          a cryptographic threshold signature.
+          <a>DID 문서</a>는 암호화 공개 키와 같은 <a>검증 방법</a>을 표현할 수
+          있으며, 이는 <a>DID 주체</a> 또는 관련 당사자와의 상호 작용을
+          <a>인증</a>하거나 인가하는 데 사용될 수 있습니다. 예를 들어, 암호화
+          공개 키는 디지털 서명과 관련하여 <a>검증 방법</a>으로 사용될 수
+          있으며, 이 경우 서명자가 관련 암호화 개인 키를 사용할 수 있음을
+          검증합니다. <a>검증 방법</a>은 많은 매개변수를 가질 수 있습니다. 이의
+          예는 암호화 임계값 서명에 기여해야 하는 다섯 개의 암호화 키 중에서
+          어느 세 개가 필요한 세트입니다.
         </p>
 
         <dl>
           <dt><dfn>verificationMethod</dfn></dt>
           <dd>
             <p>
-              The <code>verificationMethod</code> property is OPTIONAL. If
-              present, the value MUST be a
-              <a data-cite="INFRA#ordered-set">set</a> of
-              <a>verification methods</a>, where each
-              <a>verification method</a> is expressed using a
-              <a data-cite="INFRA#ordered-map">map</a>. The
-              <a>verification method</a>
-              <a data-cite="INFRA#ordered-map">map</a> MUST include the
-              <code>id</code>, <code>type</code>, <code>controller</code>, and
-              specific verification material properties that are determined by
-              the value of <code>type</code> and are defined in
-              <a href="#verification-material"></a>. A
-              <a>verification method</a> MAY include additional properties.
-              <a>Verification methods</a> SHOULD be registered in the DID
-              Specification Registries [[?DID-SPEC-REGISTRIES]].
+              <code>verificationMethod</code> 속성은 선택 사항입니다. 속성이
+              존재하는 경우, 값은 <a data-cite="INFRA#ordered-map">map</a>을
+              사용하여 표현된 <a>검증 방법</a>의
+              <a data-cite="INFRA#ordered-set">set</a>여야 합니다. 검증 방법
+              <a data-cite="INFRA#ordered-map">map</a>에는 <code>id</code>,
+              <code>type</code>, <code>controller</code> 및 <code>type</code>의
+              값에 따라 결정되고 <a href="#verification-material"></a>에서
+              정의된 특정 검증 재료 속성이 포함되어야 합니다.
+              <a>검증 방법</a>에는 추가 속성이 포함될 수 있습니다.
+              <a>검증 방법</a>은 DID 규격 레지스트리 [[DID-SPEC-REGISTRIES]]에
+              등록되어야 합니다.
             </p>
 
             <dl>

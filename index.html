@@ -1671,16 +1671,15 @@ specification; others are defined by registered or unregistered extensions."
         </pre
           >
 
-          <p class="note" title="Authorization vs authentication">
-            Note that authorization provided by the value of
-            <code>controller</code> is separate from authentication as described
-            in <a href="#authentication"></a>. This is particularly important
-            for key recovery in the case of cryptographic key loss, where the
-            <a>DID subject</a> no longer has access to their keys, or key
-            compromise, where the <a>DID controller</a>'s trusted third parties
-            need to override malicious activity by an attacker. See
-            <a href="#security-considerations"></a> for information related to
-            threat models and attack vectors.
+          <p class="note" title="인가 대 인증(Authorization vs authentication)">
+            <code>컨트롤러</code>의 값에 의해 제공되는 승인은
+            <a href="#authentication"></a>에서 설명하는 인증과 별개입니다. 이는
+            특히 암호화 키 손실의 경우 키 복구에 중요합니다. 여기서
+            <a>DID 주체</a>는 더 이상 자신의 키에 접근할 수 없거나, 키 타협의
+            경우, <a>DID 컨트롤러</a>의 신뢰할 수 있는 제3자가 공격자에 의한
+            악의적인 활동을 무효화할 필요가 있습니다. 위협 모델 및 공격 벡터와
+            관련된 정보는 <a href="#security-considerations"></a>을
+            참조하십시오.
           </p>
         </section>
 

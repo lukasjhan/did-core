@@ -1316,21 +1316,19 @@ specification; others are defined by registered or unregistered extensions."
         <p>데이터 모델은 두 가지 유형의 확장성을 지원한다.</p>
         <ol>
           <li>
-            For maximum interoperability, it is RECOMMENDED that extensions use
-            the W3C DID Specification Registries mechanism
-            [[?DID-SPEC-REGISTRIES]]. The use of this mechanism for new
-            properties or other extensions is the only specified mechanism that
-            ensures that two different <a>representations</a> will be able to
-            work together.
+            최대한의 상호 운용성을 위해, 확장 프로그램은 W3C DID 규격 레지스트리
+            메커니즘 [[?DID-SPEC-REGISTRIES]]을 사용해야 한다. 새로운 속성이나
+            다른 확장 프로그램의 경우, 이 메커니즘을 사용하는 것은 두 가지 다른
+            <a>표현</a>이 함께 작동할 수 있음을 보장하는 유일한 지정된
+            메커니즘이며, 대표는 DID 규격 레지스트리의 사용을 요구하지 않는
+            포함하되 이에 국한되지 않은 다른 확장성 메커니즘을 정의할 수 있다.
           </li>
           <li>
-            <a>Representations</a> MAY define other extensibility mechanisms,
-            including ones that do not require the use of the DID Specification
-            Registries. Such extension mechanisms SHOULD support lossless
-            conversion into any other conformant <a>representation</a>.
-            Extension mechanisms for a <a>representation</a> SHOULD define a
-            mapping of all properties and <a>representation</a> syntax into the
-            <a href="#data-model">data model</a> and its type system.
+            이러한 확장 메커니즘은 다른 모든 준수하는 <a>표현</a>으로의 손실
+            없는 변환을 지원할 수도 있다. <a>표현</a>을 위한 확장 메커니즘은
+            모든 속성과 <a>표현</a> 문법을
+            <a href="#data-model">데이터 모델</a>과 그 유형 시스템으로의 매핑을
+            정의해야 한다.
           </li>
         </ol>
         <p class="note" title="Unregistered extensions are less reliable">

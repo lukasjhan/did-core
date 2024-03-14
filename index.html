@@ -2108,31 +2108,26 @@ specification; others are defined by registered or unregistered extensions."
           <h2>Assertion</h2>
 
           <p>
-            The <code>assertionMethod</code> <a>verification relationship</a> is
-            used to specify how the <a>DID subject</a> is expected to express
-            claims, such as for the purposes of issuing a Verifiable Credential
-            [[?VC-DATA-MODEL]].
+            <code>assertionMethod</code> <a>검증 관계</a>는 검증 가능한 크리덴셜
+            [[?VC-DATA-MODEL]]을 발행하는 목적과 같이 <a>DID 주체</a>가 어떻게
+            클레임을 표현할 것으로 예상되는지 명시하는 데 사용된다.
           </p>
-
           <dl>
             <dt><dfn>assertionMethod</dfn></dt>
             <dd>
-              The <code>assertionMethod</code> property is OPTIONAL. If present,
-              the associated value MUST be a
-              <a data-cite="INFRA#ordered-set">set</a> of one or more
-              <a>verification methods</a>. Each <a>verification method</a> MAY
-              be embedded or referenced.
+              <code>assertionMethod</code> 속성은 선택 사항이다. 존재하는 경우,
+              관련된 값은 하나 이상의 <a>검증 방법</a>의
+              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
+              <a>검증 방법</a>은 내장되거나 참조될 수 있다.
             </dd>
           </dl>
-
           <p>
-            This property is useful, for example, during the processing of a
-            <a>verifiable credential</a> by a verifier. During verification, a
-            verifier checks to see if a <a>verifiable credential</a> contains a
-            proof created by the <a>DID subject</a> by checking that the
-            <a>verification method</a> used to assert the proof is associated
-            with the <code><a>assertionMethod</a></code> property in the
-            corresponding <a>DID document</a>.
+            이 속성은 예를 들어, 검증자가 <a>검증 가능한 크리덴셜</a>을 처리하는
+            동안 유용하다. 검증 중에 검증자는 <a>검증 가능한 크리덴셜</a>에
+            증명을 어설션하는 데 사용된 <a>검증 방법</a>이 해당
+            <a>DID 문서</a>의 <code><a>assertionMethod</a></code> 속성과
+            연결되어 있는지 확인함으로써 <a>DID 주체</a>가 생성한 증명이
+            포함되어 있는지 확인한다.
           </p>
 
           <pre

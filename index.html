@@ -1816,95 +1816,94 @@ specification; others are defined by registered or unregistered extensions."
         </p>
 
         <section>
-          <h3>Verification Material</h3>
+          <h3>검증 자료</h3>
 
           <p>
-            Verification material is any information that is used by a process
-            that applies a <a>verification method</a>. The <code>type</code> of
-            a <a>verification method</a> is expected to be used to determine its
-            compatibility with such processes. Examples of verification material
-            properties are <code><a>publicKeyJwk</a></code> or
-            <code><a>publicKeyMultibase</a></code
-            >. A <a>cryptographic suite</a> specification is responsible for
-            specifying the <a>verification method</a> <code>type</code> and its
-            associated verification material. For example, see
+            검증 자료는 <a>검증 방법</a>을 적용하는 프로세스에서 사용되는 모든
+            정보를 말한다. <a>검증 방법</a>의 <code>type</code>은 해당
+            프로세스와의 호환성을 결정하는 데 사용될 것으로 예상된다. 검증 자료
+            속성의 예로는 <code><a>publicKeyJwk</a></code
+            >나 <code><a>publicKeyMultibase</a></code
+            >가 있다. <a>암호화 스위트</a> 규격은 <a>검증 방법</a>의
+            <code>type</code>과 관련 검증 자료를 지정할 책임이 있다. 예를 들어,
             <a href="https://w3c-ccg.github.io/lds-jws2020/"
               >JSON Web Signature 2020</a
-            >
-            and
+            >과
             <a href="https://w3c-ccg.github.io/lds-ed25519-2020/"
               >Ed25519 Signature 2020</a
-            >. For all registered <a>verification method</a> types and
-            associated verification material available for <a>DIDs</a>, please
-            see the DID Specification Registries [[?DID-SPEC-REGISTRIES]].
+            >을 참조하라. <a>DID</a>에 사용 가능한 모든 등록된
+            <a>검증 방법</a> 유형과 관련 검증 자료는 DID 규격 레지스트리
+            [[?DID-SPEC-REGISTRIES]]를 참조하라.
           </p>
 
           <p>
-            To increase the likelihood of interoperable implementations, this
-            specification limits the number of formats for expressing
-            verification material in a <a>DID document</a>. The fewer formats
-            that implementers have to implement, the more likely it will be that
-            they will support all of them. This approach attempts to strike a
-            delicate balance between ease of implementation and supporting
-            formats that have historically had broad deployment. Two supported
-            verification material properties are listed below:
+            상호 운용 가능한 구현의 가능성을 높이기 위해, 이 규격은
+            <a>DID 문서</a>에서 검증 자료를 표현하기 위한 형식의 수를 제한한다.
+            구현자들이 구현해야 할 형식이 적을수록 모든 형식을 지원할 가능성이
+            높아진다. 이 접근 방식은 구현의 용이성과 역사적으로 널리 배포되어 온
+            형식을 지원하는 것 사이에서 미묘한 균형을 맞추려고 시도한다.
+            지원되는 두 가지 검증 자료 속성은 다음과 같다:
           </p>
 
           <dl>
             <dt><dfn>publicKeyJwk</dfn></dt>
             <dd>
               <p>
-                The <code>publicKeyJwk</code> property is OPTIONAL. If present,
-                the value MUST be a
-                <a data-cite="INFRA#ordered-map">map</a> representing a JSON Web
-                Key that conforms to [[RFC7517]]. The
-                <a data-cite="INFRA#ordered-map">map</a> MUST NOT contain "d",
-                or any other members of the private information class as
-                described in
+                <code>publicKeyJwk</code> 속성은 선택 사항이다. 존재하는 경우,
+                그 값은 [[RFC7517]]을 준수하는 JSON Web Key를 나타내는
+                <a data-cite="INFRA#ordered-map">맵</a>이어야 한다. 이
+                <a data-cite="INFRA#ordered-map">맵</a>은 "d"나
                 <a href="https://tools.ietf.org/html/rfc7517#section-8.1.1"
-                  >Registration Template</a
-                >. It is RECOMMENDED that verification methods that use JWKs
-                [[RFC7517]] to represent their public keys use the value of
-                <code>kid</code> as their
-                <a href="#fragment">fragment identifier</a>. It is RECOMMENDED
-                that JWK <code>kid</code> values are set to the public key
-                fingerprint [[RFC7638]]. See the first key in
-                <a href="#example-various-verification-method-types"></a> for an
-                example of a public key with a compound key identifier.
+                  >등록 템플릿</a
+                >에 설명된 비공개 정보 클래스의 다른 멤버를 포함해서는 안 된다.
+                JWK [[RFC7517]]를 사용하여 공개 키를 표현하는 검증 방법은
+                <code>kid</code>의 값을
+                <a href="#fragment">프래그먼트 식별자</a>로 사용하는 것이
+                권장된다. JWK <code>kid</code> 값은 공개 키 지문 [[RFC7638]]으로
+                설정하는 것이 권장된다. 복합 키 식별자를 가진 공개 키의 예시는
+                <a href="#example-various-verification-method-types"></a>의 첫
+                번째 키를 참조하라.
               </p>
             </dd>
             <dt><dfn>publicKeyMultibase</dfn></dt>
             <dd>
               <p>
-                The <code>publicKeyMultibase</code> property is OPTIONAL. This
-                feature is non-normative. If present, the value MUST be a
-                <a data-cite="INFRA#string">string</a> representation of a
-                [[?MULTIBASE]] encoded public key.
+                <code>publicKeyMultibase</code> 속성은 선택 사항이다. 이 기능은
+                비규범적이다. 존재하는 경우, 그 값은 [[?MULTIBASE]]로 인코딩된
+                공개 키의 <a data-cite="INFRA#string">문자열</a> 표현이어야
+                한다.
               </p>
               <p class="advisement">
-                Note that the [[?MULTIBASE]] specification is not yet a standard
-                and is subject to change. There might be some use cases for this
-                data format where <code><b>public</b>KeyMultibase</code> is
-                defined, to allow for expression of public keys, but
-                <code><b>private</b>KeyMultibase</code>
-                is not defined, to protect against accidental leakage of secret
-                keys.
+                [[?MULTIBASE]] 규격은 아직 표준이 아니며 변경될 수 있다는 점에
+                유의하라. 공개 키를 표현할 수 있도록
+                <code><b>public</b>KeyMultibase</code>가 정의되지만, 비밀 키의
+                우발적 누출을 방지하기 위해
+                <code><b>private</b>KeyMultibase</code>는 정의되지 않는 경우와
+                같이 이 데이터 형식에 대한 일부 사용 사례가 있을 수 있다.
               </p>
             </dd>
           </dl>
 
           <p>
-            A <a>verification method</a> MUST NOT contain multiple verification
-            material properties for the same material. For example, expressing
-            key material in a <a>verification method</a> using both
-            <code>publicKeyJwk</code> and <code>publicKeyMultibase</code> at the
-            same time is prohibited.
+            <a>검증 방법</a>은 동일한 자료에 대해 여러 검증 자료 속성을
+            포함해서는 안 된다. 예를 들어, <a>검증 방법</a>에서
+            <code>publicKeyJwk</code>와 <code>publicKeyMultibase</code>를 동시에
+            사용하여 키 자료를 표현하는 것은 금지된다.
+          </p>
+          <p>
+            위의 두 속성을 모두 사용하는 <a>검증 방법</a>을 포함하는
+            <a>DID 문서</a>의 예는 아래와 같다.
           </p>
 
           <p>
-            An example of a <a>DID document</a> containing
-            <a>verification methods</a> using both properties above is shown
-            below.
+            <a>검증 방법</a>은 동일한 자료에 대해 여러 검증 자료 속성을
+            포함해서는 안 된다. 예를 들어, <a>검증 방법</a>에서
+            <code>publicKeyJwk</code>와 <code>publicKeyMultibase</code>를 동시에
+            사용하여 키 자료를 표현하는 것은 금지된다.
+          </p>
+          <p>
+            위의 두 속성을 모두 사용하는 <a>검증 방법</a>을 포함하는
+            <a>DID 문서</a>의 예는 아래와 같다.
           </p>
 
           <pre
@@ -1942,29 +1941,23 @@ specification; others are defined by registered or unregistered extensions."
         </section>
 
         <section>
-          <h3>Referring to Verification Methods</h3>
+          <h3>검증 방법 참조</h3>
           <p>
-            <a>Verification methods</a> can be embedded in or referenced from
-            properties associated with various
-            <a>verification relationships</a> as described in
-            <a href="#verification-relationships"></a>. Referencing
-            <a>verification methods</a> allows them to be used by more than one
-            <a>verification relationship</a>.
+            <a>검증 방법</a>은 <a href="#verification-relationships"></a>에
+            설명된 대로 다양한 <a>검증 관계</a>와 관련된 속성에 내장되거나
+            참조될 수 있다. <a>검증 방법</a>을 참조하면 둘 이상의
+            <a>검증 관계</a>에서 사용될 수 있다.
           </p>
-
           <p>
-            If the value of a <a>verification method</a> property is a
-            <a data-cite="INFRA#ordered-map">map</a>, the
-            <a>verification method</a> has been embedded and its properties can
-            be accessed directly. However, if the value is a URL
-            <a data-cite="INFRA#string">string</a>, the
-            <a>verification method</a> has been included by reference and its
-            properties will need to be retrieved from elsewhere in the
-            <a>DID document</a> or from another <a>DID document</a>. This is
-            done by dereferencing the URL and searching the resulting
-            <a>resource</a> for a <a>verification method</a>
-            <a data-cite="INFRA#ordered-map">map</a> with an
-            <code>id</code> property whose value matches the URL.
+            <a>검증 방법</a> 속성의 값이
+            <a data-cite="INFRA#ordered-map">맵</a>인 경우, <a>검증 방법</a>은
+            내장된 것이며 해당 속성에 직접 액세스할 수 있다. 그러나 값이 URL
+            <a data-cite="INFRA#string">문자열</a>인 경우, <a>검증 방법</a>은
+            참조에 의해 포함된 것이며 해당 속성은 <a>DID 문서</a>의 다른 곳이나
+            다른 <a>DID 문서</a>에서 검색되어야 한다. 이는 URL을 역참조하고 결과
+            <a>리소스</a>에서 값이 URL과 일치하는 <code>id</code> 속성을 가진
+            <a>검증 방법</a> <a data-cite="INFRA#ordered-map">맵</a>을 검색하여
+            수행된다.
           </p>
 
           <pre
@@ -1994,67 +1987,58 @@ specification; others are defined by registered or unregistered extensions."
       </section>
 
       <section>
-        <h2>Verification Relationships</h2>
+        <h2>검증 관계</h2>
 
         <p>
-          A <a>verification relationship</a> expresses the relationship between
-          the <a>DID subject</a> and a <a>verification method</a>.
+          <a>검증 관계</a>는 <a>DID 주체</a>와 <a>검증 방법</a> 사이의 관계를
+          표현한다.
         </p>
         <p>
-          Different <a>verification relationships</a> enable the associated
-          <a>verification methods</a> to be used for different purposes. It is
-          up to a <em>verifier</em> to ascertain the validity of a verification
-          attempt by checking that the <a>verification method</a> used is
-          contained in the appropriate <a>verification relationship</a> property
-          of the <a>DID Document</a>.
+          서로 다른 <a>검증 관계</a>는 관련된 <a>검증 방법</a>이 다른 목적으로
+          사용될 수 있게 한다. 사용된 <a>검증 방법</a>이 <a>DID 문서</a>의
+          적절한 <a>검증 관계</a> 속성에 포함되어 있는지 확인함으로써 검증
+          시도의 유효성을 확인하는 것은 <em>검증자</em>의 몫이다.
         </p>
         <p>
-          The <a>verification relationship</a> between the
-          <a>DID subject</a> and the <a>verification method</a> is explicit in
-          the <a>DID document</a>. <a>Verification methods</a> that are not
-          associated with a particular <a>verification relationship</a> cannot
-          be used for that <a>verification relationship</a>. For example, a
-          <a>verification method</a> in the value of the
-          <code><a>authentication</a></code> property cannot be used to engage
-          in key agreement protocols with the <a>DID subject</a>&mdash;the value
-          of the <code><a>keyAgreement</a></code> property needs to be used for
-          that.
+          <a>DID 주체</a>와 <a>검증 방법</a> 사이의 <a>검증 관계</a>는
+          <a>DID 문서</a>에 명시되어 있다. 특정 <a>검증 관계</a>와 관련되지 않은
+          <a>검증 방법</a>은 해당 <a>검증 관계</a>에 사용될 수 없다. 예를 들어,
+          <code><a>authentication</a></code> 속성의 값에 있는 <a>검증 방법</a>은
+          <a>DID 주체</a>와 키 교환 프로토콜에 참여하는 데 사용될 수 없다. 이를
+          위해서는 <code><a>keyAgreement</a></code> 속성의 값이 사용되어야 한다.
         </p>
         <p>
-          The <a>DID document</a> does not express revoked keys using a
-          <a>verification relationship</a>. If a referenced verification method
-          is not in the latest <a>DID Document</a> used to dereference it, then
-          that verification method is considered invalid or revoked. Each
-          <a>DID method</a> specification is expected to detail how revocation
-          is performed and tracked.
+          <a>DID 문서</a>는 <a>검증 관계</a>를 사용하여 폐기된 키를 표현하지
+          않는다. 참조된 검증 방법이 역참조에 사용된 최신 <a>DID 문서</a>에 없는
+          경우, 해당 검증 방법은 유효하지 않거나 폐기된 것으로 간주된다. 각
+          <a>DID 메소드</a> 규격은 폐기가 어떻게 수행되고 추적되는지 상세히
+          설명해야 한다.
         </p>
         <p>
-          The following sections define several useful
-          <a>verification relationships</a>. A <a>DID document</a> MAY include
-          any of these, or other properties, to express a specific
-          <a>verification relationship</a>. In order to maximize global
-          interoperability, any such properties used SHOULD be registered in the
-          DID Specification Registries [[?DID-SPEC-REGISTRIES]].
+          다음 섹션에서는 몇 가지 유용한 <a>검증 관계</a>를 정의한다.
+          <a>DID 문서</a>는 특정 <a>검증 관계</a>를 표현하기 위해 이들 중 어느
+          것이든 또는 다른 속성들을 포함할 수 있다. 전 세계적인 상호 운용성을
+          극대화하기 위해, 사용되는 그러한 모든 속성은 DID 규격 레지스트리
+          [[?DID-SPEC-REGISTRIES]]에 등록되어야 한다.
         </p>
 
         <section>
-          <h2>Authentication</h2>
+          <h2>인증</h2>
 
           <p>
-            The <code>authentication</code> <a>verification relationship</a> is
-            used to specify how the <a>DID subject</a> is expected to be
-            <a>authenticated</a>, for purposes such as logging into a website or
-            engaging in any sort of challenge-response protocol.
+            <code>authentication</code> <a>검증 관계</a>는 웹사이트 로그인이나
+            모든 종류의 챌린지-응답 프로토콜 참여와 같은 목적으로
+            <a>DID 주체</a>가 어떻게 <a>인증</a>될 것으로 예상되는지 명시하는 데
+            사용된다.
           </p>
 
           <dl>
             <dt><dfn>authentication</dfn></dt>
             <dd>
-              The <code>authentication</code> property is OPTIONAL. If present,
-              the associated value MUST be a
-              <a data-cite="INFRA#ordered-set">set</a> of one or more
-              <a>verification methods</a>. Each <a>verification method</a> MAY
-              be embedded or referenced.
+              <code>authentication</code> 속성은 선택 사항이다. 존재하는 경우,
+              관련된 값은 하나 이상의 <a>검증 방법</a>의
+              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
+              <a>검증 방법</a>은 내장되거나 참조될 수 있다.
             </dd>
           </dl>
 
@@ -2088,41 +2072,35 @@ specification; others are defined by registered or unregistered extensions."
         </pre>
 
           <p>
-            If authentication is established, it is up to the
-            <a>DID method</a> or other application to decide what to do with
-            that information. A particular <a>DID method</a> could decide that
-            authenticating as a <a>DID controller</a> is sufficient to, for
-            example, update or delete the <a>DID document</a>. Another
-            <a>DID method</a> could require different keys, or a different
-            <a>verification method</a> entirely, to be presented in order to
-            update or delete the <a>DID document</a> than that used to
-            <a>authenticate</a>. In other words, what is done <em>after</em> the
-            authentication check is out of scope for the
-            <a href="#data-model">data model</a>; <a>DID methods</a> and
-            applications are expected to define this themselves.
+            인증이 확립되면, 해당 정보를 어떻게 처리할 것인지는
+            <a>DID 메소드</a> 또는 다른 애플리케이션에 달려 있다. 특정
+            <a>DID 메소드</a>는 <a>DID 컨트롤러</a>로 인증하는 것이 예를 들어
+            <a>DID 문서</a>를 업데이트하거나 삭제하기에 충분하다고 결정할 수
+            있다. 다른 <a>DID 메소드</a>는 <a>DID 문서</a>를 업데이트하거나
+            삭제하기 위해 <a>인증</a>에 사용된 것과는 다른 키 또는 완전히 다른
+            <a>검증 방법</a>이 제시되어야 할 수 있다. 즉, 인증 확인
+            <em>이후</em>에 수행되는 작업은
+            <a href="#data-model">데이터 모델</a>의 범위를 벗어난다;
+            <a>DID 메소드</a>와 애플리케이션은 이를 스스로 정의해야 한다.
           </p>
           <p>
-            This is useful to any <em>authentication verifier</em> that needs to
-            check to see if an entity that is attempting to
-            <a>authenticate</a> is, in fact, presenting a valid proof of
-            authentication. When a <em>verifier</em> receives some data (in some
-            protocol-specific format) that contains a proof that was made for
-            the purpose of "authentication", and that says that an entity is
-            identified by the <a>DID</a>, then that <em>verifier</em> checks to
-            ensure that the proof can be verified using a
-            <a>verification method</a> (e.g., public key) listed under
-            <code><a>authentication</a></code> in the <a>DID Document</a>.
+            이는 <a>인증</a>을 시도하는 엔티티가 실제로 유효한 인증 증명을
+            제시하고 있는지 확인할 필요가 있는 모든 <em>인증 검증자</em>에게
+            유용하다. <em>검증자</em>가 "인증"의 목적으로 만들어진 증명을
+            포함하고 엔티티가 <a>DID</a>에 의해 식별된다고 말하는 (일부
+            프로토콜별 형식의) 일부 데이터를 수신하면, 해당 <em>검증자</em>는
+            <a>DID 문서</a>의 <code><a>authentication</a></code> 아래에 나열된
+            <a>검증 방법</a>(예: 공개 키)을 사용하여 증명을 검증할 수 있는지
+            확인한다.
           </p>
           <p>
-            Note that the <a>verification method</a> indicated by the
-            <code><a>authentication</a></code> property of a
-            <a>DID document</a> can only be used to <a>authenticate</a> the
-            <a>DID subject</a>. To <a>authenticate</a> a different
-            <a>DID controller</a>, the entity associated with the value of
-            <code>controller</code>, as defined in
-            <a href="#did-controller"></a>, needs to <a>authenticate</a> with
-            its <em>own</em> <a>DID document</a> and associated
-            <code><a>authentication</a></code> <a>verification relationship</a>.
+            <a>DID 문서</a>의 <code><a>authentication</a></code> 속성에 의해
+            표시된 <a>검증 방법</a>은 <a>DID 주체</a>를 <a>인증</a>하는 데만
+            사용될 수 있음에 유의하라. 다른 <a>DID 컨트롤러</a>를
+            <a>인증</a>하려면 <a href="#did-controller"></a>에 정의된 대로
+            <code>controller</code> 값과 관련된 엔티티가 <em>자신의</em>
+            <a>DID 문서</a> 및 관련 <code><a>authentication</a></code>
+            <a>검증 관계</a>로 <a>인증</a>해야 한다.
           </p>
         </section>
 

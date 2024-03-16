@@ -1639,7 +1639,7 @@ specification; others are defined by registered or unregistered extensions."
           </p>
 
           <dl>
-            <dt><dfn>controller</dfn></dt>
+            <dt><dfn data-lt="컨트롤러|controller">controller</dfn></dt>
             <dd>
               <code>controller</code>의 속성은 선택 사항입니다. 존재하는 경우,
               값은 <a href="#did-syntax"></a>의 규칙을 준수하는
@@ -1672,7 +1672,7 @@ specification; others are defined by registered or unregistered extensions."
           >
 
           <p class="note" title="인가 대 인증(Authorization vs authentication)">
-            <code>컨트롤러</code>의 값에 의해 제공되는 승인은
+            <code>controller</code>의 값에 의해 제공되는 승인은
             <a href="#authentication"></a>에서 설명하는 인증과 별개입니다. 이는
             특히 암호화 키 손실의 경우 키 복구에 중요하다. 여기서
             <a>DID 주체</a>는 더 이상 자신의 키에 접근할 수 없거나, 키 타협의
@@ -1804,7 +1804,7 @@ specification; others are defined by registered or unregistered extensions."
       </pre>
 
         <p class="note" title="검증 방법 컨트롤러 및 DID 컨트롤러">
-          <code>컨트롤러</code> 속성의 의미는 관계의 주체가 <a>DID 문서</a>일
+          <code>controller</code> 속성의 의미는 관계의 주체가 <a>DID 문서</a>일
           때와 암호화 공개 키와 같은 검증 방법일 때 동일합니다. 키가 자기 자신을
           제어할 수 없고 키의 컨트롤러가 <a>DID 문서</a>에서 유추될 수 없기
           때문에, 키 컨트롤러의 정체성을 명시적으로 표현할 필요가 있습니다.

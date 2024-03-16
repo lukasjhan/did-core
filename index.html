@@ -4322,652 +4322,509 @@ dereference(didUrl, dereferenceOptions) →
       </section>
 
       <section>
-        <h2>Verification Method Rotation</h2>
-
+        <h2>검증 메서드 교체</h2>
         <p>
-          Rotation is a management process that enables the secret cryptographic
-          material associated with an existing <a>verification method</a> to be
-          deactivated or destroyed once a new <a>verification method</a> has
-          been added to the <a>DID document</a>. Going forward, any new proofs
-          that a <a>controller</a> would have generated using the old secret
-          cryptographic material can now instead be generated using the new
-          cryptographic material and can be verified using the new
-          <a>verification method</a>.
+          교체는 새로운 <a>검증 메서드</a>가 <a>DID 문서</a>에 추가되면 기존
+          <a>검증 메서드</a>와 연결된 비밀 암호화 자료를 비활성화하거나 파기할
+          수 있게 해주는 관리 프로세스이다. 앞으로 <a>컨트롤러</a>가 이전 비밀
+          암호화 자료를 사용하여 생성했을 새로운 증명은 이제 새로운 암호화
+          자료를 사용하여 생성될 수 있으며 새로운 <a>검증 메서드</a>를 사용하여
+          검증될 수 있다.
         </p>
-
         <p>
-          Rotation is a useful mechanism for protecting against verification
-          method compromise, since frequent rotation of a verification method by
-          the controller reduces the value of a single compromised verification
-          method to an attacker. Performing revocation immediately after
-          rotation is useful for verification methods that a controller
-          designates for short-lived verifications, such as those involved in
-          encrypting messages and authentication.
+          교체는 컨트롤러에 의한 검증 메서드의 빈번한 교체가 공격자에게 단일
+          손상된 검증 메서드의 가치를 줄이기 때문에 검증 메서드 손상으로부터
+          보호하는 데 유용한 메커니즘이다. 교체 직후 즉시 폐기하는 것은 메시지
+          암호화 및 인증과 관련된 것과 같이 컨트롤러가 단기 검증을 위해 지정한
+          검증 메서드에 유용하다.
         </p>
-
         <p>
-          The following considerations might be of use when contemplating the
-          use of
-          <a>verification method</a> rotation:
+          <a>검증 메서드</a> 교체 사용을 고려할 때 다음 사항이 유용할 수 있다:
         </p>
-
         <ul>
+          <li><a>검증 메서드</a> 교체는 선제적인 보안 조치이다.</li>
           <li>
-            <a>Verification method</a> rotation is a proactive security measure.
+            일반적으로 <a>검증 메서드</a> 교체를 정기적으로 수행하는 것이 좋은
+            방법으로 간주된다.
           </li>
           <li>
-            It is generally considered a best practice to perform
-            <a>verification method</a>
-            rotation on a regular basis.
+            보안이 더 높은 환경에서는 검증 메서드 교체를 더 자주 수행하는 경향이
+            있다.
           </li>
           <li>
-            Higher security environments tend to employ more frequent
-            verification method rotation.
+            <a>검증 메서드</a> 교체는 <a>DID 문서</a>의 현재 또는 최신 버전에
+            대한 변경으로만 나타난다.
           </li>
           <li>
-            <a>Verification method</a> rotation manifests only as changes to the
-            current or latest version of a <a>DID document</a>.
+            <a>검증 메서드</a>가 오랫동안 활성화되었거나 많은 작업에 사용된
+            경우, 컨트롤러는 교체를 수행하기를 원할 수 있다.
           </li>
           <li>
-            When a <a>verification method</a> has been active for a long time,
-            or used for many operations, a controller might wish to perform a
-            rotation.
+            <a>검증 메서드</a>의 빈번한 교체는 관련 자격 증명을 지속적으로
+            갱신하거나 새로 고쳐야 하는 당사자에게 짜증이 날 수 있다.
           </li>
           <li>
-            Frequent rotation of a <a>verification method</a> might be
-            frustrating for parties that are forced to continuously renew or
-            refresh associated credentials.
+            <a>DID 문서</a>의 최신 버전에 없는 <a>검증 메서드</a>에 의존하는
+            증명이나 서명은 교체의 영향을 받지 않는다. 이러한 경우 검증
+            소프트웨어는 특정 <a>검증 메서드</a>가 유효할 것으로 예상되는 시기와
+            증명 또는 서명의 유효성을 결정하기 위한 기록 기록을 포함하는
+            <a>검증 가능한 데이터 레지스트리</a>에 대한 액세스와 같은 추가
+            정보가 필요할 수 있다. 이 옵션은 모든 <a>DID 메서드</a>에서 사용할
+            수 없을 수 있다.
           </li>
           <li>
-            Proofs or signatures that rely on <a>verification methods</a> that
-            are not present in the latest version of a <a>DID document</a> are
-            not impacted by rotation. In these cases, verification software
-            might require additional information, such as when a particular
-            <a>verification method</a> was expected to be valid as well as
-            access to a <a>verifiable data registry</a> containing a historical
-            record, to determine the validity of the proof or signature. This
-            option might not be available in all <a>DID methods</a>.
+            <a href="#method-operations">DID 메서드 작업</a>에 대한 섹션은
+            <a>검증 메서드</a> 교체를 수행하는 데 사용될 것으로 예상되는
+            <a href="#method-operations">update</a>를 포함하여
+            <a>DID 메서드</a> 규격에서 지원해야 하는 <a>DID</a> 작업을 지정한다.
           </li>
           <li>
-            The section on
-            <a href="#method-operations">DID method operations</a> specifies the
-            <a>DID</a> operations to be supported by a
-            <a>DID method</a> specification, including
-            <a href="#method-operations">update</a> which is expected to be used
-            to perform a <a>verification method</a> rotation.
+            <a>컨트롤러</a>는 일정 시간 후 기존 <a>검증 메서드</a>를 대체하기
+            위한 새로운 <a>검증 메서드</a>를 추가할 때 교체를 수행한다.
           </li>
           <li>
-            A <a>controller</a> performs a rotation when they add a new
-            <a>verification method</a> that is meant to replace an existing
-            <a>verification method</a> after some time.
-          </li>
-          <li>
-            Not all <a>DID methods</a> support
-            <a>verification method</a> rotation.
+            모든 <a>DID 메서드</a>가 <a>검증 메서드</a> 교체를 지원하는 것은
+            아니다.
           </li>
         </ul>
       </section>
 
       <section>
-        <h2>Verification Method Revocation</h2>
-
+        <h2>검증 메서드 폐기</h2>
         <p>
-          Revocation is a management process that enables the secret
-          cryptographic material associated with an existing
-          <a>verification method</a> to be deactivated such that it ceases to be
-          a valid form of creating new proofs of digital signatures.
+          폐기는 기존 <a>검증 메서드</a>와 연결된 비밀 암호화 자료를
+          비활성화하여 새로운 디지털 서명 증명을 생성하는 유효한 형식이 되지
+          않도록 하는 관리 프로세스이다.
         </p>
         <p>
-          Revocation is a useful mechanism for reacting to a verification method
-          compromise. Performing revocation immediately after rotation is useful
-          for verification methods that a controller designates for short-lived
-          verifications, such as those involved in encrypting messages and
-          authentication.
+          폐기는 검증 메서드 손상에 대응하는 유용한 메커니즘이다. 교체 직후 즉시
+          폐기하는 것은 메시지 암호화 및 인증과 관련된 것과 같이 컨트롤러가 단기
+          검증을 위해 지정한 검증 메서드에 유용하다.
         </p>
-
         <p>
-          Compromise of the secrets associated with a
-          <a>verification method</a> allows the attacker to use them according
-          to the <a>verification relationship</a> expressed by
-          <a>controller</a> in the <a>DID document</a>, for example, for
-          authentication. The attacker's use of the secrets might be
-          indistinguishable from the legitimate
-          <a href="#did-controller">controller's</a> use starting from the time
-          the <a>verification method</a> was registered, to the time it was
-          revoked.
+          <a>검증 메서드</a>와 연결된 비밀의 손상은 공격자가 <a>DID 문서</a>에서
+          <a>컨트롤러</a>에 의해 표현된 <a>검증 관계</a>에 따라 예를 들어 인증을
+          위해 이를 사용할 수 있게 한다. 공격자의 비밀 사용은
+          <a>검증 메서드</a>가 등록된 시점부터 폐기된 시점까지 합법적인
+          <a href="#did-controller">컨트롤러</a>의 사용과 구별할 수 없을 수
+          있다.
         </p>
-
         <p>
-          The following considerations might be of use when contemplating the
-          use of
-          <a>verification method</a> revocation:
+          <a>검증 메서드</a> 폐기 사용을 고려할 때 다음 사항이 유용할 수 있다:
         </p>
-
         <ul>
+          <li><a>검증 메서드</a> 폐기는 반응적인 보안 조치이다.</li>
+          <li>키 폐기를 지원하는 것이 좋은 방법으로 간주된다.</li>
           <li>
-            <a>Verification method</a> revocation is a reactive security
-            measure.
+            <a>컨트롤러</a>는 손상된 것으로 알려진 모든 <a>검증 메서드</a>를
+            즉시 폐기할 것으로 예상된다.
           </li>
-
-          <li>It is considered a best practice to support key revocation.</li>
-
           <li>
-            A <a>controller</a> is expected to immediately revoke any
-            <a>verification method</a> that is known to be compromised.
+            <a>검증 메서드</a> 폐기는 <a>DID 문서</a>의 최신 버전에 대한
+            변경으로만 구현될 수 있다. 이전 버전을 소급하여 조정할 수는 없다.
           </li>
-
           <li>
-            <a>Verification method</a> revocation can only be embodied in
-            changes to the latest version of a <a>DID Document</a>; it cannot
-            retroactively adjust previous versions.
+            <a href="#verification-material"></a>에 설명된 대로, 검증 메서드의
+            부재는 폐기를 지원하는 모든 <a>DID 메서드</a>에 적용되는 유일한
+            형태의 폐기이다.
           </li>
-
           <li>
-            As described in <a href="#verification-material"></a>, absence of a
-            verification method is the only form of revocation that applies to
-            all <a>DID Methods</a>
-            that support revocation.
+            <a>검증 메서드</a>가 더 이상 <a>컨트롤러</a> 또는 <a>컨트롤러</a>를
+            대신하여 작업하도록 신뢰된 당사자에게 독점적으로 액세스할 수 없는
+            경우, 사칭, 도난 및 사기와 같은 손상의 위험을 줄이기 위해 즉시
+            폐기될 것으로 예상된다.
           </li>
-
           <li>
-            If a <a>verification method</a> is no longer exclusively accessible
-            to the <a>controller</a> or parties trusted to act on behalf of the
-            <a>controller</a>, it is expected to be revoked immediately to
-            reduce the risk of compromises such as masquerading, theft, and
-            fraud.
+            폐기는 <a>컨트롤러</a>가 폐기 후 생성된 폐기된 <a>검증 메서드</a>와
+            관련된 증명 또는 서명을 무효로 처리해야 한다는 것으로 이해될 것으로
+            예상된다. 또한 기존 증명 또는 서명이 공격자에 의해 생성되었을 수
+            있다는 우려를 암시할 수 있지만, 반드시 그런 것은 아니다. 그러나
+            검증자는 여전히 그러한 증명이나 서명을 자신의 재량에 따라 수락하거나
+            거부하도록 선택할 수 있다.
           </li>
-
           <li>
-            Revocation is expected to be understood as a
-            <a>controller</a> expressing that proofs or signatures associated
-            with a revoked <a>verification method</a>
-            created after its revocation should be treated as invalid. It could
-            also imply a concern that existing proofs or signatures might have
-            been created by an attacker, but this is not necessarily the case.
-            Verifiers, however, might still choose to accept or reject any such
-            proofs or signatures at their own discretion.
+            <a href="#method-operations">DID 메서드 작업</a>에 대한 섹션은
+            <a>검증 메서드</a>를 <a>DID 문서</a>에서 제거하는 데 사용될 수 있는
+            <a href="#method-operations">update</a> 및
+            <a href="#method-operations">deactivate</a>를 포함하여
+            <a>DID 메서드</a> 규격에서 지원해야 하는 <a>DID</a> 작업을 지정한다.
           </li>
-
           <li>
-            The section on
-            <a href="#method-operations">DID method operations</a> specifies the
-            <a>DID</a> operations to be supported by a
-            <a>DID method</a> specification, including
-            <a href="#method-operations">update</a> and
-            <a href="#method-operations">deactivate</a>, which might be used to
-            remove a <a>verification method</a> from a <a>DID document</a>.
+            모든 <a>DID 메서드</a>가 <a>검증 메서드</a> 폐기를 지원하는 것은
+            아니다.
           </li>
-
           <li>
-            Not all <a>DID methods</a> support
-            <a>verification method</a> revocation.
+            <a>검증 메서드</a>가 <a>DID 문서</a>에 존재하더라도 공개 키 폐기
+            인증서 또는 외부 허용 또는 거부 목록과 같은 추가 정보를 사용하여
+            <a>검증 메서드</a>가 폐기되었는지 확인할 수 있다.
           </li>
-
           <li>
-            Even if a <a>verification method</a> is present in a
-            <a>DID document</a>, additional information, such as a public key
-            revocation certificate, or an external allow or deny list, could be
-            used to determine whether a <a>verification method</a> has been
-            revoked.
-          </li>
-
-          <li>
-            The day-to-day operation of any software relying on a compromised
-            <a>verification method</a>, such as an individual's operating
-            system, antivirus, or endpoint protection software, could be
-            impacted when the <a>verification method</a> is publicly revoked.
+            개인의 운영 체제, 백신 프로그램 또는 엔드포인트 보호 소프트웨어와
+            같이 손상된 <a>검증 메서드</a>에 의존하는 모든 소프트웨어의 일상적인
+            운영은 <a>검증 메서드</a>가 공개적으로 폐기될 때 영향을 받을 수
+            있다.
           </li>
         </ul>
-
         <section class="notoc">
-          <h3>Revocation Semantics</h3>
-
+          <h3>폐기 의미론</h3>
           <p>
-            Although verifiers might choose not to accept proofs or signatures
-            from a revoked verification method, knowing whether a verification
-            was made with a revoked <a>verification method</a> is trickier than
-            it might seem. Some <a>DID methods</a> provide the ability to look
-            back at the state of a <a>DID</a> at a point in time, or at a
-            particular version of the <a>DID document</a>. When such a feature
-            is combined with a reliable way to determine the time or <a>DID</a>
-            version that existed when a cryptographically verifiable statement
-            was made, then revocation does not undo that statement. This can be
-            the basis for using
-            <a>DIDs</a> to make binding commitments; for example, to sign a
-            mortgage.
+            검증자가 폐기된 검증 메서드의 증명이나 서명을 수락하지 않기로 선택할
+            수 있지만, 검증이 폐기된 <a>검증 메서드</a>로 이루어졌는지 아는 것은
+            보이는 것보다 까다롭다. 일부 <a>DID 메서드</a>는 특정 시점 또는
+            <a>DID 문서</a>의 특정 버전에서 <a>DID</a>의 상태를 되돌아볼 수 있는
+            기능을 제공한다. 이러한 기능이 암호화로 검증 가능한 명세가 만들어진
+            시점 또는 <a>DID</a> 버전을 신뢰할 수 있는 방식으로 결정하는 기능과
+            결합되면 폐기가 해당 명세를 취소하지 않는다. 이는 <a>DID</a>를
+            사용하여 예를 들어 담보 대출에 서명하는 것과 같은 구속력 있는 약정을
+            하기 위한 기반이 될 수 있다.
           </p>
           <p>
-            If these conditions are met, revocation is not retroactive; it only
-            nullifies future use of the method.
+            이러한 조건이 충족되면 폐기는 소급 적용되지 않으며 향후 메서드
+            사용만 무효화한다.
           </p>
           <p>
-            However, in order for such semantics to be safe, the second
-            condition &mdash; an ability to know what the state of the
-            <a>DID document</a> was at the time the assertion was made &mdash;
-            is expected to apply. Without that guarantee, someone could discover
-            a revoked key and use it to make cryptographically verifiable
-            statements with a simulated date in the past.
+            그러나 이러한 의미론이 안전하려면 두 번째 조건인 주장이 이루어진
+            시점에 <a>DID 문서</a>의 상태가 어떠했는지 알 수 있는 능력이
+            적용되어야 한다. 그 보장 없이는 누군가가 폐기된 키를 발견하고 과거의
+            모의 날짜로 암호화로 검증 가능한 명세를 만드는 데 사용할 수 있다.
           </p>
           <p>
-            Some <a>DID methods</a> only allow the retrieval of the current
-            state of a <a>DID</a>. When this is true, or when the state of a
-            <a>DID</a> at the time of a cryptographically verifiable statement
-            cannot be reliably determined, then the only safe course is to
-            disallow any consideration of DID state with respect to time, except
-            the present moment. <a>DID</a> ecosystems that take this approach
-            essentially provide cryptographically verifiable statements as
-            ephemeral tokens that can be invalidated at any time by the
-            <a>DID controller</a>.
+            일부 <a>DID 메서드</a>는 <a>DID</a>의 현재 상태만 검색할 수 있다.
+            이것이 사실이거나 암호화로 검증 가능한 명세가 이루어진 시점의
+            <a>DID</a> 상태를 신뢰할 수 있게 결정할 수 없는 경우, 현재 순간을
+            제외하고 시간과 관련하여 DID 상태를 고려하는 것을 허용하지 않는 것이
+            유일한 안전한 방법이다. 이 접근 방식을 취하는 <a>DID</a> 생태계는
+            본질적으로 <a>DID 컨트롤러</a>에 의해 언제든지 무효화될 수 있는
+            일시적인 토큰으로 암호화로 검증 가능한 명세를 제공한다.
           </p>
         </section>
-
         <section class="notoc">
-          <h3>Revocation in Trustless Systems</h3>
-
+          <h3>신뢰할 수 없는 시스템에서의 폐기</h3>
           <p>
-            Trustless systems are those where all trust is derived from
-            cryptographically provable assertions, and more specifically, where
-            no metadata outside of the cryptographic system is factored into the
-            determination of trust in the system. To verify a signature of proof
-            for a <a>verification method</a> which has been revoked in a
-            trustless system, a <a>DID method</a> needs to support either or
-            both of the `versionId` or `versionTime`, as well as both the
-            `updated` and `nextUpdate`, <a>DID document</a> metadata properties.
-            A verifier can validate a signature or proof of a revoked key if and
-            only if all of the following are true:
+            신뢰할 수 없는 시스템은 모든 신뢰가 암호학적으로 증명 가능한
+            주장에서 파생되고, 더 구체적으로는 암호화 시스템 외부의 메타데이터가
+            시스템에 대한 신뢰 결정에 고려되지 않는 시스템이다. 신뢰할 수 없는
+            시스템에서 폐기된 <a>검증 메서드</a>에 대한 서명 또는 증명을
+            검증하려면 <a>DID 메서드</a>가 `versionId` 또는 `versionTime` 중
+            하나 또는 둘 다와 `updated` 및 `nextUpdate`라는
+            <a>DID 문서</a> 메타데이터 속성 모두를 지원해야 한다. 검증자는
+            다음이 모두 사실인 경우에만 폐기된 키의 서명 또는 증명을 검증할 수
+            있다:
           </p>
-
           <ul>
             <li>
-              The proof or signature includes the `versionId` or `versionTime`
-              of the <a>DID document</a> that was used at the point the
-              signature or proof was created.
+              증명 또는 서명에 서명 또는 증명이 생성된 시점에 사용된
+              <a>DID 문서</a>의 `versionId` 또는 `versionTime`이 포함된다.
             </li>
             <li>
-              The verifier can determine the point in time at which the
-              signature or proof was made; for example, it was anchored on a
-              blockchain.
+              검증자는 예를 들어 블록체인에 앵커링된 서명 또는 증명이 이루어진
+              시점을 결정할 수 있다.
             </li>
             <li>
-              For the resolved <a>DID document</a> metadata, the `updated`
-              timestamp is before, and the `nextUpdate` timestamp is after, the
-              point in time at which the signature or proof was made.
+              해석된 <a>DID 문서</a> 메타데이터의 경우 `updated` 타임스탬프는
+              서명 또는 증명이 이루어진 시점 이전이고 `nextUpdate` 타임스탬프는
+              그 시점 이후이다.
             </li>
           </ul>
           <p>
-            In systems that are willing to admit metadata other than those
-            constituting cryptographic input, similar trust may be achieved --
-            but always on the same basis where a careful judgment is made about
-            whether a
-            <a>DID document</a>'s content at the moment of a signing event
-            contained the expected content.
+            암호화 입력을 구성하는 메타데이터 이외의 메타데이터를 인정하려는
+            시스템에서는 유사한 신뢰를 달성할 수 있지만, 항상 서명 이벤트 시점의
+            <a>DID 문서</a> 내용이 예상 내용을 포함했는지에 대한 신중한 판단을
+            기반으로 한다.
           </p>
         </section>
       </section>
 
       <section>
-        <h2>DID Recovery</h2>
-
+        <h2>DID 복구</h2>
         <p>
-          Recovery is a reactive security measure whereby a
-          <a>controller</a> that has lost the ability to perform DID operations,
-          such as through the loss of a device, is able to regain the ability to
-          perform DID operations.
+          복구는 장치 분실 등으로 인해 DID 작업을 수행할 수 있는 능력을 상실한
+          <a>컨트롤러</a>가 DID 작업을 수행할 수 있는 능력을 회복할 수 있는
+          반응적인 보안 조치이다.
         </p>
-
-        <p>
-          The following considerations might be of use when contemplating the
-          use of
-          <a>DID</a> recovery:
-        </p>
-
+        <p><a>DID</a> 복구 사용을 고려할 때 다음 사항이 유용할 수 있다:</p>
         <ul>
           <li>
-            Performing recovery proactively on an infrequent but regular basis,
-            can help to ensure that control has not been lost.
+            자주 하지는 않지만 정기적으로 사전에 복구를 수행하면 제어 능력을
+            상실하지 않았는지 확인하는 데 도움이 될 수 있다.
           </li>
-
           <li>
-            It is considered a best practice to never reuse cryptographic
-            material associated with recovery for any other purposes.
+            복구와 관련된 암호화 자료를 다른 목적으로 재사용하지 않는 것이 좋은
+            방법으로 간주된다.
           </li>
-
           <li>
-            Recovery is commonly performed in conjunction with
-            <a href="#verification-method-rotation"
-              >verification method rotation</a
-            >
-            and
-            <a href="#verification-method-revocation"
-              >verification method revocation</a
-            >.
+            복구는 일반적으로
+            <a href="#verification-method-rotation">검증 메서드 교체</a> 및
+            <a href="#verification-method-revocation">검증 메서드 폐기</a>와
+            함께 수행된다.
           </li>
-
           <li>
-            Recovery is advised when a <a>controller</a> or services trusted to
-            act on their behalf no longer have the exclusive ability to perform
-            DID operations as described in <a href="#method-operations"></a>.
+            <a>컨트롤러</a> 또는 그들을 대신하여 행동하도록 신뢰받는 서비스가 더
+            이상 <a href="#method-operations"></a>에 설명된 대로 DID 작업을
+            수행할 수 있는 독점적인 능력을 가지고 있지 않을 때 복구가 권장된다.
           </li>
-
           <li>
-            <a>DID method</a> specifications might choose to enable support for
-            a quorum of trusted parties to facilitate recovery. Some of the
-            facilities to do so are suggested in <a href="#did-controller"></a>.
+            <a>DID 메서드</a> 규격은 복구를 용이하게 하기 위해 신뢰받는 당사자의
+            정족수를 지원하도록 선택할 수 있다. 이를 위한 일부 기능은
+            <a href="#did-controller"></a>에서 제안된다.
           </li>
-
           <li>
-            Not all <a>DID method</a> specifications will recognize control from
-            <a>DIDs</a> registered using other <a>DID methods</a> and they might
-            restrict third-party control to <a>DIDs</a> that use the same
-            method.
+            모든 <a>DID 메서드</a> 규격이 다른 <a>DID 메서드</a>를 사용하여
+            등록된 <a>DID</a>의 제어를 인식하는 것은 아니며, 제3자 제어를 동일한
+            메서드를 사용하는 <a>DID</a>로 제한할 수 있다.
           </li>
-
           <li>
-            Access control and recovery in a <a>DID method</a> specification can
-            also include a time lock feature to protect against key compromise
-            by maintaining a second track of control for recovery.
+            <a>DID 메서드</a> 규격의 접근 제어 및 복구에는 복구를 위한 제어의 두
+            번째 경로를 유지함으로써 키 손상으로부터 보호하기 위한 시간 잠금
+            기능도 포함될 수 있다.
           </li>
-
           <li>
-            There are currently no common recovery mechanisms that apply to all
-            <a>DID methods</a>.
+            현재 모든 <a>DID 메서드</a>에 적용되는 공통 복구 메커니즘은 없다.
           </li>
         </ul>
       </section>
 
       <section>
-        <h2>The Role of Human-Friendly Identifiers</h2>
-
+        <h2>사람이 알아보기 쉬운 식별자의 역할</h2>
         <p>
-          <a>DIDs</a> achieve global uniqueness without the need for a central
-          registration authority. This comes at the cost of human memorability.
-          Algorithms capable of generating globally unambiguous identifiers
-          produce random strings of characters that have no human meaning. This
-          trade-off is often referred to as
+          <a>DID</a>는 중앙 등록 기관의 필요 없이 전 세계적인 고유성을 달성한다.
+          이는 사람이 기억하기 어려운 대가로 온다. 전 세계적으로 모호하지 않은
+          식별자를 생성할 수 있는 알고리즘은 사람에게 의미가 없는 무작위
+          문자열을 생성한다. 이러한 상충 관계는 종종
           <a href="https://en.wikipedia.org/wiki/Zooko%27s_triangle"
-            >Zooko's Triangle</a
-          >.
-        </p>
-
-        <p>
-          There are use cases where it is desirable to discover a
-          <a>DID</a> when starting from a human-friendly identifier. For
-          example, a natural language name, a domain name, or a conventional
-          address for a <a>DID controller</a>, such as a mobile telephone
-          number, email address, social media username, or blog URL. However,
-          the problem of mapping human-friendly identifiers to <a>DIDs</a>, and
-          doing so in a way that can be verified and trusted, is outside the
-          scope of this specification.
-        </p>
-
-        <p>
-          Solutions to this problem are defined in separate specifications, such
-          as [[?DNS-DID]], that reference this specification. It is strongly
-          recommended that such specifications carefully consider the:
-        </p>
-
-        <ul>
-          <li>
-            Numerous security attacks based on deceiving users about the true
-            human-friendly identifier for a target entity.
-          </li>
-          <li>
-            Privacy consequences of using human-friendly identifiers that are
-            inherently correlatable, especially if they are globally unique.
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>DIDs as Enhanced URNs</h2>
-
-        <p>
-          If desired by a <a>DID controller</a>, a <a>DID</a> or a
-          <a>DID URL</a> is capable of acting as persistent,
-          location-independent resource identifier. These sorts of identifiers
-          are classified as Uniform Resource Names (URNs) and are defined in
-          [[RFC8141]]. <a>DIDs</a> are an enhanced form of URN that provide a
-          cryptographically secure, location-independent identifier for a
-          digital resource, while also providing metadata that enables
-          retrieval. Due to the indirection between the <a>DID document</a> and
-          the <a>DID</a> itself, the <a>DID controller</a> can adjust the actual
-          location of the resource &mdash; or even provide the resource directly
-          &mdash; without adjusting the <a>DID</a>. <a>DIDs</a> of this type can
-          definitively verify that the resource retrieved is, in fact, the
-          resource identified.
+            >주코의 삼각형</a
+          >이라고 한다.
         </p>
         <p>
-          A <a>DID controller</a> who intends to use a <a>DID</a> for this
-          purpose is advised to follow the security considerations in
-          [[RFC8141]]. In particular:
+          사람이 알아보기 쉬운 식별자에서 시작하여 <a>DID</a>를 발견하는 것이
+          바람직한 사용 사례가 있다. 예를 들어 자연어 이름, 도메인 이름 또는
+          <a>DID 컨트롤러</a>의 기존 주소(예: 휴대전화 번호, 이메일 주소, 소셜
+          미디어 사용자 이름 또는 블로그 URL)가 있다. 그러나 사람이 알아보기
+          쉬운 식별자를 <a>DID</a>에 매핑하고 검증 및 신뢰할 수 있는 방식으로
+          이를 수행하는 문제는 이 규격의 범위를 벗어난다.
+        </p>
+        <p>
+          이 문제에 대한 해결책은 이 규격을 참조하는 [[?DNS-DID]]와 같은 별도의
+          규격에 정의되어 있다. 이러한 규격에서는 다음 사항을 신중하게 고려하는
+          것이 좋다:
         </p>
         <ul>
           <li>
-            The <a>DID controller</a> is expected to choose a
-            <a>DID method</a> that supports the controller's requirements for
-            persistence. The Decentralized Characteristics Rubric
-            [[?DID-RUBRIC]] is one tool available to help implementers decide
-            upon the most suitable <a>DID method</a>.
+            대상 엔티티의 진정한 사람이 알아보기 쉬운 식별자에 대해 사용자를
+            속이는 것을 기반으로 하는 수많은 보안 공격.
           </li>
           <li>
-            The <a>DID controller</a> is expected to publish its operational
-            policies so requesting parties can determine the degree to which
-            they can rely on the persistence of a <a>DID</a> controlled by that
-            <a>DID controller</a>. In the absence of such policies, requesting
-            parties are not expected to make any assumption about whether a
-            <a>DID</a> is a persistent identifier for the same
-            <a>DID subject</a>.
+            특히 전 세계적으로 고유한 경우 본질적으로 상호 연관성이 있는 사람이
+            알아보기 쉬운 식별자를 사용하는 것의 개인 정보 보호 결과.
           </li>
         </ul>
       </section>
-
       <section>
-        <h2>Immutability</h2>
-
+        <h2>향상된 URN으로서의 DID</h2>
         <p>
-          Many cybersecurity abuses hinge on exploiting gaps between reality and
-          the assumptions of rational, good-faith actors. Immutability of
-          <a>DID documents</a> can provide some security benefits. Individual
-          <a>DID methods</a> ought to consider constraints that would eliminate
-          behaviors or semantics they do not need. The more
-          <em>locked down</em> a <a>DID method</a> is, while providing the same
-          set of features, the less it can be manipulated by malicious actors.
+          <a>DID 컨트롤러</a>가 원하는 경우 <a>DID</a> 또는 <a>DID URL</a>은
+          영구적이고 위치에 독립적인 리소스 식별자 역할을 할 수 있다. 이러한
+          유형의 식별자는 Uniform Resource Name(URN)으로 분류되며 [[RFC8141]]에
+          정의되어 있다. <a>DID</a>는 디지털 리소스에 대한 암호화로 안전하고
+          위치에 독립적인 식별자를 제공하는 동시에 검색을 가능하게 하는
+          메타데이터도 제공하는 향상된 형태의 URN이다. <a>DID 문서</a>와
+          <a>DID</a> 자체 사이의 간접 참조로 인해 <a>DID 컨트롤러</a>는
+          <a>DID</a>를 조정하지 않고도 리소스의 실제 위치를 조정하거나 심지어
+          리소스를 직접 제공할 수 있다. 이러한 유형의 <a>DID</a>는 검색된
+          리소스가 실제로 식별된 리소스임을 확실하게 검증할 수 있다.
         </p>
         <p>
-          As an example, consider that a single edit to a
-          <a>DID document</a> can change anything except the root
-          <code><a>id</a></code> property of the document. But is it actually
-          desirable for a <a>service</a> to change its <code>type</code> after
-          it is defined? Or for a key to change its value? Or would it be better
-          to require a new <code><a>id</a></code> when certain fundamental
-          properties of an object change? Malicious takeovers of a website often
-          aim for an outcome where the site keeps its host name identifier, but
-          is subtly changed underneath. If certain properties of the site, such
-          as the
+          <a>DID</a>를 이 목적으로 사용하려는 <a>DID 컨트롤러</a>는
+          [[RFC8141]]의 보안 고려사항을 따르는 것이 좋다. 특히:
+        </p>
+        <ul>
+          <li>
+            <a>DID 컨트롤러</a>는 컨트롤러의 영속성 요구사항을 지원하는
+            <a>DID 메서드</a>를 선택해야 한다. 분산형 특성
+            루브릭[[?DID-RUBRIC]]은 구현자가 가장 적합한 <a>DID 메서드</a>를
+            결정하는 데 사용할 수 있는 도구 중 하나이다.
+          </li>
+          <li>
+            <a>DID 컨트롤러</a>는 요청 당사자가 해당 <a>DID 컨트롤러</a>가
+            제어하는 <a>DID</a>의 영속성에 의존할 수 있는 정도를 결정할 수
+            있도록 운영 정책을 게시해야 한다. 이러한 정책이 없는 경우 요청
+            당사자는 <a>DID</a>가 동일한 <a>DID 주체</a>에 대한 영구 식별자인지
+            여부에 대해 어떠한 가정도 하지 않아야 한다.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>불변성</h2>
+        <p>
+          많은 사이버 보안 침해는 현실과 합리적이고 선의의 행위자의 가정 사이의
+          격차를 악용하는 데 달려 있다. <a>DID 문서</a>의 불변성은 일부 보안
+          이점을 제공할 수 있다. 개별 <a>DID 메서드</a>는 필요하지 않은 행동이나
+          의미론을 제거할 수 있는 제약 조건을 고려해야 한다. <a>DID 메서드</a>가
+          동일한 기능 집합을 제공하면서 더 <em>잠겨</em> 있을수록 악의적인
+          행위자에 의해 조작될 가능성이 줄어든다.
+        </p>
+        <p>
+          예를 들어 <a>DID 문서</a>를 한 번만 편집해도 문서의 루트
+          <code><a>id</a></code> 속성을 제외한 모든 것을 변경할 수 있다. 그러나
+          <a>서비스</a>가 정의된 후 <code>type</code>을 변경하는 것이 실제로
+          바람직한가? 또는 키가 그 값을 변경하는 것이 바람직한가? 아니면 객체의
+          특정 기본 속성이 변경될 때 새로운 <code><a>id</a></code
+          >를 요구하는 것이 더 좋을까? 웹사이트의 악의적인 탈취는 종종 사이트가
+          호스트 이름 식별자를 유지하지만 그 아래에서 미묘하게 변경되는 결과를
+          목표로 한다. 사이트의 특정 속성(예: IP 주소와 연결된
           <a
             target="_blank"
             href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)"
             >ASN</a
-          >
-          associated with its IP address, were required by the specification to
-          be immutable, anomaly detection would be easier, and attacks would be
-          much harder and more expensive to carry out.
+          >)이 규격에 의해 불변해야 하는 경우, 이상 감지가 더 쉬워지고 공격이
+          훨씬 더 어려워지고 비용이 많이 들 것이다.
         </p>
         <p>
-          For <a>DID methods</a> tied to a global source of truth, a direct,
-          just-in-time lookup of the latest version of a <a>DID document</a> is
-          always possible. However, it seems likely that layers of cache might
-          eventually sit between a <a>DID resolver</a> and that source of truth.
-          If they do, believing the attributes of an object in the
-          <a>DID document</a> to have a given state when they are actually
-          subtly different might invite exploits. This is particularly true if
-          some lookups are of a full <a>DID document</a>, and others are of
-          partial data where the larger context is assumed.
+          전 세계적인 진실의 원천과 연결된 <a>DID 메서드</a>의 경우
+          <a>DID 문서</a>의 최신 버전에 대한 직접적이고 적시적인 검색이 항상
+          가능하다. 그러나 <a>DID 변환기</a>와 해당 진실의 원천 사이에 캐시
+          계층이 결국 위치할 가능성이 있어 보인다. 만약 그렇다면
+          <a>DID 문서</a>의 객체 속성이 실제로는 미묘하게 다른데 주어진 상태를
+          가지고 있다고 믿는 것은 악용을 초래할 수 있다. 이는 일부 검색이 전체
+          <a>DID 문서</a>에 대한 것이고 다른 검색은 더 큰 맥락이 가정되는 부분
+          데이터에 대한 것인 경우에 특히 그러하다.
         </p>
       </section>
-
       <section>
-        <h2>Encrypted Data in DID Documents</h2>
+        <h2>DID 문서의 암호화된 데이터</h2>
         <p>
-          Encryption algorithms have been known to fail due to advances in
-          cryptography and computing power. Implementers are advised to assume
-          that any encrypted data placed in a <a>DID document</a> might
-          eventually be made available in clear text to the same audience to
-          which the encrypted data is available. This is particularly pertinent
-          if the <a>DID document</a> is public.
+          암호화 알고리즘은 암호학과 컴퓨팅 능력의 발전으로 인해 실패하는 것으로
+          알려져 있다. 구현자는 <a>DID 문서</a>에 배치된 암호화된 데이터가 결국
+          암호화된 데이터를 사용할 수 있는 동일한 대상에게 일반 텍스트로 제공될
+          수 있다고 가정하는 것이 좋다. 이는 <a>DID 문서</a>가 공개된 경우 특히
+          적절하다.
         </p>
         <p>
-          Encrypting all or parts of a <a>DID document</a> is <em>not</em> an
-          appropriate means to protect data in the long term. Similarly, placing
-          encrypted data in a <a>DID document</a> is not an appropriate means to
-          protect personal data.
+          <a>DID 문서</a>의 전체 또는 일부를 암호화하는 것은 장기적으로 데이터를
+          보호하기 위한 적절한 수단이 <em>아니다</em>. 마찬가지로 암호화된
+          데이터를 <a>DID 문서</a>에 배치하는 것은 개인 데이터를 보호하기 위한
+          적절한 수단이 아니다.
         </p>
         <p>
-          Given the caveats above, if encrypted data is included in a
-          <a>DID document</a>, implementers are advised to not associate any
-          correlatable information that could be used to infer a relationship
-          between the encrypted data and an associated party. Examples of
-          correlatable information include public keys of a receiving party,
-          identifiers to digital assets known to be under the control of a
-          receiving party, or human readable descriptions of a receiving party.
+          위의 주의사항을 고려할 때 암호화된 데이터가 <a>DID 문서</a>에 포함되는
+          경우 구현자는 암호화된 데이터와 관련 당사자 간의 관계를 추론하는 데
+          사용될 수 있는 상호 연관 가능한 정보를 연결하지 않는 것이 좋다. 상호
+          연관 가능한 정보의 예로는 수신 당사자의 공개 키, 수신 당사자의 제어
+          하에 있는 것으로 알려진 디지털 자산에 대한 식별자 또는 수신 당사자에
+          대한 사람이 읽을 수 있는 설명 등이 있다.
         </p>
       </section>
 
       <section>
         <h2>Equivalence Properties</h2>
         <p>
-          Given the <code><a>equivalentId</a></code> and
-          <code><a>canonicalId</a></code> properties are generated by
-          <a>DID methods</a> themselves, the same security and accuracy
-          guarantees that apply to the resolved <a>DID</a> present in the
-          <code>id</code> field of a <a>DID document</a> also apply to these
-          properties. The <code><a>alsoKnownAs</a></code> property is not
-          guaranteed to be an accurate statement of equivalence, and should not
-          be relied upon without performing validation steps beyond the
-          resolution of the <a>DID document</a>.
+          <code><a>equivalentId</a></code
+          >와 <code><a>canonicalId</a></code> 속성은 <a>DID 메서드</a> 자체에서
+          생성되므로 <a>DID 문서</a>의 <code>id</code> 필드에 있는 해석된
+          <a>DID</a>에 적용되는 동일한 보안 및 정확성 보장이 이러한 속성에도
+          적용된다. <code><a>alsoKnownAs</a></code> 속성은 동등성에 대한 정확한
+          진술임이 보장되지 않으며 <a>DID 문서</a>의 해석을 넘어선 유효성 검사
+          단계를 수행하지 않고는 신뢰해서는 안 된다.
         </p>
         <p>
-          The <code><a>equivalentId</a></code> and
-          <code><a>canonicalId</a></code> properties express equivalence
-          assertions to variants of a single <a>DID</a> produced by the same
-          <a>DID method</a> and can be trusted to the extent the requesting
-          party trusts the <a>DID method</a> and a 규범에 부합하는 생산자 and
-          resolver.
+          <code><a>equivalentId</a></code
+          >와 <code><a>canonicalId</a></code> 속성은 동일한 <a>DID 메서드</a>에
+          의해 생성된 단일 <a>DID</a>의 변형에 대한 동등성 주장을 표현하며, 요청
+          당사자가 <a>DID 메서드</a>와 규범에 부합하는 생산자 및 변환기를
+          신뢰하는 정도까지 신뢰할 수 있다.
         </p>
         <p>
-          The <code><a>alsoKnownAs</a></code> property permits an equivalence
-          assertion to <a>URIs</a> that are not governed by the same
-          <a>DID method</a> and cannot be trusted without performing
-          verification steps outside of the governing <a>DID method</a>. See
-          additional guidance in <a href="#also-known-as"></a>.
+          <code><a>alsoKnownAs</a></code> 속성은 동일한 <a>DID 메서드</a>에 의해
+          제어되지 않는 <a>URI</a>에 대한 동등성 주장을 허용하며 관리 중인
+          <a>DID 메서드</a> 외부에서 검증 단계를 수행하지 않고는 신뢰할 수 없다.
+          <a href="#also-known-as"></a>의 추가 지침을 참조하라.
         </p>
         <p>
-          As with any other security-related properties in the
-          <a>DID document</a>, parties relying on any equivalence statement in a
-          <a>DID document</a> should guard against the values of these
-          properties being substituted by an attacker after the proper
-          verification has been performed. Any write access to a
-          <a>DID document</a> stored in memory or disk after verification has
-          been performed is an attack vector that might circumvent verification
-          unless the <a>DID document</a> is re-verified.
+          <a>DID 문서</a>의 다른 보안 관련 속성과 마찬가지로, <a>DID 문서</a>의
+          동등성 진술에 의존하는 당사자는 적절한 검증이 수행된 후 이러한 속성의
+          값이 공격자에 의해 대체되는 것을 방지해야 한다. 검증이 수행된 후
+          메모리 또는 디스크에 저장된 <a>DID 문서</a>에 대한 모든 쓰기 액세스는
+          <a>DID 문서</a>가 재검증되지 않는 한 검증을 우회할 수 있는 공격
+          벡터이다.
         </p>
       </section>
-
       <section>
-        <h2>Content Integrity Protection</h2>
+        <h2>콘텐츠 무결성 보호</h2>
         <p>
-          <a>DID documents</a> which include links to external machine-readable
-          content such as images, web pages, or schemas are vulnerable to
-          tampering. It is strongly advised that external links are integrity
-          protected using solutions such as a hashlink [[?HASHLINK]]. External
-          links are to be avoided if they cannot be integrity protected and the
-          <a>DID document</a>'s integrity is dependent on the external link.
+          이미지, 웹 페이지 또는 스키마와 같은 외부 기계 판독 가능 콘텐츠에 대한
+          링크를 포함하는 <a>DID 문서</a>는 변조에 취약하다. 해시링크
+          [[?HASHLINK]]와 같은 솔루션을 사용하여 외부 링크의 무결성을 보호하는
+          것이 강력히 권장된다. 외부 링크의 무결성을 보호할 수 없고
+          <a>DID 문서</a>의 무결성이 외부 링크에 의존하는 경우 외부 링크는
+          피해야 한다.
         </p>
         <p>
-          One example of an external link where the integrity of the
-          <a>DID document</a> itself could be affected is the JSON-LD Context
-          [[JSON-LD11]]. To protect against compromise,
-          <a>DID document</a> consumers are advised to cache local static copies
-          of JSON-LD contexts and/or verify the integrity of external contexts
-          against a cryptographic hash that is known to be associated with a
-          safe version of the external JSON-LD Context.
+          <a>DID 문서</a> 자체의 무결성에 영향을 줄 수 있는 외부 링크의 한 예는
+          JSON-LD 컨텍스트 [[JSON-LD11]]이다. 손상으로부터 보호하기 위해
+          <a>DID 문서</a> 소비자는 JSON-LD 컨텍스트의 로컬 정적 사본을
+          캐시하거나 안전한 버전의 외부 JSON-LD 컨텍스트와 연관된 것으로 알려진
+          암호화 해시에 대해 외부 컨텍스트의 무결성을 검증하는 것이 좋다.
         </p>
       </section>
       <section>
         <h2>Persistence</h2>
         <p>
-          <a>DIDs</a> are designed to be persistent such that a
-          <a>controller</a> need not rely upon a single trusted third party or
-          administrator to maintain their identifiers. In an ideal case, no
-          administrator can take control away from the <a>controller</a>, nor
-          can an administrator prevent their identifiers' use for any particular
-          purpose such as authentication, authorization, and attestation. No
-          third party can act on behalf of a <a>controller</a> to remove or
-          render inoperable an entity's identifier without the
-          <a>controller</a>'s consent.
+          <a>DID</a>는 <a>컨트롤러</a>가 자신의 식별자를 유지하기 위해 단일
+          신뢰할 수 있는 제3자 또는 관리자에 의존할 필요가 없도록 지속적으로
+          설계되었다. 이상적인 경우 어떤 관리자도 <a>컨트롤러</a>로부터 제어권을
+          빼앗을 수 없으며 인증, 권한 부여 및 증명과 같은 특정 목적으로 식별자
+          사용을 막을 수 없다. 제3자는 <a>컨트롤러</a>의 동의 없이 엔티티의
+          식별자를 제거하거나 작동하지 않게 만들기 위해 <a>컨트롤러</a>를
+          대신하여 행동할 수 없다.
         </p>
         <p>
-          However, it is important to note that in all <a>DID methods</a> that
-          enable cryptographic proof-of-control, the means of proving control
-          can always be transferred to another party by transferring the secret
-          cryptographic material. Therefore, it is vital that systems relying on
-          the persistence of an identifier over time regularly check to ensure
-          that the identifier is, in fact, still under the control of the
-          intended party.
+          그러나 암호화 제어 증명을 가능하게 하는 모든 <a>DID 메서드</a>에서
+          제어를 증명하는 수단은 항상 비밀 암호화 자료를 다른 당사자에게
+          전송함으로써 전송될 수 있다는 점에 유의하는 것이 중요하다. 따라서
+          시간이 지남에 따라 식별자의 지속성에 의존하는 시스템은 식별자가 실제로
+          여전히 의도한 당사자의 제어 하에 있는지 정기적으로 확인해야 한다.
         </p>
         <p>
-          Unfortunately, it is impossible to determine from the cryptography
-          alone whether or not the secret cryptographic material associated with
-          a given
-          <a>verification method</a> has been compromised. It might well be that
-          the expected <a>controller</a> still has access to the secret
-          cryptographic material &mdash; and as such can execute a
-          proof-of-control as part of a verification process &mdash; while at
-          the same time, a bad actor also has access to those same keys, or to a
-          copy thereof.
+          불행히도 암호화 자체만으로는 주어진 <a>검증 메서드</a>와 관련된 비밀
+          암호화 자료가 손상되었는지 여부를 판단할 수 없다. 예상되는
+          <a>컨트롤러</a>가 여전히 비밀 암호화 자료에 액세스할 수 있으며, 이에
+          따라 검증 프로세스의 일부로 제어 증명을 실행할 수 있는 반면, 동시에
+          악의적인 행위자도 동일한 키 또는 그 사본에 액세스할 수 있을 수 있다.
         </p>
         <p>
-          As such, cryptographic proof-of-control is expected to only be used as
-          one factor in evaluating the level of identity assurance required for
-          high-stakes scenarios. <a>DID</a>-based authentication provides much
-          greater assurance than a username and password, thanks to the ability
-          to determine control over a cryptographic secret without transmitting
-          that secret between systems. However, it is not infallible. Scenarios
-          that involve sensitive, high value, or life-critical operations are
-          expected to use additional factors as appropriate.
+          따라서 암호화 제어 증명은 고위험 시나리오에 필요한 신원 보증 수준을
+          평가하는 데 하나의 요소로만 사용될 것으로 예상된다. <a>DID</a> 기반
+          인증은 시스템 간에 해당 비밀을 전송하지 않고도 암호화 비밀에 대한
+          제어를 결정할 수 있는 기능 덕분에 사용자 이름과 암호보다 훨씬 더 큰
+          보증을 제공한다. 그러나 무오류는 아니다. 민감하거나 고가치 또는 생명에
+          중요한 작업과 관련된 시나리오에서는 적절한 추가 요소를 사용할 것으로
+          예상된다.
         </p>
         <p>
-          In addition to potential ambiguity from use by different
-          <a>controllers</a>, it is impossible to guarantee, in general, that a
-          given <a>DID</a> is being used in reference to the same subject at any
-          given point in time. It is technically possible for the controller to
-          reuse a <a>DID</a> for different subjects and, more subtly, for the
-          precise definition of the subject to either change over time or be
-          misunderstood.
+          서로 다른 <a>컨트롤러</a>에 의한 사용으로 인한 잠재적 모호성 외에도,
+          일반적으로 주어진 <a>DID</a>가 특정 시점에 동일한 주체를 참조하여
+          사용되고 있음을 보장할 수 없다. 컨트롤러가 서로 다른 주체에 대해
+          <a>DID</a>를 재사용하는 것은 기술적으로 가능하며, 더 미묘하게는 주체의
+          정확한 정의가 시간이 지남에 따라 변경되거나 오해될 수 있다.
         </p>
         <p>
-          For example, consider a <a>DID</a> used for a sole proprietorship,
-          receiving various credentials used for financial transactions. To the
-          <a>controller</a>, that identifier referred to the business. As the
-          business grows, it eventually gets incorporated as a Limited Liability
-          Company. The <a>controller</a> continues using that same <a>DID</a>,
-          because to <strong>them</strong> the <a>DID</a> refers to the
-          business. However, to the state, the tax authority, and the local
-          municipality, the <a>DID</a> no longer refers to the same entity.
-          Whether or not the subtle shift in meaning matters to a credit
-          provider or supplier is necessarily up to them to decide. In many
-          cases, as long as the bills get paid and collections can be enforced,
-          the shift is immaterial.
+          예를 들어, 금융 거래에 사용되는 다양한 자격 증명을 받는 개인 기업에
+          사용되는 <a>DID</a>를 고려해 보자. <a>컨트롤러</a>에게 해당 식별자는
+          사업을 지칭했다. 사업이 성장함에 따라 결국 유한책임회사로 법인화된다.
+          <a>컨트롤러</a>는 <a>DID</a>가 사업을 지칭하기 때문에 동일한
+          <a>DID</a>를 계속 사용한다. 그러나 주, 세무 당국 및 지방 자치 단체에
+          대해서는 <a>DID</a>가 더 이상 동일한 엔티티를 지칭하지 않는다. 의미의
+          미묘한 변화가 신용 제공자나 공급자에게 중요한지 여부는 반드시 그들이
+          결정해야 한다. 많은 경우 청구서가 지불되고 추심이 시행될 수 있는 한
+          변화는 중요하지 않다.
         </p>
         <p>
-          Due to these potential ambiguities, <a>DIDs</a> are to be considered
-          valid <em>contextually</em> rather than absolutely. Their persistence
-          does not imply that they refer to the exact same subject, nor that
-          they are under the control of the same <a>controller</a>. Instead, one
-          needs to understand the context in which the <a>DID</a> was created,
-          how it is used, and consider the likely shifts in their meaning, and
-          adopt procedures and policies to address both potential and inevitable
-          semantic drift.
+          이러한 잠재적 모호성으로 인해 <a>DID</a>는 절대적이라기보다는
+          <em>문맥적으로</em> 유효한 것으로 간주되어야 한다. 그것들의 지속성은
+          그것들이 정확히 동일한 주체를 지칭한다거나 동일한 <a>컨트롤러</a>의
+          제어 하에 있음을 의미하지 않는다. 대신 <a>DID</a>가 생성된 맥락,
+          어떻게 사용되는지, 그 의미의 변화 가능성을 이해하고 잠재적이고
+          불가피한 의미론적 변화를 해결하기 위한 절차와 정책을 채택해야 한다.
         </p>
       </section>
 
@@ -4975,12 +4832,10 @@ dereference(didUrl, dereferenceOptions) →
         <h2>Level of Assurance</h2>
 
         <p>
-          Additional information about the security context of authentication
-          events is often required for compliance reasons, especially in
-          regulated areas such as the financial and public sectors. This
-          information is often referred to as a Level of Assurance (LOA).
-          Examples include the protection of secret cryptographic material, the
-          identity proofing process, and the form-factor of the authenticator.
+          규정된 금융 및 공공 부문과 같은 영역에서는 특히 규정 준수를 위해 인증
+          이벤트의 보안 컨텍스트에 대한 추가 정보가 종종 필요하다. 이 정보는
+          종종 보증 수준(LOA)이라고 한다. 예로는 비밀 암호화 자료의 보호, 신원
+          증명 프로세스, 인증자의 형태 등이 있다.
         </p>
 
         <p>
@@ -5027,322 +4882,288 @@ dereference(didUrl, dereferenceOptions) →
         </p>
 
         <p>
-          Some regulated scenarios require the implementation of a specific
-          level of assurance. Since <a>verification relationships</a> such as
-          <code> <a>assertionMethod</a></code> and
-          <code><a>authentication</a></code> might be used in some of these
-          situations, information about the applied security context might need
-          to be expressed and provided to a <em>verifier</em>. Whether and how
-          to encode this information in the <a>DID document</a> data model is
-          out of scope for this specification. Interested readers might note
-          that 1) the information could be transmitted using Verifiable
-          Credentials [[?VC-DATA-MODEL]], and 2) the <a>DID document</a> data
-          model can be extended to incorporate this information as described in
-          <a href="#extensibility"></a>, and where
-          <a href="#privacy-considerations"></a> is applicable for such
-          extensions.
+          일부 규제되는 시나리오에서는 특정 수준의 보증을 구현해야 한다.
+          <code><a>assertionMethod</a></code
+          >와 <code><a>authentication</a></code
+          >과 같은 <a>검증 관계</a>가 이러한 상황 중 일부에서 사용될 수 있으므로
+          적용된 보안 컨텍스트에 대한 정보를 표현하고 <em>검증자</em>에게
+          제공해야 할 수 있다. 이 정보를 <a>DID 문서</a> 데이터 모델에 인코딩할
+          것인지 여부와 방법은 이 규격의 범위를 벗어난다. 관심 있는 독자는 1)
+          정보가 검증 가능한 크리덴셜 [[?VC-DATA-MODEL]]을 사용하여 전송될 수
+          있고, 2) <a>DID 문서</a> 데이터 모델은 <a href="#extensibility"></a>에
+          설명된 대로 이 정보를 통합하도록 확장될 수 있으며, 여기서
+          <a href="#privacy-considerations"></a>는 그러한 확장에 적용될 수
+          있다는 점에 유의할 수 있다.
         </p>
       </section>
     </section>
 
     <section class="informative">
-      <h1>Privacy Considerations</h1>
+      <h1>개인정보 보호 고려사항</h1>
 
       <p>
-        Since <a>DIDs</a> and <a>DID documents</a> are designed to be
-        administered directly by the <a>DID controller(s)</a>, it is critically
-        important to apply the principles of Privacy by Design
-        [[PRIVACY-BY-DESIGN]] to all aspects of the
-        <a>decentralized identifier</a> architecture. All seven of these
-        principles have been applied throughout the development of this
-        specification. The design used in this specification does not assume
-        that there is a registrar, hosting company, nor other intermediate
-        service provider to recommend or apply additional privacy safeguards.
-        Privacy in this specification is preventive, not remedial, and is an
-        embedded default. The following sections cover privacy considerations
-        that implementers might find useful when building systems that utilize
-        <a>decentralized identifiers</a>.
+        <a>DID</a>와 <a>DID 문서</a>는 <a>DID 컨트롤러</a>에 의해 직접
+        관리되도록 설계되었기 때문에 <a>탈중앙 식별자</a> 아키텍처의 모든 측면에
+        Privacy by Design [[PRIVACY-BY-DESIGN]]의 원칙을 적용하는 것이 매우
+        중요하다. 이 규격을 개발하는 동안 이 일곱 가지 원칙이 모두 적용되었다.
+        이 규격에 사용된 설계는 추가적인 개인정보 보호 조치를 권장하거나 적용할
+        등록 기관, 호스팅 회사 또는 기타 중개 서비스 제공자가 있다고 가정하지
+        않는다. 이 규격의 개인정보 보호는 사후 대책이 아니라 예방적이며 기본으로
+        내장되어 있다. 다음 섹션에서는 <a>탈중앙 식별자</a>를 활용하는 시스템을
+        구축할 때 구현자가 유용하게 활용할 수 있는 개인정보 보호 고려사항을
+        다룬다.
       </p>
 
       <section>
-        <h2>Keep Personal Data Private</h2>
+        <h2>개인 데이터 비공개 유지</h2>
 
         <p>
-          If a <a>DID method</a> specification is written for a public-facing
-          <a>verifiable data registry</a> where corresponding <a>DIDs</a> and
-          <a>DID documents</a> might be made publicly available, it is
-          <em>critical</em> that those <a>DID documents</a> contain no personal
-          data. Personal data can instead be transmitted through other means
-          such as 1) Verifiable Credentials [[?VC-DATA-MODEL]], or 2)
-          <a>service endpoints</a> under control of the <a>DID subject</a> or
-          <a>DID controller</a>.
+          <a>DID 메서드</a> 규격이 해당 <a>DID</a>와 <a>DID 문서</a>가 공개될 수
+          있는 공개 대상 <a>검증 가능한 데이터 레지스트리</a>에 대해 작성된
+          경우, 해당 <a>DID 문서</a>에 개인 데이터가 포함되지 않는 것이
+          <em>매우 중요</em>하다. 개인 데이터는 대신 1) 검증 가능한 크리덴셜
+          [[?VC-DATA-MODEL]] 또는 2) <a>DID 주체</a> 또는 <a>DID 컨트롤러</a>의
+          제어하에 있는 <a>서비스 엔드포인트</a>와 같은 다른 수단을 통해 전송될
+          수 있다.
         </p>
 
         <p>
-          Due diligence is expected to be taken around the use of URLs in
-          <a>service endpoints</a> to prevent leakage of personal data or
-          correlation within a URL of a <a>service endpoint</a>. For example, a
-          URL that contains a username is dangerous to include in a
-          <a>DID Document</a> because the username is likely to be
-          human-meaningful in a way that can reveal information that the
-          <a>DID subject</a> did not consent to sharing. With the privacy
-          architecture suggested by this specification, personal data can be
-          exchanged on a private, peer-to-peer basis using communication
-          channels identified and secured by <a>verification methods</a> in
-          <a>DID documents</a>. This also enables <a>DID subjects</a> and
-          requesting parties to implement the
+          <a>서비스 엔드포인트</a>의 URL에서 개인 데이터 유출 또는
+          <a>서비스 엔드포인트</a>의 URL 내 상관관계를 방지하기 위해 URL 사용과
+          관련하여 실사가 이루어져야 한다. 예를 들어 사용자 이름을 포함하는
+          URL은 <a>DID 문서</a>에 포함하기에 위험한데, 그 이유는 사용자 이름이
+          <a>DID 주체</a>가 공유하는 데 동의하지 않은 정보를 공개할 수 있는
+          방식으로 사람에게 의미 있을 가능성이 높기 때문이다. 이 규격에서
+          제안하는 개인정보 보호 아키텍처를 사용하면 <a>DID 문서</a>의
+          <a>검증 메서드</a>로 식별되고 보호되는 통신 채널을 사용하여 개인
+          데이터를 비공개로 피어 간에 교환할 수 있다. 이를 통해
+          <a>DID 주체</a>와 요청 당사자가
           <a
             href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"
             >GDPR</a
-          >
+          >의
           <a href="https://en.wikipedia.org/wiki/Right_to_be_forgotten"
-            >right to be forgotten</a
-          >, because no personal data is written to an immutable
-          <a>distributed ledger</a>.
+            >잊힐 권리</a
+          >를 구현할 수 있는데, 그 이유는 개인 데이터가 불변의
+          <a>분산 원장</a>에 기록되지 않기 때문이다.
         </p>
       </section>
 
       <section>
-        <h2>DID Correlation Risks</h2>
+        <h2>DID 상관관계 위험</h2>
 
         <p>
-          Like any type of globally unambiguous identifier, <a>DIDs</a> might be
-          used for correlation. <a>DID controllers</a> can mitigate this privacy
-          risk by using pairwise <a>DIDs</a> that are unique to each
-          relationship; in effect, each <a>DID</a> acts as a pseudonym. A
-          pairwise <a>DID</a> need only be shared with more than one party when
-          correlation is explicitly desired. If pairwise <a>DIDs</a> are the
-          default, then the only need to publish a <a>DID</a> openly, or to
-          share it with multiple parties, is when the
-          <a href="#dfn-did-controllers">DID controller(s)</a> and/or
-          <a>DID subject</a>
-          explicitly desires public identification and correlation.
+          전 세계적으로 모호하지 않은 식별자와 마찬가지로 <a>DID</a>는
+          상관관계에 사용될 수 있다. <a>DID 컨트롤러</a>는 각 관계에 고유한 쌍별
+          <a>DID</a>를 사용하여 이러한 개인정보 보호 위험을 완화할 수 있다.
+          실제로 각 <a>DID</a>는 가명으로 작용한다. 쌍별 <a>DID</a>는 상관관계가
+          명시적으로 원하는 경우에만 둘 이상의 당사자와 공유할 필요가 있다. 쌍별
+          <a>DID</a>가 기본값인 경우 <a>DID</a>를 공개적으로 게시하거나 여러
+          당사자와 공유해야 할 유일한 필요성은
+          <a href="#dfn-did-controllers">DID 컨트롤러</a> 및/또는
+          <a>DID 주체</a>가 명시적으로 공개 식별 및 상관관계를 원할 때이다.
         </p>
       </section>
 
       <section>
-        <h2>DID Document Correlation Risks</h2>
+        <h2>DID 문서 상관관계 위험</h2>
 
         <p>
-          The anti-correlation protections of pairwise <a>DIDs</a> are easily
-          defeated if the data in the corresponding <a>DID documents</a> can be
-          correlated. For example, using identical
-          <a>verification methods</a> or bespoke <a>service endpoints</a> in
-          multiple <a>DID documents</a> can provide as much correlation
-          information as using the same <a>DID</a>. Therefore, the
-          <a>DID document</a> for a pairwise <a>DID</a> also needs to use
-          pairwise unique information, such as ensuring that
-          <a>verification methods</a> are unique to the pairwise relationship.
+          해당 <a>DID 문서</a>의 데이터를 상호 연관시킬 수 있는 경우 쌍별
+          <a>DID</a>의 반상관관계 보호가 쉽게 무력화된다. 예를 들어 여러
+          <a>DID 문서</a>에서 동일한 <a>검증 메서드</a> 또는 맞춤형
+          <a>서비스 엔드포인트</a>를 사용하면 동일한 <a>DID</a>를 사용하는
+          것만큼 많은 상관관계 정보를 제공할 수 있다. 따라서 쌍별 <a>DID</a>에
+          대한 <a>DID 문서</a>도 <a>검증 메서드</a>가 쌍별 관계에 고유한지
+          확인하는 것과 같은 쌍별 고유 정보를 사용해야 한다.
         </p>
 
         <p>
-          It might seem natural to also use pairwise unique
-          <a>service endpoints</a> in the <a>DID document</a> for a pairwise
-          <a>DID</a>. However, unique endpoints allow all traffic between two
-          <a>DIDs</a> to be isolated perfectly into unique buckets, where timing
-          correlation and similar analysis is easy. Therefore, a better strategy
-          for endpoint privacy might be to share an endpoint among a large
-          number of <a>DIDs</a> controlled by many different subjects (see
-          <a href="#herd-privacy"></a>).
+          쌍별 <a>DID</a>에 대한 <a>DID 문서</a>에서 쌍별 고유
+          <a>서비스 엔드포인트</a>를 사용하는 것도 자연스러워 보일 수 있다.
+          그러나 고유한 엔드포인트를 사용하면 두 <a>DID</a> 사이의 모든 트래픽을
+          고유한 버킷으로 완벽하게 분리할 수 있으므로 타이밍 상관관계 및 유사한
+          분석이 쉬워진다. 따라서 엔드포인트 개인정보 보호를 위한 더 나은 전략은
+          많은 다른 주체가 제어하는 다수의 <a>DID</a> 간에 엔드포인트를 공유하는
+          것일 수 있다(<a href="#herd-privacy"></a> 참조).
         </p>
       </section>
 
       <section>
-        <h2>DID Subject Classification</h2>
+        <h2>DID 주체 분류</h2>
         <p>
-          It is dangerous to add properties to the <a>DID document</a> that can
-          be used to indicate, explicitly or through inference, what
-          <em>type</em> or nature of thing the <a>DID subject</a> is,
-          particularly if the <a>DID subject</a> is a person.
+          <a>DID 주체</a>가 무엇인지, 특히 <a>DID 주체</a>가 사람인 경우
+          명시적으로 또는 추론을 통해 <em>유형</em> 또는 성질을 나타내는 데
+          사용될 수 있는 속성을 <a>DID 문서</a>에 추가하는 것은 위험하다.
         </p>
         <p>
-          Not only do such properties potentially result in personal data (see
-          <a href="#keep-personal-data-private"></a>) or correlatable data (see
-          <a href="#did-correlation-risks"> </a> and
-          <a href="#did-document-correlation-risks"></a>) being present in the
-          <a>DID document</a>, but they can be used for grouping particular
-          <a>DIDs</a>
-          in such a way that they are included in or excluded from certain
-          operations or functionalities.
+          이러한 속성은 <a>DID 문서</a>에 개인 데이터(<a
+            href="#keep-personal-data-private"
+          ></a>
+          참조) 또는 상호 연관 가능한 데이터(<a
+            href="#did-correlation-risks"
+          ></a>
+          및 <a href="#did-document-correlation-risks"></a> 참조)가 존재하게 할
+          뿐만 아니라, 특정 <a>DID</a>를 그룹화하여 특정 작업이나 기능에
+          포함시키거나 제외시키는 데 사용될 수 있다.
         </p>
         <p>
-          Including <em>type</em> information in a <a>DID Document</a> can
-          result in personal privacy harms even for <a>DID Subjects</a> that are
-          non-person entities, such as IoT devices. The aggregation of such
-          information around a <a>DID Controller</a> could serve as a form of
-          digital fingerprint and this is best avoided.
+          <a>DID 문서</a>에 <em>유형</em> 정보를 포함하면 IoT 장치와 같이 사람이
+          아닌 엔티티인 <a>DID 주체</a>에 대해서도 개인정보 보호 피해가 발생할
+          수 있다. <a>DID 컨트롤러</a> 주변의 이러한 정보 집계는 일종의 디지털
+          지문 역할을 할 수 있으므로 피하는 것이 가장 좋다.
         </p>
         <p>
-          To minimize these risks, all properties in a <a>DID document</a> ought
-          to be for expressing cryptographic material, endpoints, or
-          <a>verification methods</a> related to using the <a>DID</a>.
+          이러한 위험을 최소화하기 위해 <a>DID 문서</a>의 모든 속성은
+          <a>DID</a> 사용과 관련된 암호화 자료, 엔드포인트 또는
+          <a>검증 메서드</a>를 표현하기 위한 것이어야 한다.
         </p>
       </section>
 
       <section>
-        <h2>Herd Privacy</h2>
+        <h2>군중 개인정보 보호</h2>
 
         <p>
-          When a <a>DID subject</a> is indistinguishable from others in the
-          herd, privacy is available. When the act of engaging privately with
-          another party is by itself a recognizable flag, privacy is greatly
-          diminished.
+          <a>DID 주체</a>가 군중 속에서 구별할 수 없을 때 개인정보 보호를 이용할
+          수 있다. 다른 당사자와 사적으로 관여하는 행위 자체가 인식 가능한
+          신호일 때 개인정보 보호는 크게 감소한다.
         </p>
         <p>
-          <a>DIDs</a> and <a>DID methods</a> need to work to improve herd
-          privacy, particularly for those who legitimately need it most. Choose
-          technologies and human interfaces that default to preserving anonymity
-          and pseudonymity. To reduce
+          <a>DID</a>와 <a>DID 메서드</a>는 특히 합법적으로 가장 필요로 하는
+          사람들을 위해 군중 개인정보 보호를 개선하기 위해 노력해야 한다.
+          익명성과 가명성을 보존하는 것을 기본으로 하는 기술과 사용자
+          인터페이스를 선택하라.
           <a href="https://en.wikipedia.org/wiki/Device_fingerprint"
-            >digital fingerprints</a
-          >, share common settings across requesting party implementations, keep
-          negotiated options to a minimum on wire protocols, use encrypted
-          transport layers, and pad messages to standard lengths.
+            >디지털 지문</a
+          >을 줄이기 위해 요청 당사자 구현에서 공통 설정을 공유하고, 유선
+          프로토콜에서 협상된 옵션을 최소한으로 유지하고, 암호화된 전송 계층을
+          사용하고, 메시지를 표준 길이로 채워라.
         </p>
       </section>
 
       <section>
-        <h2>Service Privacy</h2>
+        <h2>서비스 개인정보 보호</h2>
         <p>
-          The ability for a <a>controller</a> to optionally express at least one
-          <a>service endpoint</a> in the <a>DID document</a> increases their
-          control and agency. Each additional endpoint in the
-          <a>DID document</a> adds privacy risk either due to correlation, such
-          as across endpoint descriptions, or because the <a>services</a> are
-          not protected by an authorization mechanism, or both.
+          <a>컨트롤러</a>가 <a>DID 문서</a>에서 선택적으로 하나 이상의
+          <a>서비스 엔드포인트</a>를 표현할 수 있는 능력은 그들의 제어와
+          주체성을 증가시킨다. <a>DID 문서</a>의 각 추가 엔드포인트는 엔드포인트
+          설명에 걸친 상관관계로 인해 개인정보 보호 위험을 증가시키거나
+          <a>서비스</a>가 인증 메커니즘에 의해 보호되지 않기 때문에 또는 둘 다로
+          인해 개인정보 보호 위험을 증가시킨다.
         </p>
         <p>
-          <a>DID documents</a> are often public and, since they are
-          standardized, will be stored and indexed efficiently by their very
-          standards-based nature. This risk is worse if <a>DID documents</a> are
-          published to immutable <a>verifiable data registries</a>. Access to a
-          history of the <a>DID documents</a> referenced by a
-          <a>DID</a> represents a form of traffic analysis made more efficient
-          through the use of standards.
+          <a>DID 문서</a>는 종종 공개적이며 표준화되어 있기 때문에 표준 기반
+          특성에 따라 효율적으로 저장되고 색인화된다. 이 위험은
+          <a>DID 문서</a>가 불변의 <a>검증 가능한 데이터 레지스트리</a>에
+          게시되는 경우 더 심각하다. <a>DID</a>에 의해 참조되는
+          <a>DID 문서</a> 기록에 대한 액세스는 표준 사용을 통해 더 효율적으로
+          이루어지는 일종의 트래픽 분석 형태를 나타낸다.
         </p>
         <p>
-          The degree of additional privacy risk caused by using multiple
-          <a>service endpoints</a> in one <a>DID document</a> can be difficult
-          to estimate. Privacy harms are typically unintended consequences.
-          <a>DIDs</a> can refer to documents, <a>services</a>, schemas, and
-          other things that might be associated with individual people,
-          households, clubs, and employers &mdash; and correlation of their
-          <a>service endpoints</a> could become a powerful surveillance and
-          inference tool. An example of this potential harm can be seen when
-          multiple common country-level top level domains such as
-          <code>https://example.co.uk</code> might be used to infer the
-          approximate location of the <a>DID subject</a> with a greater degree
-          of probability.
+          하나의 <a>DID 문서</a>에서 여러 <a>서비스 엔드포인트</a>를 사용하여
+          발생하는 추가적인 개인정보 보호 위험의 정도는 추정하기 어려울 수 있다.
+          개인정보 보호 피해는 일반적으로 의도하지 않은 결과이다. <a>DID</a>는
+          개인, 가구, 클럽, 고용주와 관련될 수 있는 문서, <a>서비스</a>, 스키마
+          및 기타 사항을 지칭할 수 있으며, 이들의
+          <a>서비스 엔드포인트</a> 상관관계는 강력한 감시 및 추론 도구가 될 수
+          있다. 이러한 잠재적 피해의 예는 <code>https://example.co.uk</code>와
+          같은 여러 공통 국가 수준 최상위 도메인을 사용하여 더 높은 확률로
+          <a>DID 주체</a>의 대략적인 위치를 추론할 수 있을 때 확인할 수 있다.
         </p>
 
         <section class="notoc">
-          <h3>Maintaining Herd Privacy</h3>
+          <h3>군중 개인정보 보호 유지</h3>
           <p>
-            The variety of possible endpoints makes it particularly challenging
-            to maintain herd privacy, in which no information about the
-            <a>DID subject</a> is leaked (see <a href="#herd-privacy"></a>).
-          </p>
-
-          <p>
-            First, because service endpoints might be specified as <a>URIs</a>,
-            they could unintentionally leak personal information because of the
-            architecture of the service. For example, a service endpoint of
-            <code>http://example.com/MyFirstName</code> is leaking the term
-            <code>MyFirstName</code> to everyone who can access the
-            <a>DID document</a>. When linking to legacy systems, this is an
-            unavoidable risk, and care is expected to be taken in such cases.
-            This specification encourages new, <a>DID</a>-aware endpoints to use
-            nothing more than the <a>DID</a> itself for any identification
-            necessary. For example, if a service description were to include
-            <code>http://example.com/did%3Aexample%3Aabc123</code>, no harm
-            would be done because <code>did:example:abc123</code> is already
-            exposed in the DID Document; it leaks no additional information.
-          </p>
-
-          <p>
-            Second, because a <a>DID document</a> can list multiple service
-            endpoints, it is possible to irreversibly associate services that
-            are not associated in any other context. This correlation on its own
-            may lead to privacy harms by revealing information about the
-            <a>DID subject</a>, even if the <a>URIs</a> used did not contain any
-            sensitive information.
+            가능한 엔드포인트의 다양성으로 인해 <a>DID 주체</a>에 대한 정보가
+            유출되지 않는 군중 개인정보 보호를 유지하는 것이 특히 어려울 수
+            있다(<a href="#herd-privacy"></a> 참조).
           </p>
           <p>
-            Third, because some types of <a>DID subjects</a> might be more or
-            less likely to list specific endpoints, the listing of a given
-            service could, by itself, leak information that can be used to infer
-            something about the <a>DID subject</a>. For example, a
-            <a>DID</a> for an automobile might include a pointer to a public
-            title record at the Department of Motor Vehicles, while a
-            <a>DID</a> for an individual would not include that information.
+            첫째, 서비스 엔드포인트가 <a>URI</a>로 지정될 수 있기 때문에 서비스
+            아키텍처로 인해 의도치 않게 개인 정보가 유출될 수 있다. 예를 들어
+            <code>http://example.com/MyFirstName</code>이라는 서비스
+            엔드포인트는 <a>DID 문서</a>에 액세스할 수 있는 모든 사람에게
+            <code>MyFirstName</code>이라는 용어를 유출하고 있다. 레거시 시스템과
+            연결할 때는 이러한 위험을 피할 수 없으며 이러한 경우 주의가
+            필요하다. 이 규격은 새로운 <a>DID</a> 인식 엔드포인트가 필요한 모든
+            식별을 위해 <a>DID</a> 자체 이상의 것을 사용하지 않도록 권장한다.
+            예를 들어 서비스 설명에
+            <code>http://example.com/did%3Aexample%3Aabc123</code>이 포함되어
+            있더라도 <code>did:example:abc123</code>이 이미 DID 문서에 노출되어
+            있기 때문에 추가 정보가 유출되지 않으므로 피해가 발생하지 않는다.
           </p>
           <p>
-            It is the goal of herd privacy to ensure that the nature of specific
-            <a>DID subjects</a> is obscured by the population of the whole. To
-            maximize herd privacy, implementers need to rely on one &mdash; and
-            only one &mdash; service endpoint, with that endpoint providing a
-            proxy or mediator service that the controller is willing to depend
-            on, to protect such associations and to blind requests to the
-            ultimate service.
+            둘째, <a>DID 문서</a>에 여러 서비스 엔드포인트가 나열될 수 있기
+            때문에 다른 어떤 맥락에서도 연결되지 않은 서비스를 돌이킬 수 없게
+            연결할 수 있다. 이러한 상관관계 자체만으로도 사용된 <a>URI</a>가
+            민감한 정보를 포함하지 않았더라도 <a>DID 주체</a>에 대한 정보를
+            공개함으로써 개인정보 보호 피해로 이어질 수 있다.
+          </p>
+          <p>
+            셋째, 일부 유형의 <a>DID 주체</a>가 특정 엔드포인트를 나열할
+            가능성이 더 높거나 낮기 때문에 주어진 서비스의 나열 자체로
+            <a>DID 주체</a>에 대해 추론하는 데 사용될 수 있는 정보를 유출할 수
+            있다. 예를 들어 자동차용 <a>DID</a>에는 자동차국의 공공 소유권
+            기록에 대한 포인터가 포함될 수 있지만 개인용 <a>DID</a>에는 해당
+            정보가 포함되지 않을 수 있다.
+          </p>
+          <p>
+            군중 개인정보 보호의 목표는 특정 <a>DID 주체</a>의 특성이 전체
+            모집단에 의해 모호해지도록 하는 것이다. 군중 개인정보 보호를
+            극대화하기 위해 구현자는 이러한 연결을 보호하고 궁극적인 서비스에
+            대한 요청을 가리기 위해 컨트롤러가 기꺼이 의존할 프록시 또는 중재자
+            서비스를 제공하는 하나의 서비스 엔드포인트에만 의존해야 한다.
           </p>
         </section>
-
         <section class="notoc">
-          <h3>Service Endpoint Alternatives</h3>
-
+          <h3>서비스 엔드포인트 대안</h3>
           <p>
-            Given the concerns in the previous section, implementers are urged
-            to consider any of the following service endpoint approaches:
+            이전 섹션의 우려사항을 감안할 때 구현자는 다음과 같은 서비스
+            엔드포인트 접근 방식을 고려해야 한다:
           </p>
-
           <ul>
             <li>
-              <strong>Negotiator Endpoint</strong> &mdash; Service for
-              negotiating mutually agreeable communications channels, preferably
-              using private set intersection. The output of negotiation is a
-              communication channel and whatever credentials might be needed to
-              access it.
+              <strong>협상자 엔드포인트</strong> &mdash; 가급적 프라이빗 집합
+              교집합을 사용하여 상호 동의할 수 있는 통신 채널을 협상하기 위한
+              서비스. 협상의 결과는 통신 채널과 이에 액세스하는 데 필요한 자격
+              증명이다.
             </li>
             <li>
-              <strong>Tor Endpoint</strong> (<a
+              <strong>Tor 엔드포인트</strong> (<a
                 href="https://www.torproject.org/about/history/"
                 >Tor Onion Router</a
-              >) &mdash; Provide a privacy-respecting address for reaching
-              service endpoints. Any service that can be provided online can be
-              provided through TOR for additional privacy.
+              >) &mdash; 서비스 엔드포인트에 도달하기 위한 개인정보 보호를
+              고려한 주소를 제공한다. 온라인으로 제공할 수 있는 모든 서비스는
+              추가 개인정보 보호를 위해 TOR를 통해 제공될 수 있다.
             </li>
             <li>
-              <strong>Mediator Endpoint</strong> &mdash;
+              <strong>중재자 엔드포인트</strong> &mdash;
               <a
                 href="https://github.com/hyperledger/aries-rfcs/blob/720bdab50e2d0437fda03028c1b17c69781bdd69/concepts/0046-mediators-and-relays/README.md"
-                >Mediators</a
-              >
-              provide a generic endpoint, for multiple parties, receive
-              encrypted messages on behalf of those parties, and forward them to
-              the intended recipient. This avoids the need to have a specific
-              endpoint per subject, which could create a correlation risk. This
-              approach is also called a proxy.
+                >중재자</a
+              >는 여러 당사자를 위한 일반 엔드포인트를 제공하고, 해당 당사자를
+              대신하여 암호화된 메시지를 수신하고, 의도한 수신자에게 전달한다.
+              이를 통해 상관관계 위험을 야기할 수 있는 주체별 특정 엔드포인트를
+              가질 필요가 없어진다. 이 접근 방식은 프록시라고도 한다.
             </li>
             <li>
-              <strong>Confidential Storage</strong> &mdash; Proprietary or
-              confidential personal information might need to be kept off of a
-              <a>verifiable data registry</a> to provide additional privacy
-              and/or security guarantees, especially for those
-              <a>DID methods</a> where <a>DID documents</a> are published on a
-              public ledger. Pointing to external resource services provides a
-              means for authorization checks and deletion.
+              <strong>기밀 저장소</strong> &mdash; 독점적이거나 기밀 개인 정보는
+              추가적인 개인정보 보호 및/또는 보안 보장을 제공하기 위해
+              <a>검증 가능한 데이터 레지스트리</a>에서 제외될 필요가 있을 수
+              있으며, 특히 <a>DID 문서</a>가 공개 원장에 게시되는
+              <a>DID 메서드</a>의 경우 더욱 그러하다. 외부 리소스 서비스를
+              가리키는 것은 인증 검사 및 삭제를 위한 수단을 제공한다.
             </li>
             <li>
-              <strong>Polymorphic Proxy</strong> &mdash; A proxy endpoint that
-              can act as any number of services, depending on how it is called.
-              For example, the same URL could be used for both negotiator and
-              mediator functions, depending on a mechanism for re-routing.
+              <strong>다형성 프록시</strong> &mdash; 호출 방식에 따라 임의의
+              수의 서비스 역할을 할 수 있는 프록시 엔드포인트. 예를 들어
+              재라우팅 메커니즘에 따라 동일한 URL을 협상자 및 중재자 기능 모두에
+              사용할 수 있다.
             </li>
           </ul>
-
           <p>
-            These service endpoint types continue to be an area of innovation
-            and exploration.
+            이러한 서비스 엔드포인트 유형은 계속해서 혁신과 탐색의 영역이 되고
+            있다.
           </p>
         </section>
       </section>
@@ -5351,23 +5172,19 @@ dereference(didUrl, dereferenceOptions) →
     <section class="appendix">
       <h1>Examples</h1>
       <section class="informative">
-        <h2>DID Documents</h2>
-
+        <h2>DID 문서</h2>
         <p>
-          See
+          선택적 확장 및 기타 검증 메서드 유형은
           <a
             href="https://www.w3.org/TR/did-spec-registries/#verification-method-types"
+            >검증 메서드 유형</a
           >
-            Verification Method Types</a
-          >
-          [[?DID-SPEC-REGISTRIES]] for optional extensions and other
-          verification method types.
+          [[?DID-SPEC-REGISTRIES]]을 참조하라.
         </p>
-
         <p class="note">
-          These examples are for information purposes only, it is considered a
-          best practice to avoid using the same <a>verification method</a> for
-          multiple purposes.
+          이 예시들은 정보 제공 목적으로만 제공된 것이며, 동일한
+          <a>검증 메서드</a>를 여러 목적으로 사용하는 것을 피하는 것이 좋은
+          방법으로 간주된다.
         </p>
 
         <pre
@@ -5560,14 +5377,14 @@ dereference(didUrl, dereferenceOptions) →
       </section>
 
       <section class="informative">
-        <h2>Proving</h2>
+        <h2>증명</h2>
 
         <p class="note">
-          These examples are for information purposes only. See
+          이 예제는 정보전달만을 목적으로 한다. 추가적인 예제 확인은
           <a href="https://www.w3.org/TR/vc-data-model/"
             >W3C Verifiable Credentials Data Model</a
           >
-          for additional examples.
+          를 참고하라.
         </p>
 
         <pre
@@ -5753,12 +5570,11 @@ dereference(didUrl, dereferenceOptions) →
       </section>
 
       <section class="informative">
-        <h2>Encrypting</h2>
+        <h2>암호화</h2>
 
         <p class="note">
-          These examples are for information purposes only, it is considered a
-          best practice to avoid dislosing unnecessary information in JWE
-          headers.
+          이러한 예는 정보 제공 목적으로만 제공되며, JWE 헤더에서 불필요한
+          정보를 공개하지 않는 것이 모범 사례로 간주됩니다.
         </p>
 
         <pre
@@ -5841,55 +5657,50 @@ dereference(didUrl, dereferenceOptions) →
       </section>
 
       <section>
-        <h2>Determining the DID subject</h2>
+        <h2>DID 주체 결정</h2>
         <p>
-          A <a>DID</a> is a specific type of URI (Uniform Resource Identifier),
-          so a <a>DID</a> can refer to any resource. Per [[RFC3986]]:
+          <a>DID</a>는 특정 유형의 URI(Uniform Resource Identifier)이므로
+          <a>DID</a>는 모든 리소스를 참조할 수 있다. [[RFC3986]]에 따르면:
         </p>
         <blockquote>
-          the term "resource" is used in a general sense for whatever might be
-          identified by a URI. [...] A resource is not necessarily accessible
-          via the Internet.
+          "리소스"라는 용어는 URI에 의해 식별될 수 있는 모든 것에 대해 일반적인
+          의미로 사용된다. [...] 리소스가 반드시 인터넷을 통해 접근 가능한 것은
+          아니다.
         </blockquote>
         <p>
-          Resources can be digital or physical, abstract or concrete. Any
-          resource that can be assigned a URI can be assigned a <a>DID</a>. The
-          resource referred to by the <a>DID</a> is the <a>DID subject</a>.
+          리소스는 디지털 또는 물리적, 추상적 또는 구체적일 수 있다. URI를
+          할당할 수 있는 모든 리소스에 <a>DID</a>를 할당할 수 있다. <a>DID</a>에
+          의해 참조되는 리소스는 <a>DID 주체</a>이다.
         </p>
         <p>
-          The <a>DID controller</a> determines the <a>DID subject</a>. It is not
-          expected to be possible to determine the <a>DID subject</a> from
-          looking at the <a>DID</a> itself, as <a>DIDs</a> are generally only
-          meaningful to machines, not human. A <a>DID</a> is unlikely to contain
-          any information about the <a>DID subject</a>, so further information
-          about the <a>DID subject</a> is only discoverable by resolving the
-          <a>DID</a> to the <a>DID document</a>, obtaining a verifiable
-          credential about the <a>DID</a>, or via some other description of the
-          <a>DID</a>.
+          <a>DID 컨트롤러</a>는 <a>DID 주체</a>를 결정한다. <a>DID</a> 자체를
+          보고 <a>DID 주체</a>를 결정할 수 있을 것으로 예상되지 않는데, 이는
+          <a>DID</a>가 일반적으로 사람이 아닌 기계에만 의미가 있기 때문이다.
+          <a>DID</a>는 <a>DID 주체</a>에 대한 정보를 포함하지 않을 가능성이 높기
+          때문에 <a>DID 주체</a>에 대한 추가 정보는 <a>DID</a>를
+          <a>DID 문서</a>로 변환하거나 <a>DID</a>에 대한 검증 가능한 크리덴셜을
+          얻거나 <a>DID</a>에 대한 다른 설명을 통해서만 발견할 수 있다.
         </p>
         <p>
-          While the value of the <code><a>id</a></code> property in the
-          retrieved <a>DID document</a> must always match the <a>DID</a> being
-          resolved, whether or not the actual resource to which the
-          <a>DID</a> refers can change over time is dependent upon the
-          <a>DID method</a>. For example, a <a>DID method</a> that permits the
-          <a>DID subject</a> to change could be used to generate a
-          <a>DID</a> for the current occupant of a particular role&mdash;such as
-          the CEO of a company&mdash;where the actual person occupying the role
-          can be different depending on when the <a>DID</a> is resolved.
+          검색된 <a>DID 문서</a>의 <code><a>id</a></code> 속성의 값은 항상 해석
+          중인 <a>DID</a>와 일치해야 하지만, <a>DID</a>가 실제로 참조하는
+          리소스가 시간이 지남에 따라 변경될 수 있는지 여부는
+          <a>DID 메서드</a>에 따라 달라진다. 예를 들어 <a>DID 주체</a>가
+          변경되는 것을 허용하는 <a>DID 메서드</a>는 회사의 CEO와 같은 특정
+          역할의 현재 담당자에 대한 <a>DID</a>를 생성하는 데 사용될 수 있으며,
+          여기서 실제로 그 역할을 맡고 있는 사람은 <a>DID</a>가 해석되는 시점에
+          따라 다를 수 있다.
         </p>
       </section>
       <section>
-        <h2>Referring to the DID document</h2>
+        <h2>DID 문서 참조</h2>
         <p>
-          The <a>DID</a> refers to the <a>DID subject</a> and
-          <em>resolves to</em> the <a>DID document</a> (by following the
-          protocol specified by the <a>DID method</a>). The
-          <a>DID document</a> is not a separate resource from the
-          <a>DID subject</a> and does not have a <a>URI</a> separate from the
-          <a>DID</a>. Rather the <a>DID document</a> is an artifact of
-          <a>DID resolution</a> controlled by the <a>DID controller</a> for the
-          purpose of describing the <a>DID subject</a>.
+          <a>DID</a>는 <a>DID 주체</a>를 참조하고 (<a>DID 메서드</a>에 의해
+          지정된 프로토콜을 따라) <a>DID 문서</a>로 <em>해석된다</em>.
+          <a>DID 문서</a>는 <a>DID 주체</a>와 별개의 리소스가 아니며
+          <a>DID</a>와 별개의 <a>URI</a>를 가지고 있지 않다. 오히려
+          <a>DID 문서</a>는 <a>DID 주체</a>를 설명하기 위해
+          <a>DID 컨트롤러</a>에 의해 제어되는 <a>DID 해석</a>의 결과물이다.
         </p>
         <p>This distinction is illustrated by the graph model shown below.</p>
         <figure id="did-and-did-document-graph">
@@ -5933,58 +5744,50 @@ DID subjects and resolve to DID documents that describe the DID subjects.
         </div>
       </section>
       <section>
-        <h2>Statements in the DID document</h2>
+        <h2>DID 문서의 명세</h2>
         <p>
-          Each property in a <a>DID document</a> is a statement by the
-          <a>DID controller</a> that describes:
+          <a>DID 문서</a>의 각 속성은 다음을 설명하는 <a>DID 컨트롤러</a>의
+          명세이다:
         </p>
         <ul>
           <li>
-            The string of characters defining identifiers for the
-            <a>DID subject</a> (e.g., the <code><a>id</a></code> and
-            <code><a>alsoKnownAs</a></code>
-            properties)
+            <a>DID 주체</a>에 대한 식별자를 정의하는 문자열(예:
+            <code><a>id</a></code> 및 <code><a>alsoKnownAs</a></code> 속성)
           </li>
           <li>
-            How to interact with the <a>DID subject</a> (e.g., the
-            <code><a>verificationMethod</a></code> and
-            <code><a>service</a></code>
-            properties).
+            <a>DID 주체</a>와 상호 작용하는 방법(예:
+            <code><a>verificationMethod</a></code> 및
+            <code><a>service</a></code> 속성).
           </li>
           <li>
-            How to interpret the specific representation of the
-            <a>DID document</a> (e.g., the <code>@context</code> property for a
-            JSON-LD representation).
+            <a>DID 문서</a>의 특정 표현을 해석하는 방법(예: JSON-LD 표현을 위한
+            <code>@context</code> 속성).
           </li>
         </ul>
         <p>
-          The only required property in a <a>DID document</a> is
-          <code><a>id</a></code
-          >, so that is the only statement guaranteed to be in a
-          <a>DID document</a>. That statement is illustrated in
-          <a href="#did-and-did-document-graph"></a> with a direct link between
-          the <a>DID</a> and the <a>DID subject</a>.
+          <a>DID 문서</a>에서 필수 속성은 <code><a>id</a></code
+          >뿐이므로, 이것이 <a>DID 문서</a>에 보장되는 유일한 명세이다. 이
+          명세는 <a href="#did-and-did-document-graph"></a>에서 <a>DID</a>와
+          <a>DID 주체</a> 사이의 직접 링크로 표시된다.
         </p>
       </section>
       <section>
-        <h2>Discovering more information about the DID subject</h2>
+        <h2>DID 주체에 대한 추가 정보 발견</h2>
         <p>
-          Options for discovering more information about the
-          <a>DID subject</a> depend on the properties present in the
-          <a>DID document</a>. If the <code><a>service</a></code> property is
-          present, more information can be requested from a
-          <a>service endpoint</a>. For example, by querying a
-          <a>service endpoint</a> that supports verifiable credentials for one
-          or more claims (attributes) describing the <a>DID subject</a>.
+          <a>DID 주체</a>에 대한 추가 정보를 발견하는 옵션은 <a>DID 문서</a>에
+          존재하는 속성에 따라 다르다. <code><a>service</a></code> 속성이 있는
+          경우 <a>서비스 엔드포인트</a>에서 추가 정보를 요청할 수 있다. 예를
+          들어 <a>DID 주체</a>를 설명하는 하나 이상의 클레임(속성)에 대해 검증
+          가능한 크리덴셜을 지원하는 <a>서비스 엔드포인트</a>를 쿼리하여 추가
+          정보를 얻을 수 있다.
         </p>
         <p>
-          Another option is to use the <code><a>alsoKnownAs</a></code> property
-          if it is present in the <a>DID document</a>. The
-          <a>DID controller</a> can use it to provide a list of other URIs
-          (including other <a>DIDs</a>) that refer to the same
-          <a>DID subject</a>. Resolving or dereferencing these URIs might yield
-          other descriptions or representations of the <a>DID subject</a> as
-          illustrated in the figure below.
+          또 다른 옵션은 <a>DID 문서</a>에
+          <code><a>alsoKnownAs</a></code> 속성이 있는 경우 이를 사용하는 것이다.
+          <a>DID 컨트롤러</a>는 이를 사용하여 동일한 <a>DID 주체</a>를 참조하는
+          다른 URI(다른 <a>DID</a> 포함) 목록을 제공할 수 있다. 아래 그림에
+          표시된 것처럼 이러한 URI를 해석하거나 역참조하면 <a>DID 주체</a>에
+          대한 다른 설명 또는 표현을 얻을 수 있다.
         </p>
         <figure id="alsoKnownAs-graph">
           <img
@@ -6037,74 +5840,67 @@ DID subjects and resolve to DID documents that describe the DID subjects.
         </div>
       </section>
       <section>
-        <h2>Serving a representation of the DID subject</h2>
+        <h2>DID 주체의 표현 제공</h2>
         <p>
-          If the <a>DID subject</a> is a digital resource that can be retrieved
-          from the internet, a <a>DID method</a> can choose to construct a
-          <a>DID URL</a> which returns a representation of the
-          <a>DID subject</a> itself. For example, a data schema that needs a
-          persistent, cryptographically verifiable identifier could be assigned
-          a <a>DID</a>, and passing a specified DID parameter (see
-          <a href="#did-parameters"></a>) could be used as a standard way to
-          retrieve a representation of that schema.
+          <a>DID 주체</a>가 인터넷에서 검색할 수 있는 디지털 리소스인 경우
+          <a>DID 메서드</a>는 <a>DID 주체</a> 자체의 표현을 반환하는
+          <a>DID URL</a>을 구성하도록 선택할 수 있다. 예를 들어 영구적이고
+          암호학적으로 검증 가능한 식별자가 필요한 데이터 스키마에 <a>DID</a>를
+          할당할 수 있으며, 지정된 DID 매개변수(<a href="#did-parameters"></a>
+          참조)를 전달하는 것은 해당 스키마의 표현을 검색하는 표준 방법으로
+          사용될 수 있다.
         </p>
         <p>
-          Similarly, a <a>DID</a> can be used to refer to a digital resource
-          (such as an image) that can be returned directly from a
-          <a>verifiable data registry</a> if that functionality is supported by
-          the applicable <a>DID method</a>.
+          마찬가지로 해당 기능이 적용 가능한 <a>DID 메서드</a>에서 지원되는 경우
+          <a>DID</a>를 사용하여 <a>검증 가능한 데이터 레지스트리</a>에서 직접
+          반환될 수 있는 디지털 리소스(예: 이미지)를 참조할 수 있다.
         </p>
       </section>
       <section>
-        <h2>Assigning DIDs to existing web resources</h2>
+        <h2>기존 웹 리소스에 DID 할당</h2>
         <p>
-          If the controller of a web page or any other web resource wants to
-          assign it a persistent, cryptographically verifiable identifier, the
-          controller can give it a <a>DID</a>. For example, the author of a blog
-          hosted by a blog hosting company (under that hosting company's domain)
-          could create a <a>DID</a> for the blog. In the <a>DID document</a>,
-          the author can include the <code><a>alsoKnownAs</a></code> property
-          pointing to the current URL of the blog, e.g.:
+          웹 페이지 또는 다른 웹 리소스의 컨트롤러가 영구적이고 암호학적으로
+          검증 가능한 식별자를 할당하려는 경우 컨트롤러는 <a>DID</a>를 부여할 수
+          있다. 예를 들어 블로그 호스팅 회사(해당 호스팅 회사의 도메인에서)가
+          호스팅하는 블로그의 작성자는 블로그에 대한 <a>DID</a>를 만들 수 있다.
+          <a>DID 문서</a>에서 작성자는 블로그의 현재 URL을 가리키는
+          <code><a>alsoKnownAs</a></code> 속성을 포함할 수 있다. 예:
         </p>
         <code>
           "alsoKnownAs": ["https://myblog.blogging-host.example/home"]
         </code>
         <p>
-          If the author subsequently moves the blog to a different hosting
-          company (or to the author's own domain), the author can update the
-          <a>DID document</a>
-          to point to the new URL for the blog, e.g.:
+          작성자가 나중에 블로그를 다른 호스팅 회사(또는 작성자 자신의 도메인)로
+          이동하는 경우 작성자는 <a>DID 문서</a>를 업데이트하여 블로그의 새
+          URL을 가리킬 수 있다. 예:
         </p>
         <code> "alsoKnownAs": ["https://myblog.example/"] </code>
         <p>
-          The <a>DID</a> effectively adds a layer of indirection for the blog
-          URL. This layer of indirection is under the control of the author
-          instead of under the control of an external administrative authority
-          such as the blog hosting company. This is how a <a>DID</a> can
-          effectively function as an enhanced
+          <a>DID</a>는 블로그 URL에 대한 간접 레이어를 효과적으로 추가한다. 이
+          간접 레이어는 블로그 호스팅 회사와 같은 외부 관리 기관의 제어가 아닌
+          작성자의 제어 하에 있다. 이것이 <a>DID</a>가 네트워크 위치가 시간이
+          지남에 따라 변경될 수 있는 정보 리소스에 대한 영구 식별자인
           <a href="https://tools.ietf.org/html/rfc8141"
-            >URN (Uniform Resource Name)</a
-          >&mdash;a persistent identifier for an information resource whose
-          network location might change over time.
+            >URN(Uniform Resource Name)</a
+          >으로 효과적으로 기능하는 방법이다.
         </p>
       </section>
 
       <section>
-        <h2>The relationship between DID controllers and DID subjects</h2>
+        <h2>DID 컨트롤러와 DID 주체 간의 관계</h2>
         <p>
-          To avoid confusion, it is helpful to classify
-          <a>DID subject</a>s into two disjoint sets based on their relationship
-          to the <a>DID controller</a>.
+          혼동을 피하기 위해 <a>DID 컨트롤러</a>와의 관계에 따라
+          <a>DID 주체</a>를 두 개의 서로 소 집합으로 분류하는 것이 도움이 된다.
         </p>
         <section>
-          <h3>Set #1: The DID subject <em>is</em> the DID controller</h3>
+          <h3>집합 #1: DID 주체가 DID 컨트롤러<em>이다</em></h3>
           <p>
-            The first case, shown in
-            <a href="#controller-subject-equivalence"></a>, is the common
-            scenario where the <a>DID subject</a> is also the
-            <a>DID controller</a>. This is the case when an individual or
-            organization creates a <a>DID</a> to self-identify.
+            <a href="#controller-subject-equivalence"></a>에 표시된 첫 번째
+            경우는 <a>DID 주체</a>가 <a>DID 컨트롤러</a>이기도 한 일반적인
+            시나리오이다. 이것은 개인이나 조직이 자기 자신을 식별하기 위해
+            <a>DID</a>를 만드는 경우이다.
           </p>
+
           <figure id="controller-subject-equivalence">
             <img
               style="margin: auto; display: block; width: 75%"
@@ -6146,54 +5942,51 @@ subject to the DID controller.
             downward to point to the DID Document.
           </div>
           <p>
-            From a graph model perspective, even though the nodes identified as
-            the
-            <a>DID controller</a> and <a>DID subject</a> in
-            <a href="#controller-subject-equivalence"></a> are distinct, there
-            is a logical arc connecting them to express a semantic equivalence
-            relationship.
+            그래프 모델 관점에서 보면,
+            <a href="#controller-subject-equivalence"></a>에서
+            <a>DID 컨트롤러</a>와 <a>DID 주체</a>로 식별되는 노드가 서로
+            구별되더라도 의미론적 동등성 관계를 표현하기 위해 이들을 연결하는
+            논리적 호가 있다.
           </p>
         </section>
         <section>
-          <h3>Set #2: The DID subject is <em>not</em> the DID controller</h3>
+          <h3>집합 #2: DID 주체가 DID 컨트롤러가 <em>아니다</em></h3>
           <p>
-            The second case is when the <a>DID subject</a> is a separate entity
-            from the <a>DID controller</a>. This is the case when, for example,
-            a parent creates and maintains control of a <a>DID</a> for a child;
-            a corporation creates and maintains control of a <a>DID</a> for a
-            subsidiary; or a manufacturer creates and maintains control of a
-            <a>DID</a> for a product, an IoT device, or a digital file.
+            두 번째 경우는 <a>DID 주체</a>가 <a>DID 컨트롤러</a>와 별개의
+            엔티티인 경우이다. 이는 예를 들어 부모가 자녀를 위한 <a>DID</a>를
+            생성하고 제어를 유지하는 경우, 기업이 자회사를 위한 <a>DID</a>를
+            생성하고 제어를 유지하는 경우, 또는 제조업체가 제품, IoT 장치 또는
+            디지털 파일을 위한 <a>DID</a>를 생성하고 제어를 유지하는 경우이다.
           </p>
           <p>
-            From a graph model perspective, the only difference from Set 1 that
-            there is no equivalence arc relationship between the
-            <a>DID subject</a> and <a>DID controller</a> nodes.
+            그래프 모델 관점에서 보면, 집합 1과의 유일한 차이점은
+            <a>DID 주체</a>와 <a>DID 컨트롤러</a> 노드 사이에 동등성 호 관계가
+            없다는 것이다.
           </p>
         </section>
       </section>
 
       <section>
-        <h2>Multiple DID controllers</h2>
+        <h2>다중 DID 컨트롤러</h2>
         <p>
-          A <a>DID document</a> might have more than one <a>DID controller</a>.
-          This can happen in one of two ways.
+          <a>DID 문서</a>에는 둘 이상의 <a>DID 컨트롤러</a>가 있을 수 있다. 이는
+          두 가지 방식 중 하나로 발생할 수 있다.
         </p>
         <section>
-          <h3>Independent Control</h3>
+          <h3>독립적 제어</h3>
           <p>
-            In this case, each of the <a>DID controllers</a> might act on its
-            own, i.e., each one has full power to update the
-            <a>DID document</a> independently. From a graph model perspective,
-            in this configuration:
+            이 경우 각 <a>DID 컨트롤러</a>는 독자적으로 행동할 수 있다. 즉, 각
+            컨트롤러는 <a>DID 문서</a>를 독립적으로 업데이트할 수 있는 완전한
+            권한을 가지고 있다. 그래프 모델 관점에서 이 구성에서는:
           </p>
           <ul>
             <li>
-              Each additional <a>DID controller</a> is another distinct graph
-              node (which might be identified by its own <a>DID</a>).
+              각 추가 <a>DID 컨트롤러</a>는 또 다른 별개의 그래프 노드이다(자체
+              <a>DID</a>로 식별될 수 있음).
             </li>
             <li>
-              The same arcs ("controls" and "controller") exist between each
-              <a>DID controller</a> and the <a>DID document</a>.
+              각 <a>DID 컨트롤러</a>와 <a>DID 문서</a> 사이에는 동일한
+              호("controls"와 "controller")가 존재한다.
             </li>
           </ul>
           <figure id="independent-did-controllers">
@@ -6231,18 +6024,17 @@ subject to the DID controller.
           </div>
         </section>
         <section>
-          <h3>Group Control</h3>
+          <h3>그룹 제어</h3>
           <p>
-            In the case of group control, the <a>DID controllers</a> are
-            expected to act together in some fashion, such as when using a
-            cryptographic algorithm that requires multiple digital signatures
-            ("multi-sig") or a threshold number of digital signatures
-            ("m-of-n"). From a functional standpoint, this option is similar to
-            a single <a>DID controller</a> because, although each of the
-            <a>DID controllers</a> in the <a>DID controller</a> group has its
-            own graph node, the actual control collapses into a single logical
-            graph node representing the <a>DID controller</a> group as shown in
-            <a href="#group-did-controllers"></a>.
+            그룹 제어의 경우 <a>DID 컨트롤러</a>는 여러 디지털 서명("멀티
+            시그")이나 임계값 수의 디지털 서명("m-of-n")을 요구하는 암호화
+            알고리즘을 사용할 때와 같이 어떤 방식으로든 함께 행동할 것으로
+            예상된다. 기능적 관점에서 이 옵션은 단일 <a>DID 컨트롤러</a>와
+            유사한데, 비록 <a>DID 컨트롤러</a> 그룹의 각 <a>DID 컨트롤러</a>가
+            자체 그래프 노드를 가지고 있지만
+            <a href="#group-did-controllers"></a>에 표시된 것처럼 실제 제어는
+            <a>DID 컨트롤러</a> 그룹을 나타내는 단일 논리적 그래프 노드로
+            축소되기 때문이다.
           </p>
           <figure id="group-did-controllers">
             <img
@@ -6275,49 +6067,43 @@ DID controller group to control a DID document
             a black circle, labeled "DID Subject".
           </div>
           <p>
-            This configuration will often apply when the <a>DID subject</a> is
-            an organization, corporation, government agency, community, or other
-            group that is not controlled by a single individual.
+            이 구성은 <a>DID 주체</a>가 단일 개인이 제어하지 않는 조직, 기업,
+            정부 기관, 커뮤니티 또는 기타 그룹일 때 종종 적용될 것이다.
           </p>
         </section>
       </section>
       <section>
-        <h2>Changing the DID subject</h2>
+        <h2>DID 주체 변경</h2>
         <p>
-          A <a>DID document</a> has exactly one <a>DID</a> which refers to the
-          <a>DID subject</a>. The <a>DID</a> is expressed as the value of the
-          <code><a>id</a></code> property. This property value is immutable for
-          the lifetime of the <a>DID document</a>.
+          <a>DID 문서</a>에는 <a>DID 주체</a>를 참조하는 정확히 하나의
+          <a>DID</a>가 있다. <a>DID</a>는 <code><a>id</a></code> 속성의 값으로
+          표현된다. 이 속성 값은 <a>DID 문서</a>의 수명 동안 불변이다.
         </p>
         <p>
-          However, it is possible that the resource <em>identified</em> by the
-          <a>DID</a>, the <a>DID subject</a>, may change over time. This is
-          under the exclusive authority of the <a>DID controller</a>. For more
-          details, see section <a href="#persistence"></a>.
+          그러나 <a>DID</a>에 의해 <em>식별된</em> 리소스인 <a>DID 주체</a>가
+          시간이 지남에 따라 변경될 수 있다. 이는 <a>DID 컨트롤러</a>의 독점적
+          권한 하에 있다. 자세한 내용은 <a href="#persistence"></a> 섹션을
+          참조하라.
         </p>
       </section>
       <section>
-        <h2>Changing the DID controller</h2>
+        <h2>DID 컨트롤러 변경</h2>
         <p>
-          The <a>DID controller</a> for a <a>DID document</a> might change over
-          time. However, depending on how it is implemented, a change in the
-          <a>DID controller</a> might not be made apparent by changes to the
-          <a>DID document</a> itself. For example, if the change is implemented
-          through a shift in ownership of the underlying cryptographic keys or
-          other controls used for one or more of the
-          <a>verification methods</a> in the <a>DID document</a>, it might be
-          indistinguishable from a standard key rotation.
+          <a>DID 문서</a>의 <a>DID 컨트롤러</a>는 시간이 지남에 따라 변경될 수
+          있다. 그러나 구현 방식에 따라 <a>DID 컨트롤러</a>의 변경은
+          <a>DID 문서</a> 자체의 변경으로 명확히 드러나지 않을 수 있다. 예를
+          들어 변경이 <a>DID 문서</a>의 하나 이상의 <a>검증 메서드</a>에
+          사용되는 기본 암호화 키 또는 기타 제어의 소유권 이동을 통해 구현되는
+          경우 표준 키 교체와 구별할 수 없을 수 있다.
         </p>
         <p>
-          On the other hand, if the change is implemented by changing the value
-          of the
-          <a>`controller`</a> property, it will be transparent.
+          반면에 변경이 <a>`controller`</a> 속성의 값을 변경하여 구현되는 경우
+          투명할 것이다.
         </p>
         <p>
-          If it is important to verify a change of <a>DID controller</a>,
-          implementers are advised to <a>authenticate</a> the new
-          <a>DID controller</a> against the <a>verification methods</a> in the
-          revised <a>DID document</a>.
+          <a>DID 컨트롤러</a>의 변경을 검증하는 것이 중요한 경우 구현자는 수정된
+          <a>DID 문서</a>의 <a>검증 메서드</a>에 대해 새로운
+          <a>DID 컨트롤러</a>를 <a>인증</a>하는 것이 좋다.
         </p>
       </section>
     </section>

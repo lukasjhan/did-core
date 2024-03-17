@@ -221,7 +221,7 @@
         이 문서는
         <a href="https://www.w3.org/TR/did-core/"
           >W3C Decentralized Identifiers (DIDs) v1.0</a
-        >의 한국어 번역본입니다.
+        >의 한국어 번역본이다.
       </p>
       <p>
         이 문서에 오역 및 오타를 포함할 수 있습니다.
@@ -248,7 +248,10 @@
           >)
         </dd>
         <dd>
-          <a href="mailto:lukas.j.han@gmail.com">한종호(Lukas.J.Han)</a>
+          <a href="mailto:lukas.j.han@gmail.com">한종호</a> (<a
+            href="https://www.hopae.com/"
+            >Hopae Inc.</a
+          >)
         </dd>
         <dt><span style="font-weight: 500">번역자 (가나다순)</span>:</dt>
         <dd><a href="mailto:anh1026@kaist.ac.kr">안형철</a></dd>
@@ -285,7 +288,7 @@
     </div>
     <section id="abstract">
       <p>
-        <a>탈중앙 식별자</a> (DIDs)는 검증가능하고 탈중앙화된 디지털 신원을 위한
+        <a>탈중앙 식별자</a> (DID)는 검증가능하고 탈중앙화된 디지털 신원을 위한
         새로운 형식의 식별자이다. <a>DID</a>는 <a>DID</a>의 컨트롤러가 결정한
         모든 주체(예: 사람, 조직, 사물, 데이터 모델, 추상 개체 등)를 나타낸다.
         전형적인 중앙 식별자와 다르게, <a>DID</a>는 중앙화된 레지스트리, ID
@@ -362,21 +365,22 @@
         이러한 전세계적으로 고유한 식별자들 중 대부분은 우리의 통제안에 있지
         않는다. 그들은 누구 또는 무엇을 참조하는지, 언제 철회할 수 있는지를
         결정하는 외부의 기관에 의해 발행된다. 그것들은 특정 상황에서만 유용하며
-        우리가 선택하지 않은 특정 기관에서만 인식된다. 그것들은 기관이 실패하면
-        사라지거나 유효하지 않게 될 수 있습니다. 그들은 불필요하게 개인 정보를
-        공개할 수도 있습니다. 대부분의 경우 악의적인 제3자에 의해 사기적으로
-        복제되고 주장될 수 있다. 이는 일반적으로 "신원도용"으로 알려져 있다.
+        우리가 선택하지 않은 특정 기관에서만 인식된다. 그것들은 기관이
+        존속하는데 실패하면 사라지거나 유효하지 않게 될 수 있다. 그들은
+        불필요하게 개인 정보를 공개할 수도 있다. 대부분의 경우 악의적인 제3자에
+        의해 사기적으로 복제되고 주장될 수 있다. 이는 일반적으로 "신원도용"으로
+        알려져 있다.
       </p>
       <p>
-        이 명세에 정의된 The Decentralized Identifiers (DIDs)는 새로운 유형의
+        이 명세에 정의된 The Decentralized Identifiers (DID)는 새로운 유형의
         전세계적으로 고유한 식별자이다. 그들은 개인과 기관이 신뢰하는 시스템을
         사용하여 자신의 식별자를 생성할 수 있도록 설계되었다. 이러한 새로운
         식별자를 사용하면 디지털 서명과 같은 암호화 증명을 사용하여 인증함으로써
         식별자에 대한 제어를 증명할 수 있다.
       </p>
       <p>
-        Decentralized Identifiers의 생성 및 주장은 엔터티에 의해 제어되므로 각
-        엔테티는 원하는 ID, 페르소나 및 상호 작용의 분리를 유지하는데 필요한
+        Decentralized Identifiers의 생성 및 주장은 엔티티에 의해 제어되므로 각
+        엔티티는 원하는 ID, 페르소나 및 상호 작용의 분리를 유지하는데 필요한
         만큼의 DID를 가질 수 있다. 이러한 식별자의 사용은 다른 맥락에 적절하게
         범위가 지정될 수 있다. 이들은 개체가 자신이나 자신이 통제하는 사물을
         식별하도록 요구하는 다른 사람, 기관 또는 시스템과의 상호 작용을 지원하는
@@ -395,7 +399,7 @@
         설계할 수 있도록 한다. 예를들어, 분산 원장, 탈중앙화 파일 시스템, 분산
         데이터베이스 및 P2P 네트워크와 같다.
       </p>
-      <p>본 명세서는 다음을 위한 것입니다:</p>
+      <p>본 명세서는 다음을 위한 것이다:</p>
       <ul>
         <li>
           Decentralized Identifiers의 핵심 아키텍처 원칙을 이해하고자 하는
@@ -425,7 +429,7 @@
         <h2>A Simple Example</h2>
 
         <p>
-          <a>DID</a>는 세 부분으로 구성된 간단한 텍스트 문자열입니다: 1)
+          <a>DID</a>는 세 부분으로 구성된 간단한 텍스트 문자열이다: 1)
           <code>did</code> URI 체계 식별자, 2) <a>DID 메소드</a>에 대한 식별자,
           그리고 3) DID 메소드별 특정 식별자.
         </p>
@@ -479,8 +483,8 @@ reads 'DID Method Specific String' below the bracket.
 
         <p>
           <a>탈중앙 식별자</a>는 검증 가능한 크리덴셜 생태계 [[VC-DATA-MODEL]]와
-          같은 더 큰 시스템의 구성 요소로, 이 사양의 설계 목표에 영향을
-          미쳤습니다. 탈중앙 식별자에 대한 설계 목표는 여기에 요약되어 있다.
+          같은 더 큰 시스템의 구성 요소로, 이 사양의 설계 목표에 영향을 미쳤다.
+          탈중앙 식별자에 대한 설계 목표는 여기에 요약되어 있다.
         </p>
 
         <table class="simple">
@@ -631,11 +635,11 @@ fragments or external resources.
         </div>
 
         <dl>
-          <dt>DIDs 및 DID URL</dt>
+          <dt>DID 및 DID URL</dt>
           <dd>
             탈중앙화 식별자 또는 <a>DID</a>는 세 부분으로 구성된 <a>URI</a>이다:
             체계 <code>did:</code>, 메소드 식별자, 그리고 <a>DID 메소드</a>에
-            의해 지정된 독특한 메소드별 식별자. <a>DIDs</a>는 <a>DID 문서</a>로
+            의해 지정된 독특한 메소드별 식별자. <a>DID</a>는 <a>DID 문서</a>로
             해석된다. <a>DID URL</a>은 기본 <a>DID</a>의 구문을 확장하여 경로,
             쿼리, 프래그먼트와 같은 다른 표준 <a>URI</a> 구성 요소를 포함하여
             특정 <a>리소스</a>를 찾는다. 예를 들어, <a>DID 문서</a> 내의
@@ -647,8 +651,8 @@ fragments or external resources.
           <dd>
             <a>DID</a>의 주체는 정의에 따라 <a>DID</a>에 의해 식별되는 개체이다.
             <a>DID 주체</a>는 또한 <a>DID 컨트롤러</a>일 수 있다. 무엇이든
-            <a>DID</a>의 주체가 될 수 있습니다: 개인, 그룹, 조직, 사물 또는
-            개념. 이는 <a href="#did-subject"></a>에서 더 자세히 정의된다.
+            <a>DID</a>의 주체가 될 수 있다: 개인, 그룹, 조직, 사물 또는 개념.
+            이는 <a href="#did-subject"></a>에서 더 자세히 정의된다.
           </dd>
           <dt>DID 컨트롤러</dt>
           <dd>
@@ -663,9 +667,9 @@ fragments or external resources.
           </dd>
           <dt>검증 가능한 데이터 레지스트리</dt>
           <dd>
-            <a>DIDs</a>가 <a>DID 문서</a>로 해석되기 위해 일반적으로 어떤 종류의
+            <a>DID</a>가 <a>DID 문서</a>로 해석되기 위해 일반적으로 어떤 종류의
             기반 시스템 또는 네트워크에 기록된다. 특정 기술에 관계없이
-            <a>DIDs</a>를 기록하고 <a>DID 문서</a>를 생성하는 데 필요한 데이터를
+            <a>DID</a>를 기록하고 <a>DID 문서</a>를 생성하는 데 필요한 데이터를
             반환하는 모든 시스템은 <a>검증 가능한 데이터 레지스트리</a>라고
             한다. 예시로는 <a>분산 원장</a>, 분산 파일 시스템, 모든 종류의
             데이터베이스, P2P 네트워크 및 기타 형태의 신뢰할 수 있는 데이터
@@ -680,7 +684,7 @@ fragments or external resources.
             상호작용과 관련된 <a>서비스</a>를 표현한다. <a>DID 문서</a>에서
             지원되는 일반적인 속성들은 <a href="#core-properties"></a>에
             명시되어 있다. <a>DID 문서</a>는 바이트 스트림으로 직렬화될 수
-            있습니다(참조 <a href="#representations"></a>). <a>DID 문서</a>에
+            있다(참조 <a href="#representations"></a>). <a>DID 문서</a>에
             존재하는 속성은 <a href="#methods"></a>에 개요된 해당 작업에 따라
             업데이트될 수 있다.
           </dd>
@@ -855,7 +859,7 @@ pct-encoded        = "%" HEXDIG HEXDIG
 
         <p>
           <a>DID URL</a>은 특정 <a>리소스</a>에 대한 네트워크 위치 식별자이다.
-          이는 <a>DID 주체</a>, <a>verification methods</a>, <a>서비스</a>,
+          이는 <a>DID 주체</a>, <a>검증 방법</a>, <a>서비스</a>,
           <a>DID 문서</a>의 특정 부분 또는 기타 리소스와 같은 항목을 검색하는 데
           사용될 수 있다.
         </p>
@@ -976,9 +980,9 @@ did:example:123?service=agent&amp;relativeRef=/credentials#degree
           <p class="note" title="표현별 프레그먼트 의미론">
             상호 운용성을 극대화하기 위해, 구현자들은 <a>DID 프레그먼트</a>가
             <a>표현</a>간에 동일하게 해석되도록 보장하는 데 주의를 기울여야
-            합니다(참조 <a href="#representations"></a>). 예를 들어, JSON
-            Pointer [[?RFC6901]]가 <a>DID 프레그먼트</a>에서 사용될 수 있지만,
-            비-JSON <a>표현</a>에서는 동일한 방식으로 해석되지 않을 것이다.
+            한다(참조 <a href="#representations"></a>). 예를 들어, JSON Pointer
+            [[?RFC6901]]가 <a>DID 프레그먼트</a>에서 사용될 수 있지만, 비-JSON
+            <a>표현</a>에서는 동일한 방식으로 해석되지 않을 것이다.
           </p>
           <p>
             이 섹션의 의미론과 호환되며 그 위에 덧붙여진 프레그먼트 식별자에
@@ -1068,9 +1072,9 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
                   <code>versionId</code>
                 </td>
                 <td>
-                  해석될 <a>DID 문서</a>의 특정 버전을 식별합니다(버전 ID는
+                  해석될 <a>DID 문서</a>의 특정 버전을 식별한다(버전 ID는
                   순차적이거나, <a>UUID</a>이거나, 메소드별 특성을 가질 수
-                  있습니다). 존재하는 경우, 관련 값은 반드시
+                  있다). 존재하는 경우, 관련 값은 반드시
                   <a data-lt="ascii string">ASCII 문자열</a>이어야 한다.
                 </td>
               </tr>
@@ -1125,12 +1129,12 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
           <p class="note" title="DID 매개변수와 DID 해석">
             <a>DID 해석</a> 및 <a>DID URL 역참조</a> 기능은 <a>DID URL</a>의
             일부가 아닌 입력 메타데이터를 <a>DID 변환기</a>에 전달함으로써
-            영향을 받을 수 있습니다(참조
-            <a href="#did-resolution-options"></a>). 이는 HTTP와 비슷한데, 특정
-            매개변수가 HTTP URL에 포함되거나, 또는 역참조 과정 중에 HTTP 헤더로
-            전달될 수 있다. 중요한 구별점은 <a>DID URL</a>의 일부인 DID
-            매개변수는 <em>어떤 <a>리소스</a>가 식별되는지</em>를 명시하는 데
-            사용되어야 하며, <a>DID URL</a>의 일부가 아닌 입력 메타데이터는
+            영향을 받을 수 있다(참조 <a href="#did-resolution-options"></a>).
+            이는 HTTP와 비슷한데, 특정 매개변수가 HTTP URL에 포함되거나, 또는
+            역참조 과정 중에 HTTP 헤더로 전달될 수 있다. 중요한 구별점은
+            <a>DID URL</a>의 일부인 DID 매개변수는
+            <em>어떤 <a>리소스</a>가 식별되는지</em>를 명시하는 데 사용되어야
+            하며, <a>DID URL</a>의 일부가 아닌 입력 메타데이터는
             <em>그 <a>리소스</a>가 어떻게 해석되거나 역참조되는지</em>를
             제어하는 데 사용되어야 한다.
           </p>
@@ -1200,7 +1204,7 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
     </section>
 
     <section>
-      <h1>Data Model</h1>
+      <h1 id="data-model">데이터 모델</h1>
       <p>
         이 사양은 <a>DID 문서</a>와 DID 문서 데이터 구조를 표현하는 데 사용될 수
         있는 데이터 모델을 정의한다. 이 데이터 모델은 여러 구체적인
@@ -1209,7 +1213,7 @@ did:example:123?service=files&amp;relativeRef=/resume.pdf
         데이터 모델 확장 지침을 제공한다.
       </p>
       <p>
-        <a>DID 문서</a>는 <a data-cite="INFRA#maps">맵</a>의
+        <a>DID 문서</a>는 <a data-cite="INFRA#maps">map</a>의
         <a data-cite="INFRA#map-entry">엔트리</a>들로 구성되며, 각 엔트리는
         키/값 쌍으로 구성된다. <a>DID 문서</a> 데이터 모델은 적어도 두 가지 다른
         클래스의 엔트리를 포함한다. 첫 번째 클래스의 엔트리는 속성이라고 하며,
@@ -1236,7 +1240,7 @@ specification; others are defined by registered or unregistered extensions."
       </figure>
 
       <div class="longdesc" id="did-document-entries-longdesc">
-        다이어그램의 제목은 "DID 문서 맵의 엔트리들"이다. 다이어그램 중앙을
+        다이어그램의 제목은 "DID 문서 map의 엔트리들"이다. 다이어그램 중앙을
         가로지르는 점선 회색 선이 있다. 이 선 위의 공간은 "속성(Properties)"으로
         레이블이 붙고, 아래쪽 공간은 "표현별 항목(Representation-specific
         entries)"으로 레이블이 붙는다. 다이어그램에는 여섯 개의 레이블이 붙은
@@ -1255,7 +1259,7 @@ specification; others are defined by registered or unregistered extensions."
         확장(Property Extensions)"이라고 레이블이 붙고, "ethereumAddress"라는
         텍스트가 포함된다. 가운데 하단 사각형은 "표현별 항목
         확장(Representation-specific Entry Extensions)"이라고 레이블이 붙고,
-        다른 텍스트는 포함되지 않다. 오른쪽 상단 사각형은 "등록되지 않은 속성
+        다른 텍스트는 포함되지 않는다. 오른쪽 상단 사각형은 "등록되지 않은 속성
         확장(Unregistered Property Extensions)"이라고 레이블이 붙고, "foo"라는
         텍스트가 포함된다. 오른쪽 하단 사각형은 "등록되지 않은 표현별 항목
         확장(Unregistered Representation-specific Entry Extensions)"이라고
@@ -1284,7 +1288,7 @@ specification; others are defined by registered or unregistered extensions."
             </td>
             <td>
               키/값 쌍의 유한한 순서 있는 시퀀스로, [INFRA]에 명시된 대로 같은
-              키가 두 번 나타나지 않다. 맵은 때때로 [INFRA]에서
+              키가 두 번 나타나지 않는다. map은 때때로 [INFRA]에서
               <a data-cite="INFRA#maps">ordered map</a>으로 언급된다.
             </td>
           </tr>
@@ -1374,7 +1378,8 @@ specification; others are defined by registered or unregistered extensions."
         관계없이 순서가 있다. 이 규격의 목적상, 다르게 명시되지 않는 한,
         <a data-cite="INFRA#ordered-map">map</a>과
         <a data-cite="INFRA#ordered-set">set</a>의 순서는 중요하지 않으며,
-        구현이 결정적으로 순서 있는 값을 생성하거나 소비할 것으로 기대되지 않다.
+        구현이 결정적으로 순서 있는 값을 생성하거나 소비할 것으로 기대되지
+        않는다.
       </p>
 
       <section>
@@ -1422,10 +1427,10 @@ specification; others are defined by registered or unregistered extensions."
         있으며, 예상되는 값과 필수 여부를 포함한다. 표의 속성 이름은 각 속성의
         규범적 정의와 더 자세한 설명으로 연결된다.
       </p>
-      <p class="note" title="다른 유형의 맵에서 사용되는 속성 이름">
-        다른 유형의 맵에서 사용되는 속성 이름 <code>id</code>,
+      <p class="note" title="다른 유형의 map에서 사용되는 속성 이름">
+        다른 유형의 map에서 사용되는 속성 이름 <code>id</code>,
         <code>type</code>, 및 <code>controller</code> 속성 이름은 가능한 제약
-        사항에서 차이가 있을 수 있는 다양한 유형의 맵에 존재할 수 있다.
+        사항에서 차이가 있을 수 있는 다양한 유형의 map에 존재할 수 있다.
       </p>
 
       <section class="notoc">
@@ -1447,7 +1452,7 @@ specification; others are defined by registered or unregistered extensions."
               <td>yes</td>
               <td>
                 <a href="#did-syntax"></a>의 규칙을 준수하는
-                <a data-cite="INFRA#string">문자열</a>입니다.
+                <a data-cite="INFRA#string">문자열</a>이다.
               </td>
             </tr>
             <tr>
@@ -1626,7 +1631,7 @@ specification; others are defined by registered or unregistered extensions."
               <td>
                 <a data-cite="INFRA#string">문자열</a> 또는
                 <a data-cite="INFRA#string">문자열</a>의
-                <a data-cite="INFRA#ordered-set">set</a>입니다.
+                <a data-cite="INFRA#ordered-set">set</a>이다.
               </td>
             </tr>
             <tr>
@@ -1689,7 +1694,7 @@ specification; others are defined by registered or unregistered extensions."
             <a>DID 메소드</a> 규격은 <a>DID 문서</a>의
             <code><a>id</a></code> 속성이 포함되지 않는 중간 표현을 생성할 수
             있다. 예를 들어 <a>DID 변환기</a>가 <a>DID 해석</a>을 수행할 때와
-            같은 경우입니다. 그러나 완전히 해석된 <a>DID 문서</a>는 항상 유효한
+            같은 경우이다. 그러나 완전히 해석된 <a>DID 문서</a>는 항상 유효한
             <code><a>id</a></code>
             속성을 포함한다.
           </p>
@@ -1699,15 +1704,14 @@ specification; others are defined by registered or unregistered extensions."
           <h3 id="did-controller">DID 컨트롤러(DID Controller)</h3>
 
           <p>
-            <a>DID 컨트롤러</a>는 <a>DID 문서</a> 변경 권한을 부여받은
-            개체입니다. <a>DID 컨트롤러</a>를 승인하는 과정은 DID 메소드에 의해
-            정의된다.
+            <a>DID 컨트롤러</a>는 <a>DID 문서</a> 변경 권한을 부여받은 개체이다.
+            <a>DID 컨트롤러</a>를 승인하는 과정은 DID 메소드에 의해 정의된다.
           </p>
 
           <dl>
             <dt><dfn data-lt="컨트롤러|controller">controller</dfn></dt>
             <dd>
-              <code>controller</code>의 속성은 선택 사항입니다. 존재하는 경우,
+              <code>controller</code>의 속성은 선택 사항이다. 존재하는 경우,
               값은 <a href="#did-syntax"></a>의 규칙을 준수하는
               <a data-cite="INFRA#string">문자열</a> 또는
               <a data-cite="INFRA#string">문자열</a>의
@@ -1739,7 +1743,7 @@ specification; others are defined by registered or unregistered extensions."
 
           <p class="note" title="인가 대 인증(Authorization vs authentication)">
             <code>controller</code>의 값에 의해 제공되는 승인은
-            <a href="#authentication"></a>에서 설명하는 인증과 별개입니다. 이는
+            <a href="#authentication"></a>에서 설명하는 인증과 별개이다. 이는
             특히 암호화 키 손실의 경우 키 복구에 중요하다. 여기서
             <a>DID 주체</a>는 더 이상 자신의 키에 접근할 수 없거나, 키 타협의
             경우, <a>DID 컨트롤러</a>의 신뢰할 수 있는 제3자가 공격자에 의한
@@ -1761,7 +1765,7 @@ specification; others are defined by registered or unregistered extensions."
           <dl>
             <dt><dfn>alsoKnownAs</dfn></dt>
             <dd>
-              <code>alsoKnownAs</code> 속성은 선택 사항입니다. 속성이 존재하는
+              <code>alsoKnownAs</code> 속성은 선택 사항이다. 속성이 존재하는
               경우, 값은 [[RFC3986]]에 따른 <a>URI</a>를 준수하는
               <a data-cite="INFRA#ordered-set">set</a>의 각 항목이어야 한다.
             </dd>
@@ -1777,7 +1781,7 @@ specification; others are defined by registered or unregistered extensions."
               상호 작용할 경우 두 식별자를 등가로 간주할 수 있다. 이 역 관계가
               없는 경우에는 등가로 간주하지 <em>않는</em> 것이 최선이다. 즉,
               <code><a>alsoKnownAs</a></code> 주장의 존재가 이 주장이 참임을
-              증명하지는 않다. 따라서 요청하는 당사자가
+              증명하지는 않는다. 따라서 요청하는 당사자가
               <code>alsoKnownAs</code> 주장의 독립적인 검증을 받는 것이 강력히
               권장된다.
             </p>
@@ -1798,7 +1802,7 @@ specification; others are defined by registered or unregistered extensions."
           있으며, 이는 <a>DID 주체</a> 또는 관련 당사자와의 상호 작용을
           <a>인증</a>하거나 인가하는 데 사용될 수 있다. 예를 들어, 암호화 공개
           키는 디지털 서명과 관련하여 <a>검증 방법</a>으로 사용될 수 있으며, 이
-          경우 서명자가 관련 암호화 개인 키를 사용할 수 있음을 검증합니다.
+          경우 서명자가 관련 암호화 개인 키를 사용할 수 있음을 검증한다.
           <a>검증 방법</a>은 많은 매개변수를 가질 수 있다. 이의 예는 암호화
           임계값 서명에 기여해야 하는 다섯 개의 암호화 키 중에서 어느 세 개가
           필요한 세트이다.
@@ -1833,7 +1837,7 @@ specification; others are defined by registered or unregistered extensions."
               <dd>
                 <code>type</code> 속성 값은 정확히 하나의
                 <a>검증 방법</a> 유형을 참조하는
-                <a data-cite="INFRA#string">문자열</a>이어야 합니다. 전 세계적인
+                <a data-cite="INFRA#string">문자열</a>이어야 한다. 전 세계적인
                 상호 운용성을 극대화하기 위해, <a>검증 방법</a> 유형은 DID 규격
                 레지스트리 [[?DID-SPEC-REGISTRIES]]에 등록되어야 한다.
               </dd>
@@ -1871,14 +1875,15 @@ specification; others are defined by registered or unregistered extensions."
 
         <p class="note" title="검증 방법 컨트롤러 및 DID 컨트롤러">
           <code>controller</code> 속성의 의미는 관계의 주체가 <a>DID 문서</a>일
-          때와 암호화 공개 키와 같은 검증 방법일 때 동일합니다. 키가 자기 자신을
+          때와 암호화 공개 키와 같은 검증 방법일 때 동일한다. 키가 자기 자신을
           제어할 수 없고 키의 컨트롤러가 <a>DID 문서</a>에서 유추될 수 없기
-          때문에, 키 컨트롤러의 정체성을 명시적으로 표현할 필요가 있습니다.
-          차이점은 검증 방법에 대한 컨트롤러의 값이 반드시 <a>DID 컨트롤러</a>일
-          필요는 없다는 것입니다. <a>DID 컨트롤러</a>는 <a>DID 문서</a>의 최상위
-          수준(<a href="#data-model">데이터 모델</a>의 최상위
-          <a data-cite="INFRA#ordered-map">map</a>)에서 컨트롤러 속성을 사용하여
-          표현됩니다; <a href="#did-controller"></a>를 참조.
+          때문에, 키 컨트롤러의 정체성을 명시적으로 표현할 필요가 있다. 차이점은
+          검증 방법에 대한 컨트롤러의 값이 반드시 <a>DID 컨트롤러</a>일 필요는
+          없다는 것이다. <a>DID 컨트롤러</a>는 <a>DID 문서</a>의 최상위 수준(<a
+            href="#data-model"
+            >데이터 모델</a
+          >의 최상위 <a data-cite="INFRA#ordered-map">map</a>)에서 컨트롤러
+          속성을 사용하여 표현됩니다; <a href="#did-controller"></a>를 참조.
         </p>
 
         <section>
@@ -1917,8 +1922,8 @@ specification; others are defined by registered or unregistered extensions."
               <p>
                 <code>publicKeyJwk</code> 속성은 선택 사항이다. 존재하는 경우,
                 그 값은 [[RFC7517]]을 준수하는 JSON Web Key를 나타내는
-                <a data-cite="INFRA#ordered-map">맵</a>이어야 한다. 이
-                <a data-cite="INFRA#ordered-map">맵</a>은 "d"나
+                <a data-cite="INFRA#ordered-map">map</a>이어야 한다. 이
+                <a data-cite="INFRA#ordered-map">map</a>은 "d"나
                 <a href="https://tools.ietf.org/html/rfc7517#section-8.1.1"
                   >등록 템플릿</a
                 >에 설명된 비공개 정보 클래스의 다른 멤버를 포함해서는 안 된다.
@@ -1949,17 +1954,6 @@ specification; others are defined by registered or unregistered extensions."
               </p>
             </dd>
           </dl>
-
-          <p>
-            <a>검증 방법</a>은 동일한 자료에 대해 여러 검증 자료 속성을
-            포함해서는 안 된다. 예를 들어, <a>검증 방법</a>에서
-            <code>publicKeyJwk</code>와 <code>publicKeyMultibase</code>를 동시에
-            사용하여 키 자료를 표현하는 것은 금지된다.
-          </p>
-          <p>
-            위의 두 속성을 모두 사용하는 <a>검증 방법</a>을 포함하는
-            <a>DID 문서</a>의 예는 아래와 같다.
-          </p>
 
           <p>
             <a>검증 방법</a>은 동일한 자료에 대해 여러 검증 자료 속성을
@@ -2016,13 +2010,13 @@ specification; others are defined by registered or unregistered extensions."
           </p>
           <p>
             <a>검증 방법</a> 속성의 값이
-            <a data-cite="INFRA#ordered-map">맵</a>인 경우, <a>검증 방법</a>은
+            <a data-cite="INFRA#ordered-map">map</a>인 경우, <a>검증 방법</a>은
             내장된 것이며 해당 속성에 직접 액세스할 수 있다. 그러나 값이 URL
             <a data-cite="INFRA#string">문자열</a>인 경우, <a>검증 방법</a>은
             참조에 의해 포함된 것이며 해당 속성은 <a>DID 문서</a>의 다른 곳이나
             다른 <a>DID 문서</a>에서 검색되어야 한다. 이는 URL을 역참조하고 결과
             <a>리소스</a>에서 값이 URL과 일치하는 <code>id</code> 속성을 가진
-            <a>검증 방법</a> <a data-cite="INFRA#ordered-map">맵</a>을 검색하여
+            <a>검증 방법</a> <a data-cite="INFRA#ordered-map">map</a>을 검색하여
             수행된다.
           </p>
 
@@ -2103,7 +2097,7 @@ specification; others are defined by registered or unregistered extensions."
             <dd>
               <code>authentication</code> 속성은 선택 사항이다. 존재하는 경우,
               관련된 값은 하나 이상의 <a>검증 방법</a>의
-              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
+              <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 각
               <a>검증 방법</a>은 내장되거나 참조될 수 있다.
             </dd>
           </dl>
@@ -2183,7 +2177,7 @@ specification; others are defined by registered or unregistered extensions."
             <dd>
               <code>assertionMethod</code> 속성은 선택 사항이다. 존재하는 경우,
               관련된 값은 하나 이상의 <a>검증 방법</a>의
-              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
+              <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 각
               <a>검증 방법</a>은 내장되거나 참조될 수 있다.
             </dd>
           </dl>
@@ -2239,7 +2233,7 @@ specification; others are defined by registered or unregistered extensions."
             <dd>
               <code>keyAgreement</code> 속성은 선택 사항이다. 존재하는 경우,
               관련된 값은 하나 이상의 <a>검증 방법</a>의
-              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
+              <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 각
               <a>검증 방법</a>은 내장되거나 참조될 수 있다.
             </dd>
           </dl>
@@ -2290,7 +2284,7 @@ specification; others are defined by registered or unregistered extensions."
             <dd>
               <code>capabilityInvocation</code> 속성은 선택 사항이다. 존재하는
               경우, 관련된 값은 하나 이상의 <a>검증 방법</a>의
-              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
+              <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 각
               <a>검증 방법</a>은 내장되거나 참조될 수 있다.
             </dd>
           </dl>
@@ -2355,7 +2349,7 @@ specification; others are defined by registered or unregistered extensions."
             <dd>
               <code>capabilityDelegation</code> 속성은 선택 사항이다. 존재하는
               경우, 관련된 값은 하나 이상의 <a>검증 방법</a>의
-              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
+              <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 각
               <a>검증 방법</a>은 내장되거나 참조될 수 있다.
             </dd>
           </dl>
@@ -2432,10 +2426,10 @@ specification; others are defined by registered or unregistered extensions."
           <dd>
             <p>
               <code>service</code> 속성은 선택 사항이다. 존재하는 경우, 관련된
-              값은 각 서비스가 <a data-cite="INFRA#ordered-map">맵</a>으로
+              값은 각 서비스가 <a data-cite="INFRA#ordered-map">map</a>으로
               설명되는 <a>서비스</a>의
-              <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 각
-              <a>서비스</a> <a data-cite="INFRA#ordered-map">맵</a>은
+              <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 각
+              <a>서비스</a> <a data-cite="INFRA#ordered-map">map</a>은
               <code><a>id</a></code
               >, <code>type</code>, <code><a>serviceEndpoint</a></code> 속성을
               포함해야 한다. 각 서비스 확장은 추가 속성을 포함할 수 있으며
@@ -2456,7 +2450,7 @@ specification; others are defined by registered or unregistered extensions."
                 <code>type</code> 속성의 값은
                 <a data-cite="INFRA#string">문자열</a> 또는
                 <a data-cite="INFRA#string">문자열</a>의
-                <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 상호
+                <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 상호
                 운용성을 최대화하기 위해 <a>service</a> 유형과 관련 속성은 DID
                 규격 레지스트리 [[?DID-SPEC-REGISTRIES]]에 등록되어야 한다.
               </dd>
@@ -2464,10 +2458,10 @@ specification; others are defined by registered or unregistered extensions."
               <dd>
                 <code>serviceEndpoint</code> 속성의 값은
                 <a data-cite="INFRA#string">문자열</a>,
-                <a data-cite="INFRA#string">맵</a>, 또는 하나 이상의
+                <a data-cite="INFRA#string">map</a>, 또는 하나 이상의
                 <a data-cite="INFRA#string">문자열</a> 및/또는
-                <a data-cite="INFRA#string">맵</a>으로 구성된
-                <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 모든
+                <a data-cite="INFRA#string">map</a>으로 구성된
+                <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 모든
                 <a data-cite="INFRA#string">문자열</a> 값은 [[RFC3986]]을
                 준수하는 유효한 <a>URI</a>여야 하며
                 <a data-cite="RFC3986#section-6"
@@ -2500,7 +2494,7 @@ specification; others are defined by registered or unregistered extensions."
     </section>
 
     <section class="normative">
-      <h1>Representations</h1>
+      <h1 id="representations">표현</h1>
 
       <p>
         이 규격에서 <a>DID 문서</a>의 구체적인 직렬화를 <a>표현</a>이라고 한다.
@@ -2517,7 +2511,7 @@ specification; others are defined by registered or unregistered extensions."
       </p>
 
       <section>
-        <h2>Production and Consumption</h2>
+        <h2>생산과 소비</h2>
 
         <p>
           이 규격에 정의된 <a>표현</a> 외에도, 구현자는 각 <a>표현</a>이
@@ -2555,7 +2549,7 @@ specification; others are defined by registered or unregistered extensions."
           <li>
             <a>표현</a>은 <a>생산</a> 및 <a>소비</a> 프로세스에서 사용하기 위해
             <a>representation-specific entries</a>
-            <a data-cite="INFRA#maps">맵</a>에 저장되는
+            <a data-cite="INFRA#maps">map</a>에 저장되는
             <a>representation-specific entries</a>를 정의할 수 있다. 이러한
             항목은 손실 없는 변환을 보장하는 데 도움을 주기 위해 소비 또는 생산
             시 사용된다.
@@ -2573,7 +2567,7 @@ specification; others are defined by registered or unregistered extensions."
             <a>규범에 부합하는 생산자</a>는 <a>생산</a> 프로세스에 대한 입력으로
             <a>DID 문서</a> <a href="#data-model">데이터 모델</a>과
             <a>representation-specific entries</a>
-            <a data-cite="INFRA#maps">맵</a>을 사용해야 한다.
+            <a data-cite="INFRA#maps">map</a>을 사용해야 한다.
             <a>규범에 부합하는 생산자</a>는 <a>생산</a> 프로세스에 대한 입력으로
             추가 옵션을 받아들일 수 있다.
           </li>
@@ -2582,7 +2576,7 @@ specification; others are defined by registered or unregistered extensions."
             명시적인 처리 규칙이 없는 <a>DID 문서</a>
             <a href="#data-model">데이터 모델</a>과
             <a>representation-specific entries</a>
-            <a data-cite="INFRA#maps">맵</a>의 모든 항목을 <a>표현</a>의 데이터
+            <a data-cite="INFRA#maps">map</a>의 모든 항목을 <a>표현</a>의 데이터
             유형 처리 규칙만을 사용하여 직렬화하고 <a>생산</a> 프로세스가 완료된
             후 직렬화된 결과를 반환해야 한다.
           </li>
@@ -2614,7 +2608,7 @@ specification; others are defined by registered or unregistered extensions."
             <a>규범에 부합하는 소비자</a>는 모든 알려진 <a>표현</a>에서
             <a>representation-specific entry</a>를 감지하고 해당 항목을
             <a>representation-specific entries</a>
-            <a data-cite="INFRA#maps">맵</a>에 배치해야 하며, 이 맵은
+            <a data-cite="INFRA#maps">map</a>에 배치해야 하며, 이 map은
             <a>소비</a> 프로세스가 완료된 후 반환된다. 모든 알려진
             <a>representation-specific entries</a>의 목록은 DID 규격 레지스트리
             [[?DID-SPEC-REGISTRIES]]에서 확인할 수 있다.
@@ -2749,13 +2743,13 @@ and consumed, including in JSON and JSON-LD."
         </p>
 
         <section>
-          <h3>Production</h3>
+          <h3>생산</h3>
 
           <p>
             <a>DID 문서</a>, DID 문서 데이터 구조 및
             <a>representation-specific entries</a>
-            <a data-cite="INFRA#maps">맵</a>은 다음 <a>생산</a> 규칙에 따라 JSON
-            <a>표현</a>으로 직렬화되어야 한다:
+            <a data-cite="INFRA#maps">map</a>은 다음 <a>생산</a> 규칙에 따라
+            JSON <a>표현</a>으로 직렬화되어야 한다:
           </p>
 
           <table class="simple" id="json-representation-production">
@@ -2824,7 +2818,7 @@ and consumed, including in JSON and JSON-LD."
               </tr>
               <tr>
                 <td><a data-cite="INFRA#nulls">Null</a></td>
-                <td><a data-cite="RFC8259#section-3">JSON 널 리터럴</a>.</td>
+                <td><a data-cite="RFC8259#section-3">JSON null 리터럴</a>.</td>
               </tr>
             </tbody>
           </table>
@@ -2835,7 +2829,7 @@ and consumed, including in JSON and JSON-LD."
               >JSON 직렬화 규칙</a
             >과 JSON [[RFC8259]] 규격의
             <a data-cite="RFC8259#section-6">숫자에 대한 정밀도 권고사항</a>에
-            맞춰져 있는지 확인하는 것이 좋습니다.
+            맞춰져 있는지 확인하는 것이 좋다.
           </p>
 
           <p>
@@ -2867,7 +2861,7 @@ and consumed, including in JSON and JSON-LD."
         </section>
 
         <section>
-          <h3>Consumption</h3>
+          <h3>소비</h3>
 
           <p>
             <a>DID 문서</a>와 DID 문서 데이터 구조 JSON <a>표현</a>은 다음과
@@ -2892,8 +2886,8 @@ and consumed, including in JSON and JSON-LD."
                   <a data-cite="RFC8259#section-4">JSON Object</a>
                 </td>
                 <td>
-                  <a data-cite="INFRA#maps">맵</a>이며, JSON 객체의 각 멤버는
-                  맵에 항목으로 추가된다. 각 항목 키는 JSON 객체 멤버 이름으로
+                  <a data-cite="INFRA#maps">map</a>이며, JSON 객체의 각 멤버는
+                  map에 항목으로 추가된다. 각 항목 키는 JSON 객체 멤버 이름으로
                   설정된다. 각 항목 값은 이 표에 정의된 JSON 표현 타입에 따라
                   JSON 객체 멤버 값을 변환하여 설정된다. JSON 객체에서 순서가
                   지정되지 않으므로, 삽입 순서가 보장되지 않는다.
@@ -2907,7 +2901,7 @@ and consumed, including in JSON and JSON-LD."
                   해당한다.
                 </td>
                 <td>
-                  <a data-cite="INFRA#list">리스트</a>이며, JSON 배열의 각 값은
+                  <a data-cite="INFRA#list">list</a>이며, JSON 배열의 각 값은
                   순서에 따라 리스트에 추가된다. 배열 값의 JSON 표현 유형에 따라
                   변환되며, 이는 본 표에 정의되어 있다.
                 </td>
@@ -2915,13 +2909,13 @@ and consumed, including in JSON and JSON-LD."
               <tr>
                 <td>
                   <a href="#data-model">데이터 모델</a> 항목 값이
-                  <a data-cite="INFRA#ordered-set">집합</a>인
+                  <a data-cite="INFRA#ordered-set">set</a>인
                   <a data-cite="RFC8259#section-5">JSON 배열</a>
                 </td>
                 <td>
                   JSON 배열의 각 값이 이 표에 정의된 대로 배열 값의 JSON 표현
-                  유형에 따라 변환되어 순서대로 집합에 추가되는
-                  <a data-cite="INFRA#ordered-set">집합</a>.
+                  유형에 따라 변환되어 순서대로 추가되는
+                  <a data-cite="INFRA#ordered-set">set</a>.
                 </td>
               </tr>
               <tr>
@@ -2938,7 +2932,7 @@ and consumed, including in JSON and JSON-LD."
                   <a>string</a> 또는 알 수 없는
                   <a data-cite="RFC8259#section-7">JSON 문자열</a>
                 </td>
-                <td><a data-cite="INFRA#string">문자열</a>.</td>
+                <td><a data-cite="INFRA#string">string</a>.</td>
               </tr>
               <tr>
                 <td>
@@ -2957,11 +2951,11 @@ and consumed, including in JSON and JSON-LD."
               </tr>
               <tr>
                 <td><a data-cite="RFC8259#section-3">JSON 불리언</a></td>
-                <td><a data-cite="INFRA#boolean">불리언</a>.</td>
+                <td><a data-cite="INFRA#boolean">boolean</a>.</td>
               </tr>
               <tr>
-                <td><a data-cite="RFC8259#section-3">JSON 널 리터럴</a></td>
-                <td><a data-cite="INFRA#nulls">널</a> 값.</td>
+                <td><a data-cite="RFC8259#section-3">JSON null 리터럴</a></td>
+                <td><a data-cite="INFRA#nulls">null</a> 값.</td>
               </tr>
             </tbody>
           </table>
@@ -2973,7 +2967,7 @@ and consumed, including in JSON and JSON-LD."
               >JSON 변환 규칙</a
             >과 JSON [[RFC8259]] 규격의
             <a data-cite="RFC8259#section-6">숫자에 대한 정밀도 조언</a>에
-            부합하도록 해야 합니다.
+            부합하도록 해야 한다.
           </p>
 
           <p>
@@ -3006,19 +3000,19 @@ and consumed, including in JSON and JSON-LD."
             <a href="https://www.w3.org/TR/json-ld11/#the-context"
               >JSON-LD 컨텍스트</a
             >는 <a data-cite="INFRA#string">문자열</a> 및/또는
-            <a data-cite="INFRA#maps">순서가 있는 맵</a>의 조합을 포함하는
+            <a data-cite="INFRA#maps">순서가 있는 map</a>의 조합을 포함하는
             <a data-cite="INFRA#string">문자열</a> 또는
             <a data-cite="INFRA#list">목록</a>이다.
           </dd>
         </dl>
 
         <section>
-          <h3>Production</h3>
+          <h3>생산</h3>
 
           <p>
             <a>DID 문서</a>, DID 문서 데이터 구조 및
             <a>representation-specific entries</a>
-            <a data-cite="INFRA#maps">맵</a>은 <a href="#json"></a>에 정의된
+            <a data-cite="INFRA#maps">map</a>은 <a href="#json"></a>에 정의된
             JSON <a>표현</a> <a>생산</a> 규칙에 따라 JSON-LD <a>표현</a>으로
             직렬화되어야 한다.
           </p>
@@ -3062,8 +3056,8 @@ and consumed, including in JSON and JSON-LD."
           <p class="advisement" title="JSON-LD serialization rules">
             JSON-LD <a>표현</a>을 생성하는 <a>규범에 부합하는 생산자</a>를
             만드는 모든 구현자는 자신의 알고리즘이 유효한 JSON-LD [[JSON-LD11]]
-            문서를 생성하도록 해야 합니다. 유효하지 않은 JSON-LD 문서는 JSON-LD
-            프로세서가 중지되고 오류를 보고하도록 할 것입니다.
+            문서를 생성하도록 해야 한다. 유효하지 않은 JSON-LD 문서는 JSON-LD
+            프로세서가 중지되고 오류를 보고하도록 할 것이다.
           </p>
 
           <p>
@@ -3084,7 +3078,7 @@ and consumed, including in JSON and JSON-LD."
         </section>
 
         <section>
-          <h3>Consumption</h3>
+          <h3>소비</h3>
 
           <p>
             JSON-LD <a>표현</a>으로 표현된 <a>DID 문서</a> 및 모든 DID 문서
@@ -3195,7 +3189,7 @@ consumption rules."
             하단의 작은 사각형에는 파란색으로 "Core Representation-specific
             Entries (JSON-LD)"라는 레이블이 붙어 있으며, 다음과 같은
             모노스페이스 <a data-cite="INFRA#maps">INFRA</a> 표기법을 포함하고
-            있습니다:
+            있다:
           </p>
           <pre>
 «[ "@context" → "https://www.w3.org/ns/did/v1" ]»
@@ -3203,13 +3197,12 @@ consumption rules."
           >
           <p>
             회색 윤곽선 사각형에서 다이어그램 하단에 나란히 정렬된 세 개의
-            검은색 윤곽선 사각형으로 세 쌍의 화살표가 뻗어 있습니다. 각 화살표
-            쌍은 회색 윤곽선 사각형에서 각각의 검은색 윤곽선 사각형으로
-            "produce"라는 레이블이 붙은 파란색 화살표 하나와 반대 방향으로
-            "consume"이라는 레이블이 붙은 빨간색 화살표 하나로 구성됩니다. 첫
-            번째 검은색 윤곽선 사각형에는 "application/did+ld+json"이라는
-            레이블이 붙어 있으며, 다음과 같은 JSON-LD 데이터를 포함하고
-            있습니다:
+            검은색 윤곽선 사각형으로 세 쌍의 화살표가 뻗어 있다. 각 화살표 쌍은
+            회색 윤곽선 사각형에서 각각의 검은색 윤곽선 사각형으로 "produce"라는
+            레이블이 붙은 파란색 화살표 하나와 반대 방향으로 "consume"이라는
+            레이블이 붙은 빨간색 화살표 하나로 구성됩니다. 첫 번째 검은색 윤곽선
+            사각형에는 "application/did+ld+json"이라는 레이블이 붙어 있으며,
+            다음과 같은 JSON-LD 데이터를 포함하고 있다:
           </p>
           <pre>
 {
@@ -3229,7 +3222,7 @@ consumption rules."
           >
           <p>
             두 번째 사각형에는 "application/did+json"이라는 레이블이 붙어
-            있으며, 다음과 같은 JSON 데이터를 포함하고 있습니다:
+            있으며, 다음과 같은 JSON 데이터를 포함하고 있다:
           </p>
           <pre>
 {
@@ -3248,17 +3241,17 @@ consumption rules."
           >
           <p>
             세 번째 사각형에는 "application/did+cbor"라는 레이블이 붙어 있으며,
-            16진수 데이터를 포함하고 있습니다.
+            16진수 데이터를 포함하고 있다.
           </p>
           <p>
             다이어그램 왼쪽 중간에는 검은색 윤곽선과 연한 회색 배경의 상자가
-            있습니다. 이 상자에는 "VERIFIABLE DATA REGISTRY"라는 레이블이 붙어
-            있으며, 노드와 호로 구성된 그래프를 나타내는 기호를 포함하고
-            있습니다. 이 상자에서 "resolve()"이라는 레이블이 붙은 화살표 하나가
-            위쪽으로 뻗어 회색 윤곽선 사각형이 있는 다이어그램 상단을
-            가리킵니다. "resolveRepresentation()"이라는 레이블이 붙은 또 다른
-            화살표는 아래쪽으로 뻗어 세 개의 검은색 윤곽선 사각형이 있는
-            다이어그램 하단을 가리킵니다.
+            있다. 이 상자에는 "VERIFIABLE DATA REGISTRY"라는 레이블이 붙어
+            있으며, 노드와 호로 구성된 그래프를 나타내는 기호를 포함하고 있다.
+            이 상자에서 "resolve()"이라는 레이블이 붙은 화살표 하나가 위쪽으로
+            뻗어 회색 윤곽선 사각형이 있는 다이어그램 상단을 가리킵니다.
+            "resolveRepresentation()"이라는 레이블이 붙은 또 다른 화살표는
+            아래쪽으로 뻗어 세 개의 검은색 윤곽선 사각형이 있는 다이어그램
+            하단을 가리킵니다.
           </p>
         </div>
 
@@ -3412,7 +3405,7 @@ consumption rules."
                 <dt>notFound</dt>
                 <dd>
                   <a>DID 변환기</a>가 이 해석 요청의 결과인 <a>DID 문서</a>를
-                  찾을 수 없었다.
+                  찾을 수 없다.
                 </dd>
                 <dt>representationNotSupported</dt>
                 <dd>
@@ -3512,7 +3505,7 @@ consumption rules."
                 포함될 수 있다. 존재하는 경우, 값은 각 항목이
                 <a href="#did-syntax"></a>의 규칙을 준수하는
                 <a data-cite="INFRA#string">문자열</a>인
-                <a data-cite="INFRA#ordered-set">집합</a>이어야 한다. 이 관계는
+                <a data-cite="INFRA#ordered-set">set</a>이어야 한다. 이 관계는
                 각 <code><a>equivalentId</a></code> 값이 <code>id</code> 속성
                 값과 논리적으로 동등하며 따라서 동일한 <a>DID 주체</a>를
                 참조한다는 진술이다. 각 <code><a>equivalentId</a></code> DID
@@ -3557,7 +3550,7 @@ consumption rules."
               <p>
                 <code><a>canonicalId</a></code> 속성은
                 <code><a>equivalentId</a></code> 속성과 동일하지만 다음 두 가지
-                측면에서 다르다: a) 집합이 아닌 단일 값과 연관되며, b)
+                측면에서 다르다: a) set이 아닌 단일 값과 연관되며, b)
                 <a>DID</a>는 포함하는 <a>DID 문서</a>의 범위 내에서
                 <a>DID 주체</a>에 대한 표준 ID로 정의된다.
               </p>
@@ -3565,7 +3558,7 @@ consumption rules."
                 <a>DID 문서</a> 메타데이터에는 <code>canonicalId</code> 속성이
                 포함될 수 있다. 존재하는 경우, 값은 <a href="#did-syntax"></a>의
                 규칙을 준수하는 <a data-cite="INFRA#string">문자열</a>이어야
-                합니다. 이 관계는 <code><a>canonicalId</a></code> 값이
+                한다. 이 관계는 <code><a>canonicalId</a></code> 값이
                 <code>id</code> 속성 값과 논리적으로 동등하며
                 <code><a>canonicalId</a></code> 값이 포함하는 <a>DID 문서</a>의
                 범위 내에서 <a>DID 주체</a>에 대한 표준 ID로 <a>DID 메소드</a>에
@@ -3609,7 +3602,7 @@ consumption rules."
       </section>
 
       <section>
-        <h2>DID URL Dereferencing</h2>
+        <h2 id="did-url-dereferencing">DID URL 역참조</h2>
         <p>
           <a>DID URL 역참조</a> 함수는 <a>DID URL</a>을 <a>DID 메소드</a>,
           메소드별 식별자, 경로, 쿼리 및 프래그먼트를 포함한 <a>DID URL</a>의
@@ -3715,7 +3708,7 @@ dereference(didUrl, dereferenceOptions) →
           <dt>didUrl</dt>
           <dd>
             단일 <a data-cite="INFRA#string">문자열</a>로 된 규격에 맞는
-            <a>DID URL</a>입니다. 이것은 역참조할 <a>DID URL</a>이다.
+            <a>DID URL</a>이다. 이것은 역참조할 <a>DID URL</a>이다.
             <a>DID 프레그먼트</a>를 역참조하려면 <a>DID 프레그먼트</a>를 포함한
             완전한 <a>DID URL</a>을 사용해야 한다. 이 입력은 필수이다.
             <p class="note" title="DID URL 역참조자 패턴">
@@ -3745,7 +3738,7 @@ dereference(didUrl, dereferenceOptions) →
           <dt>dereferencingMetadata</dt>
           <dd>
             <a>DID URL 역참조</a> 프로세스의 결과와 관련된 값으로 구성된
-            <a href="#metadata-structure">메타데이터 구조</a>입니다. 이 구조는
+            <a href="#metadata-structure">메타데이터 구조</a>이다. 이 구조는
             필수이며, 역참조 프로세스에서 오류가 발생한 경우 이 구조는 비어
             있어서는 안 된다. 이 규격에서 정의한 속성은
             <a href="#did-url-dereferencing-metadata"></a>에 있다. 역참조가
@@ -3836,7 +3829,7 @@ dereference(didUrl, dereferenceOptions) →
                 <dt>notFound</dt>
                 <dd>
                   <a>DID URL 역참조자</a>가 이 역참조 요청의 결과인
-                  <code>contentStream</code>을 찾을 수 없었다.
+                  <code>contentStream</code>을 찾을 수 없다.
                 </dd>
               </dl>
             </dd>
@@ -3850,13 +3843,13 @@ dereference(didUrl, dereferenceOptions) →
           입력 및 출력 메타데이터는 종종 <a>DID 해석</a>,
           <a>DID URL 역참조</a> 및 기타 DID 관련 프로세스 중에 관련된다. 이
           메타데이터를 전달하는 데 사용되는 구조는 속성의
-          <a data-cite="INFRA#maps">맵</a>이어야 한다. 각 속성 이름은
+          <a data-cite="INFRA#maps">map</a>이어야 한다. 각 속성 이름은
           <a data-cite="INFRA#string">문자열</a>이어야 한다. 각 속성 값은
           <a data-cite="INFRA#string">문자열</a>,
-          <a data-cite="INFRA#maps">맵</a>, <a data-cite="INFRA#list">목록</a>,
-          <a data-cite="INFRA#ordered-set">집합</a>,
+          <a data-cite="INFRA#maps">map</a>, <a data-cite="INFRA#list">목록</a>,
+          <a data-cite="INFRA#ordered-set">set</a>,
           <a data-cite="INFRA#boolean">불리언</a> 또는
-          <a data-cite="INFRA#nulls">널</a>이어야 한다. 맵과 목록과 같은 복잡한
+          <a data-cite="INFRA#nulls">널</a>이어야 한다. map과 목록과 같은 복잡한
           데이터 구조 내의 값도 이러한 데이터 유형 중 하나여야 한다. DID 규격
           레지스트리 [[?DID-SPEC-REGISTRIES]]에 등록된 모든 메타데이터 속성
           정의는 해당 값에 대한 추가 형식이나 제한을 포함하여 값 유형을 정의해야
@@ -3891,10 +3884,7 @@ dereference(didUrl, dereferenceOptions) →
       </pre
         >
 
-        <p>
-          This example corresponds to a metadata structure of the following
-          format:
-        </p>
+        <p>이 예제는 다음 형식의 메타데이터 구조에 해당한다:</p>
 
         <pre class="example" title="DID resolution input metadata example">
 «[
@@ -3904,10 +3894,9 @@ dereference(didUrl, dereferenceOptions) →
         >
 
         <p>
-          The next example demonstrates a JSON-encoded metadata structure that
-          might be used as
-          <a href="#did-resolution-options">DID resolution metadata</a> if a
-          <a>DID</a> was not found.
+          다음 예제는 <a>DID</a>를 찾을 수 없는 경우
+          <a href="#did-resolution-options">DID 해석 메타데이터</a>로 사용될 수
+          있는 JSON 인코딩된 메타데이터 구조를 보여준다.
         </p>
 
         <pre
@@ -3920,10 +3909,7 @@ dereference(didUrl, dereferenceOptions) →
       </pre
         >
 
-        <p>
-          This example corresponds to a metadata structure of the following
-          format:
-        </p>
+        <p>이 예제는 다음 형식의 메타데이터 구조에 해당한다:</p>
 
         <pre class="example" title="DID resolution metadata example">
 «[
@@ -3933,10 +3919,9 @@ dereference(didUrl, dereferenceOptions) →
         >
 
         <p>
-          The next example demonstrates a JSON-encoded metadata structure that
-          might be used as
-          <a href="#did-document-metadata">DID document metadata</a> to describe
-          timestamps associated with the <a>DID document</a>.
+          다음 예제는 <a>DID 문서</a>와 관련된 타임스탬프를 설명하기 위해
+          <a href="#did-document-metadata">DID 문서 메타데이터</a>로 사용될 수
+          있는 JSON 인코딩된 메타데이터 구조를 보여준다.
         </p>
 
         <pre class="example" title="JSON-encoded DID document metadata example">
@@ -3947,10 +3932,7 @@ dereference(didUrl, dereferenceOptions) →
       </pre
         >
 
-        <p>
-          This example corresponds to a metadata structure of the following
-          format:
-        </p>
+        <p>이 예제는 다음 형식의 메타데이터 구조에 해당한다:</p>
 
         <pre class="example" title="DID document metadata example">
 «[
@@ -4216,7 +4198,7 @@ dereference(didUrl, dereferenceOptions) →
     </section>
 
     <section class="informative">
-      <h1>Security Considerations</h1>
+      <h1 id="security-considerations">보안 고려사항</h1>
 
       <p>
         이 섹션에는 탈중앙 식별자를 사용하는 사람들이 이 기술을 프로덕션 환경에
@@ -4315,30 +4297,26 @@ dereference(didUrl, dereferenceOptions) →
       </section>
 
       <section>
-        <h2>Non-Repudiation</h2>
+        <h2>부인 방지</h2>
 
         <p>
-          Non-repudiation of <a>DIDs</a> and <a>DID document</a> updates is
-          supported if:
+          <a>DID</a> 및 <a>DID 문서</a> 업데이트의 부인 방지는 다음과 같은 경우
+          지원된다:
         </p>
-
         <ul>
           <li>
-            The <a>verifiable data registry</a> supports
-            <a>verifiable timestamps</a>. See
-            <a href="#did-document-metadata"></a>
-            for further information on useful timestamps that can be used during
-            the
-            <a>DID resolution</a> process.
+            <a>검증 가능한 데이터 레지스트리</a>가
+            <a>검증 가능한 타임스탬프</a>를 지원한다. <a>DID 해석</a> 프로세스
+            중에 사용할 수 있는 유용한 타임스탬프에 대한 추가 정보는
+            <a href="#did-document-metadata"></a>를 참조하라.
           </li>
           <li>
-            The subject is monitoring for unauthorized updates as elaborated
-            upon in
-            <a href="#notification-of-did-document-changes"></a>.
+            주체가 <a href="#notification-of-did-document-changes"></a>에서
+            자세히 설명된 대로 무단 업데이트를 모니터링하고 있다.
           </li>
           <li>
-            The subject has had adequate opportunity to revert malicious updates
-            according to the authorization mechanism for the <a>DID method</a>.
+            주체가 <a>DID 메소드</a>의 인증 메커니즘에 따라 악의적인 업데이트를
+            되돌릴 수 있는 적절한 기회를 가졌다.
           </li>
         </ul>
       </section>
@@ -4422,17 +4400,17 @@ dereference(didUrl, dereferenceOptions) →
             변경으로만 나타난다.
           </li>
           <li>
-            <a>검증 방법</a>가 오랫동안 활성화되었거나 많은 작업에 사용된 경우,
+            <a>검증 방법</a>이 오랫동안 활성화되었거나 많은 작업에 사용된 경우,
             컨트롤러는 교체를 수행하기를 원할 수 있다.
           </li>
           <li>
             <a>검증 방법</a>의 빈번한 교체는 관련 자격 증명을 지속적으로
-            갱신하거나 새로 고쳐야 하는 당사자에게 짜증이 날 수 있다.
+            갱신하거나 새로 고쳐야 하는 당사자에게 불편을 줄 수 있다.
           </li>
           <li>
             <a>DID 문서</a>의 최신 버전에 없는 <a>검증 방법</a>에 의존하는
             증명이나 서명은 교체의 영향을 받지 않는다. 이러한 경우 검증
-            소프트웨어는 특정 <a>검증 방법</a>가 유효할 것으로 예상되는 시기와
+            소프트웨어는 특정 <a>검증 방법</a>이 유효할 것으로 예상되는 시기와
             증명 또는 서명의 유효성을 결정하기 위한 기록 기록을 포함하는
             <a>검증 가능한 데이터 레지스트리</a>에 대한 액세스와 같은 추가
             정보가 필요할 수 있다. 이 옵션은 모든 <a>DID 메소드</a>에서 사용할
@@ -5707,19 +5685,16 @@ dereference(didUrl, dereferenceOptions) →
       </section>
 
       <section>
-        <h2>Creation of a DID</h2>
+        <h2 id="creation-of-a-did">DID 생성</h2>
         <p>
-          The creation of a <a>DID</a> is a process that is defined by each
-          <a>DID Method</a>. Some <a>DID Methods</a>, such as
-          <code>did:key</code>, are purely generative, such that a
-          <a>DID</a> and a <a>DID document</a> are generated by transforming a
-          single piece of cryptographic material into a conformant
-          <a>representation</a>. Other <a>DID methods</a> might require the use
-          of a <a>verifiable data registry</a>, where the <a>DID</a> and
-          <a>DID document</a> are recognized to exist by third parties only when
-          the registration has been completed, as defined by the respective
-          <a>DID method</a>. Other processes might be defined by the respective
-          <a>DID method</a>.
+          <a>DID</a>의 생성은 각 <a>DID 메소드</a>에 의해 정의되는 프로세스이다.
+          <code>did:key</code>와 같은 일부 <a>DID 메소드</a>는 순수하게
+          생성적이어서 단일 암호화 자료를 규격에 맞는 <a>표현</a>으로 변환하여
+          <a>DID</a>와 <a>DID 문서</a>를 생성한다. 다른 <a>DID 메소드</a>는
+          <a>검증 가능한 데이터 레지스트리</a>의 사용을 요구할 수 있으며, 여기서
+          <a>DID</a>와 <a>DID 문서</a>는 해당 <a>DID 메소드</a>에 의해 정의된
+          대로 등록이 완료되었을 때만 제3자에 의해 존재하는 것으로 인식된다.
+          다른 프로세스는 해당 <a>DID 메소드</a>에 의해 정의될 수 있다.
         </p>
       </section>
 

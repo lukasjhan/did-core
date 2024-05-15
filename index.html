@@ -868,7 +868,7 @@ did-url = did path-abempty [ "?" query ] [ "#" fragment ]
         </p>
 
         <section class="notoc">
-          <h2>Path</h2>
+          <h2 id="path">Path</h2>
 
           <p>
             <a>DID 경로</a>는 일반 <a>URI</a> 경로와 동일하며
@@ -886,7 +886,7 @@ did:example:123456/path
         </section>
 
         <section class="notoc">
-          <h2>Query</h2>
+          <h2 id="query">Query</h2>
 
           <p>
             <a>DID 쿼리</a>는 일반 <a>URI</a> 쿼리와 동일하며
@@ -902,7 +902,7 @@ did:example:123456?versionId=1
         </section>
 
         <section class="notoc">
-          <h2>Fragment</h2>
+          <h2 id="fragment">Fragment</h2>
 
           <p>
             <a>DID 프레그먼트</a>의 문법과 의미론은 일반 <a>URI</a> 프레그먼트와
@@ -1347,7 +1347,7 @@ specification; others are defined by registered or unregistered extensions."
       </p>
 
       <section>
-        <h2>확장성(Extensibility)</h2>
+        <h2 id="extensibility">확장성(Extensibility)</h2>
         <p>데이터 모델은 두 가지 유형의 확장성을 지원한다.</p>
         <ol>
           <li>
@@ -1717,7 +1717,7 @@ specification; others are defined by registered or unregistered extensions."
         </section>
 
         <section>
-          <h3>Also Known As</h3>
+          <h3 id="also-known-as">Also Known As</h3>
 
           <p>
             <a>DID 주체</a>는 다양한 목적을 위해서나 서로 다른 시간에 대해 여러
@@ -1884,10 +1884,10 @@ specification; others are defined by registered or unregistered extensions."
             <dt><dfn>publicKeyJwk</dfn></dt>
             <dd>
               <p>
-                <code>publicKeyJwk</code> 속성은 선택 사항이다. 존재하는 경우,
-                그 값은 [[RFC7517]]을 준수하는 JSON Web Key를 나타내는
-                <a data-cite="INFRA#ordered-map">map</a>이어야 한다. 이
-                <a data-cite="INFRA#ordered-map">map</a>은 "d"나
+                <code id="dfn-publickeyjwk">publicKeyJwk</code> 속성은 선택
+                사항이다. 존재하는 경우, 그 값은 [[RFC7517]]을 준수하는 JSON Web
+                Key를 나타내는 <a data-cite="INFRA#ordered-map">map</a>이어야
+                한다. 이 <a data-cite="INFRA#ordered-map">map</a>은 "d"나
                 <a href="https://tools.ietf.org/html/rfc7517#section-8.1.1"
                   >등록 템플릿</a
                 >에 설명된 비공개 정보 클래스의 다른 멤버를 포함해서는 안 된다.
@@ -2047,7 +2047,7 @@ specification; others are defined by registered or unregistered extensions."
         </p>
 
         <section>
-          <h2>authentication</h2>
+          <h2 id="authentication">authentication</h2>
 
           <p>
             <code>authentication</code> <a>검증 관계</a>는 웹사이트 로그인이나
@@ -2129,7 +2129,7 @@ specification; others are defined by registered or unregistered extensions."
         </section>
 
         <section>
-          <h2>Assertion</h2>
+          <h2 id="assertion">Assertion</h2>
 
           <p>
             <code>assertionMethod</code> <a>검증 관계</a>는 검증 가능한 크리덴셜
@@ -2235,7 +2235,7 @@ specification; others are defined by registered or unregistered extensions."
         </section>
 
         <section>
-          <h2>Capability Invocation</h2>
+          <h2 id="capability-invocation">Capability Invocation</h2>
 
           <p>
             <code>capabilityInvocation</code> <a>검증 관계</a>는
@@ -2361,7 +2361,7 @@ specification; others are defined by registered or unregistered extensions."
       </section>
 
       <section>
-        <h2>Services</h2>
+        <h2 id="services">Services</h2>
 
         <p>
           <a>서비스</a>는 <a>DID 문서</a>에서 <a>DID 주체</a> 또는 관련 엔티티와
@@ -2699,7 +2699,7 @@ and consumed, including in JSON and JSON-LD."
       </section>
 
       <section>
-        <h2>JSON</h2>
+        <h2 id="json">JSON</h2>
 
         <p>
           이 섹션에서는 JSON <a>표현</a>에 대한 <a>생산</a> 및
@@ -4774,7 +4774,7 @@ dereference(didUrl, dereferenceOptions) →
         </p>
       </section>
       <section>
-        <h2>Persistence</h2>
+        <h2 id="persistence">Persistence</h2>
         <p>
           <a>DID</a>는 <a>컨트롤러</a>가 자신의 식별자를 유지하기 위해 단일
           신뢰할 수 있는 제3자 또는 관리자에 의존할 필요가 없도록 지속적으로
